@@ -8,26 +8,35 @@ import pandas as pd
 
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
+
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
 sys.path.append(utils_path)
+
 import utilities
 import mongo_connector
 
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
-logger.info('xefr_tools.p started')
 
-xefr = xefr_endpoints.EndPoints('DEV',"csv",logger)
-mongo = mongo_connector.Connector('xefr-signify-dev','local',logger)
+database = 'xefr-signify-dev'
+instance = "LOCAL"
 
-def persist_data(curl_command,schema_name):
+xefr = xefr_endpoints.EndPoints(instance,database,logger)
+mongo = mongo_connector.Mongo(instance,database,logger)
+
+def persist_data(curl_command,schema_name,show_detail=False):
     """
     Run the curl command and save the output to a file
+    if show_detail is set to True will display the 
+    download details.
     """
     logger.debug('persist_data: %s', locals())
 
-    curl_output = subprocess.check_output(curl_command, shell=True)
+    if show_detail:
+        curl_output = subprocess.check_output(curl_command, shell=True)
+    else:
+        curl_output = subprocess.check_output(curl_command,shell=True,stderr=subprocess.PIPE)
 
     output_file = os.path.join(DATA_FOLDER.XEFR,schema_name)
     utilities.check_csv_folder_exists(output_file,True,logger)
@@ -41,13 +50,13 @@ def persist_data(curl_command,schema_name):
             utilities.data_frame_sort_and_save(df,output_file,DATA_FOLDER.sort_orders[schema_name],logger)
 
         record_count = len(df)
-       # df.to_csv(output_file,index=False,encoding='utf-8') # ensure in same format for reconciliations
+
     except pd.errors.EmptyDataError:
         record_count = 0
 
-    print(f"Data saved to {output_file} ({record_count} rows)\n")
+    print(f"\n{schema_name}: {record_count} rows downloaded to {output_file}\n")
 
-def backup_portal(portal_name):
+def portal_backup(portal_name):
     """
     Creates a backup of a portal, and all its attributes into
     its own file
@@ -125,7 +134,7 @@ def get_download_directory():
 
     return download_directory
 
-def update_portlets(portal_name,formatting_details,skip_items):
+def portlets_update(portal_name,formatting_details,skip_items):
     """
     Apply a standard set of formats against all portlets in a portal
     Will skip any tabbed items in the skip_items list
@@ -169,7 +178,7 @@ def update_portlets(portal_name,formatting_details,skip_items):
         except:
             print("Bad do do happened")
 
-def copy_schema(input_file, details):
+def schema_copy(input_file, details):
     """
     Duplicate the contents of the from_schema to the to_schema
     N.B.
@@ -211,7 +220,7 @@ def copy_schema(input_file, details):
     
     return update_schema
 
-def copy_portal_section(input_file, details):
+def portal_copy_section(input_file, details):
     """
     Copies a portal section from one portal to another
     """
@@ -263,16 +272,16 @@ def update_defs(schema_or_portal,details):
     data_list = []
 
     if schema_or_portal == "schemas":
-        data_list = [copy_schema(source_file, details)]
+        data_list = [schema_copy(source_file, details)]
 
     if schema_or_portal == "portals":
-        data_list = [copy_portal_section(source_file, details)]
+        data_list = [portal_copy_section(source_file, details)]
 
     return data_list, destination_file
 
 def download_schemas_data(schema_list):
     """
-    Downloads the data from specified schema
+    Downloads the data from specified schemas
     """
 
     for schema in schema_list:
@@ -281,16 +290,50 @@ def download_schemas_data(schema_list):
         schema_id = mongo.get_schema_id(schema)
         if schema_id != 0:
             curl_cmd = xefr.get_endpoint_curl(schema_id,'data',True)
-            persist_data(curl_cmd,output_file)
+            persist_data(curl_cmd,schema)
         else:
             print(f"Schema {schema} not found")
 
+def print_schema_details(schema_name):
+    """
+    Prints the details of a schema if they exist !
+    """
+
+    details = mongo.get_schema_details(schema_name)
+
+    if details != 0:
+        print()
+        print("{:<30} {:<10}".format(details['name'], details['id']),"\n")
+
+        for attribute in details['attributes']:
+            print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
+
+    else:
+        print(f"Schema {schema_name} not found")
+
 if __name__ == '__main__':
 
+    run_config = f"Running from {instance} Mongo instance on {database} database"
+    logger.info(run_config)
+    print(run_config)
 
-    all_schemas =[i['name'] for i in mongo.all_schemas()]
+    # Working code tested
+    #download_schemas_data(['TSP UK Placements Forecast'])
+    #forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
+    forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
 
-    download_schemas_data(all_schemas)
+
+    for schema in forecast_schemas:
+        download_schemas_data([schema])
+        print_schema_details(schema)
+
+    # tsp_uk_placements_forecast_details = mongo.get_schema_details('TSP UK Placements Forecast')
+    # metrics_working_days = mongo.get_schema_details('Metrics Working Days')
+
+    # print_schema_details(tsp_uk_placements_forecast_details)
+    # print_schema_details(metrics_working_days)
+
+    mongo.disconnect()
 
     # COPY_TYPES = ["replace","append"]
 
@@ -316,7 +359,8 @@ if __name__ == '__main__':
     # }
 
     # # Tested and works
-    # # update_portlets("FOREX",formatting_details, ['FOREX Issues','Missing Day Rates'])
+    # # portlets_update
+    #("FOREX",formatting_details, ['FOREX Issues','Missing Day Rates'])
     # # backup_portal("FOREX")
     # #report_dependencies("New Deals")
 

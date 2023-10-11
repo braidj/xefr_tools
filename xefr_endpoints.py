@@ -7,36 +7,33 @@ import sys
 class EndPoints(object):
     """Query the XEFR endpoints"""
 
-    def __init__(self,template,format,logger):
+    def __init__(self,instance,database,logger):
         """Initialise the connector"""
-        logger.debug("Initialising EndPoints")
+
         self.cfg = configparser.ConfigParser()
         self.cfg.read("xefr_tools.ini")
-
         self.logger = logger
-        self.server =self.cfg[template]['server']
-        self.api_key = self.cfg[template]['api_key']
+        self.instance = instance
+        self.database = database
+        self.server =self.cfg[instance]['server']
+        self.api_key= self.cfg[instance][database]
         self.endpoints = {}
 
         for option in self.cfg['ENDPOINTS']:
             self.endpoints[option] = self.cfg.get('ENDPOINTS', option)
 
-        if format not in ['csv','json']:
-            print(f"Format {format} not supported")
-            sys.exit(1)
-        else:
-            self.format = format
+        self.format = "csv"
 
-        if 'xefr-signify' in self.server:
-            self.server = self.cfg[template]['server']
-            self.api_key = self.cfg[template]['api_key']
-        else:
-            if os.name == 'posix':
-                self.api_key = self.cfg[template]['posix_api_key']
-            else:
-                self.api_key = self.cfg[template]['api_key']
+        # if 'xefr-signify' in self.server:
+        #     self.server = self.cfg[instance]['server']
+        #     self.api_key = self.cfg[instance]['api_key']
+        # else:
+        #     if os.name == 'posix':
+        #         self.api_key = self.cfg[instance]['posix_api_key']
+        #     else:
+        #         self.api_key = self.cfg[instance]['api_key']
 
-        self.logger.debug("EndPoints initiated with: %s", self.server)
+        self.logger.info(f"Endpoints: initiated for {self.instance} instance on {self.database} database via {self.server}")
 
     def get_endpoint_curl(self,schema_id,endpoint_name,use_temp=True):
         """
