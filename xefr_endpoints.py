@@ -24,15 +24,6 @@ class EndPoints(object):
 
         self.format = "csv"
 
-        # if 'xefr-signify' in self.server:
-        #     self.server = self.cfg[instance]['server']
-        #     self.api_key = self.cfg[instance]['api_key']
-        # else:
-        #     if os.name == 'posix':
-        #         self.api_key = self.cfg[instance]['posix_api_key']
-        #     else:
-        #         self.api_key = self.cfg[instance]['api_key']
-
         self.logger.info(f"Endpoints: initiated for {self.instance} instance on {self.database} database via {self.server}")
 
     def get_endpoint_curl(self,schema_id,endpoint_name,use_temp=True):
@@ -57,6 +48,7 @@ class EndPoints(object):
         Returns the curl command to return data from the XEFR data API in the required format
         N.B. it does NOT run it, just returns the command
         Handles 2 versions, one with the header and one without for the token
+        Header version was used when connecting to Power BI and is now redundant
         """
         results = []
 
