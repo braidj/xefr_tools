@@ -294,12 +294,16 @@ def download_schemas_data(schema_list):
         else:
             print(f"Schema {schema} not found")
 
-def print_schema_details(schema_name):
+def print_schema_details(schema_tag,use_name=True):
     """
     Prints the details of a schema if they exist !
     """
-
-    details = mongo.get_schema_details(schema_name)
+    if use_name:
+        details = mongo.get_schema_details(schema_tag)
+    elif use_name == False:
+        details = mongo.get_schema_details_by_id(schema_tag)
+    else:
+        raise ValueError("use_name must be True or False")
 
     if details != 0:
         print()
@@ -309,7 +313,7 @@ def print_schema_details(schema_name):
             print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
 
     else:
-        print(f"Schema {schema_name} not found")
+        print(f"\nSchema {schema_tag} not found.\n")
 
 if __name__ == '__main__':
 
@@ -320,12 +324,18 @@ if __name__ == '__main__':
     # Working code tested
     #download_schemas_data(['TSP UK Placements Forecast'])
     #forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
+
     forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
+    schema_ids = ['74633e84-deba-4720-8181-c07629a1c665','6d422fc3-3d24-4650-b069-def85c1f888c']
 
 
     for schema in forecast_schemas:
-        download_schemas_data([schema])
+        #download_schemas_data([schema])
         print_schema_details(schema)
+
+    for schema in schema_ids:
+        #download_schemas_data([schema])
+        print_schema_details(schema,False)
 
     # tsp_uk_placements_forecast_details = mongo.get_schema_details('TSP UK Placements Forecast')
     # metrics_working_days = mongo.get_schema_details('Metrics Working Days')
