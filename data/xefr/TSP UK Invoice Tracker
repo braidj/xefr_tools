@@ -1,0 +1,1387 @@
+InvoiceDate,Placement,Candidate,CompanyName,Currency,LinePrice,ChargeCode,Country,Source
+2023-01-20,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,18900.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,24300.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,27000.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,18900.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,25650.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,25650.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,27000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1482,Aldo Stracquadanio,Sirius XM Radio Inc,$,27000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,1058,Alessandro Vaccaro,Coralogix Ltd,€,2640.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1058,Alessandro Vaccaro,Coralogix Ltd,€,2805.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-08,1058,Alessandro Vaccaro,Coralogix Ltd,€,2475.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1058,Alessandro Vaccaro,Coralogix Ltd,€,2145.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1201,Alexander Ryblov,ESL Gaming GmbH,€,60000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1201,Alexander Ryblov,ESL Gaming GmbH,€,-60000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-05,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-03,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,1201,Alexander Ryblov,ESL Gaming GmbH,€,-6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-12,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-16,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,1201,Alexander Ryblov,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-05,1665,Alexis Chantreau Majerus,Coremont,£,14250.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1665,Alexis Chantreau Majerus,Coremont,£,19000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1665,Alexis Chantreau Majerus,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1665,Alexis Chantreau Majerus,Coremont,£,20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1665,Alexis Chantreau Majerus,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1665,Alexis Chantreau Majerus,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1665,Alexis Chantreau Majerus,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1665,Alexis Chantreau Majerus,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,19800.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,51.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,302.98,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,207.77,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,35.35,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,22000.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,55.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,64.2,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,35.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1487,Ammar Hamid,Marktplaats B.V.,€,43.85,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,190.39,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,47.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,233.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,23100.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,40.1,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,695.1,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,68.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,44.15,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-09,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1487,Ammar Hamid,Marktplaats B.V.,€,22000.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1487,Ammar Hamid,Marktplaats B.V.,€,25300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1487,Ammar Hamid,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1487,Ammar Hamid,Marktplaats B.V.,€,300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1487,Ammar Hamid,Marktplaats B.V.,€,18700.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1487,Ammar Hamid,Marktplaats B.V.,€,300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1487,Ammar Hamid,Marktplaats B.V.,€,23100.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1487,Ammar Hamid,Marktplaats B.V.,€,16500.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1487,Ammar Hamid,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1487,Ammar Hamid,Marktplaats B.V.,€,13200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1487,Ammar Hamid,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1487,Ammar Hamid,Marktplaats B.V.,€,25300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1487,Ammar Hamid,Marktplaats B.V.,€,400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1487,Ammar Hamid,Marktplaats B.V.,€,500.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,3.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,334.47,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,52.4,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,4.1,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,38.3,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,56.3,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,11.85,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,80.4,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,23.1,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,56.45,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,105.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,63.9,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,23100.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,942.26,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1487,Ammar Hamid,Marktplaats B.V.,€,38.55,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-22,1699,Andrea Magnorsky,Sirius XM Radio Inc,$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,1111,Anton Kavalkou,Coralogix Ltd (USD),$,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,952,Artur Zhurat,Conduktor Inc.,€,15120.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,952,Artur Zhurat,Conduktor Inc.,€,15840.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1157,Assen Kolov,Coralogix Ltd,€,4080.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1157,Assen Kolov,Coralogix Ltd,€,5040.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1157,Assen Kolov,Coralogix Ltd,€,4080.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1157,Assen Kolov,Coralogix Ltd,€,5040.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1157,Assen Kolov,Coralogix Ltd,€,-4080.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-08,1157,Assen Kolov,Coralogix Ltd,€,4320.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-05,1157,Assen Kolov,Coralogix Ltd,€,5520.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-05-10,1157,Assen Kolov,Coralogix Ltd,€,3600.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-21,1157,Assen Kolov,Coralogix Ltd,€,3840.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,22000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,8800.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,19360.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,15840.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,1760.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,20240.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-03,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,8800.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,20240.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,8800.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,14960.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-12,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,4400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,-14960.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,14960.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,6160.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,5280.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,20240.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1490,Balaji Ravivarman,"American Wagering, Inc (USD)",$,18480.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,841,Benko Balog,Commercetools GmbH,€,7350.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,841,Benko Balog,Commercetools GmbH,€,11025.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-15,841,Benko Balog,Commercetools GmbH,€,9450.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-12,841,Benko Balog,Commercetools GmbH,€,11550.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-10,841,Benko Balog,Commercetools GmbH,€,9450.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,841,Benko Balog,Commercetools GmbH,€,11025.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-05,841,Benko Balog,Commercetools GmbH,€,11550.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-02,841,Benko Balog,Commercetools GmbH,€,10500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,841,Benko Balog,Commercetools GmbH,€,12075.0,Temp, Germany,TSP UK Invoice Tracker
+2023-10-04,1817,Benko Balog,Commercetools GmbH,€,6300.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,100.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,2,Bogdan Stoichitoiu,Adevinta Spain,€,250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-03-08,2,Bogdan Stoichitoiu,Adevinta Spain,€,200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-04-05,2,Bogdan Stoichitoiu,Adevinta Spain,€,250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-03,2,Bogdan Stoichitoiu,Adevinta Spain,€,200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Adevinta Spain,€,-250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Adevinta Spain,€,-200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Adevinta Spain,€,-250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,2,Bogdan Stoichitoiu,Adevinta Spain,€,-200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-06-21,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,500.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,500.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,2,Bogdan Stoichitoiu,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,17600.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,18480.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,587,Bogdan Stoichitoiu,Adevinta Spain,€,17600.0,Temp, Spain,TSP UK Invoice Tracker
+2023-04-05,587,Bogdan Stoichitoiu,Adevinta Spain,€,20240.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-03,587,Bogdan Stoichitoiu,Adevinta Spain,€,13200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,20240.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Adevinta Spain,€,-17600.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Adevinta Spain,€,-20240.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,13200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Adevinta Spain,€,-13200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,17600.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,18480.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,19360.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,18480.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,12320.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,587,Bogdan Stoichitoiu,Marktplaats B.V.,€,9680.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1797,Bogdan Stoichitoiu,Marktplaats B.V.,€,8800.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1385,Bruno Batarelo,MFM Investment Ltd,€,10493.75,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1385,Bruno Batarelo,MFM Investment Ltd,€,12075.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-01,1385,Bruno Batarelo,MFM Investment Ltd,€,1725.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1385,Bruno Batarelo,MFM Investment Ltd,€,4025.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-10,1385,Bruno Batarelo,MFM Investment Ltd,€,5175.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,1385,Bruno Batarelo,MFM Investment Ltd,€,12075.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1385,Bruno Batarelo,MFM Investment Ltd,€,9056.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-05,1385,Bruno Batarelo,MFM Investment Ltd,€,12362.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-29,1385,Bruno Batarelo,MFM Investment Ltd,€,-12362.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-29,1385,Bruno Batarelo,MFM Investment Ltd,€,8050.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-29,1385,Bruno Batarelo,MFM Investment Ltd,€,4312.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-04,1688,Bruno Batarelo,MFM Investment Ltd,€,10925.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1688,Bruno Batarelo,MFM Investment Ltd,€,11787.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-04,1688,Bruno Batarelo,MFM Investment Ltd,€,12075.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-02,1688,Bruno Batarelo,MFM Investment Ltd,€,11212.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,585,Cosmin Marian,Marktplaats B.V.,€,16720.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-11,585,Cosmin Marian,Marktplaats B.V.,€,12160.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,585,Cosmin Marian,Marktplaats B.V.,€,12920.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1188,Dan Marian Dumitru,La Fourchette SAS,€,11400.0,Temp, France,TSP UK Invoice Tracker
+2023-02-01,1188,Dan Marian Dumitru,La Fourchette SAS,€,13200.0,Temp, France,TSP UK Invoice Tracker
+2023-03-08,1188,Dan Marian Dumitru,La Fourchette SAS,€,12000.0,Temp, France,TSP UK Invoice Tracker
+2023-04-05,1188,Dan Marian Dumitru,La Fourchette SAS,€,10800.0,Temp, France,TSP UK Invoice Tracker
+2023-06-07,1188,Dan Marian Dumitru,La Fourchette SAS,€,9000.0,Temp, France,TSP UK Invoice Tracker
+2023-06-07,1611,Dan Marian Dumitru,La Fourchette SAS,€,14076.0,Temp, France,TSP UK Invoice Tracker
+2023-07-05,1611,Dan Marian Dumitru,La Fourchette SAS,€,11475.0,Temp, France,TSP UK Invoice Tracker
+2023-08-02,1611,Dan Marian Dumitru,La Fourchette SAS,€,11628.0,Temp, France,TSP UK Invoice Tracker
+2023-09-06,1611,Dan Marian Dumitru,La Fourchette SAS,€,14076.0,Temp, France,TSP UK Invoice Tracker
+2023-10-04,1611,Dan Marian Dumitru,La Fourchette SAS,€,9180.0,Temp, France,TSP UK Invoice Tracker
+2023-01-04,984,Daniel Fernandes,AnyJunk,£,2175.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,984,Daniel Fernandes,AnyJunk,£,5800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,984,Daniel Fernandes,AnyJunk,£,3625.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,984,Daniel Fernandes,AnyJunk,£,13412.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,984,Daniel Fernandes,AnyJunk,£,15950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-10,984,Daniel Fernandes,AnyJunk,£,12325.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,984,Daniel Fernandes,AnyJunk,£,11962.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,984,Daniel Fernandes,AnyJunk,£,15587.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,984,Daniel Fernandes,AnyJunk,£,13775.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,984,Daniel Fernandes,AnyJunk,£,6525.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,984,Daniel Fernandes,AnyJunk,£,13775.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-07,1505,Daniel Yanev,"QOMPLX, Inc.",£,10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,1505,Daniel Yanev,"QOMPLX, Inc.",€,7275.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,1505,Daniel Yanev,"QOMPLX, Inc.",€,10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,1505,Daniel Yanev,"QOMPLX, Inc.",£,-10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-06,1505,Daniel Yanev,"QOMPLX, Inc.",€,10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,1505,Daniel Yanev,"QOMPLX, Inc.",£,9073.68,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,1505,Daniel Yanev,"QOMPLX, Inc.",€,-10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,1505,Daniel Yanev,"QOMPLX, Inc.",€,-10185.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,1505,Daniel Yanev,"QOMPLX, Inc.",£,9073.68,Temp, United States,TSP UK Invoice Tracker
+2023-04-11,1505,Daniel Yanev,"QOMPLX, Inc.",£,9505.76,Temp, United States,TSP UK Invoice Tracker
+2023-05-10,1505,Daniel Yanev,"QOMPLX, Inc.",£,8641.6,Temp, United States,TSP UK Invoice Tracker
+2023-06-06,1505,Daniel Yanev,"QOMPLX, Inc.",£,9505.76,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1505,Daniel Yanev,"QOMPLX, Inc.",£,9505.76,Temp, United States,TSP UK Invoice Tracker
+2023-07-25,1505,Daniel Yanev,"QOMPLX, Inc.",£,6049.12,Temp, United States,TSP UK Invoice Tracker
+2023-07-31,1505,Daniel Yanev,"QOMPLX, Inc.",£,2160.4,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,2535.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-11,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,3900.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-22,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,2730.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-07,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,3510.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-07-12,1202,Danielle Gourgey,Coralogix Ltd (GBP),£,2145.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1454,Denis Rosca,Sirius XM Radio Inc,$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1454,Denis Rosca,Sirius XM Radio Inc,$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1454,Denis Rosca,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1454,Denis Rosca,Sirius XM Radio Inc,$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1454,Denis Rosca,Sirius XM Radio Inc,$,22800.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1454,Denis Rosca,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1454,Denis Rosca,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1454,Denis Rosca,Sirius XM Radio Inc,$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1454,Denis Rosca,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1701,Denys Kovalenko,Sirius XM Radio Inc,$,14960.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1701,Denys Kovalenko,Sirius XM Radio Inc,$,31280.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1467,Derek Williams,"American Wagering, Inc (USD)",$,3600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1467,Derek Williams,"American Wagering, Inc (USD)",$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1467,Derek Williams,"American Wagering, Inc (USD)",$,25500.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1467,Derek Williams,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1467,Derek Williams,"American Wagering, Inc (USD)",$,2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1467,Derek Williams,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-03,1467,Derek Williams,"American Wagering, Inc (USD)",$,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1467,Derek Williams,"American Wagering, Inc (USD)",$,20700.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-12,1467,Derek Williams,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1467,Derek Williams,"American Wagering, Inc (USD)",$,-20700.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1467,Derek Williams,"American Wagering, Inc (USD)",$,20700.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1467,Derek Williams,"American Wagering, Inc (USD)",$,24600.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1467,Derek Williams,"American Wagering, Inc (USD)",$,4800.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1467,Derek Williams,"American Wagering, Inc (USD)",$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,664,Dimitar Georgiev,AnyJunk,£,10400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,664,Dimitar Georgiev,AnyJunk,£,10400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,664,Dimitar Georgiev,AnyJunk,£,12025.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,664,Dimitar Georgiev,AnyJunk,£,11862.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1642,Dimitar Georgiev,AnyJunk,£,11700.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1642,Dimitar Georgiev,AnyJunk,£,14300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,981,Dmitrii Kostianoi,Marktplaats B.V.,€,9450.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-07,1644,Dmitry Ivanov,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1644,Dmitry Ivanov,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1644,Dmitry Ivanov,Sirius XM Radio Inc,$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1644,Dmitry Ivanov,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,1399,Dmytro Rakovskyi,Reality Games Polska SA,€,2706.0,Temp, Poland,TSP UK Invoice Tracker
+2023-03-01,1399,Dmytro Rakovskyi,Reality Games Polska SA,€,1056.0,Temp, Poland,TSP UK Invoice Tracker
+2023-01-11,995,Dragos Stratulat,Coralogix Ltd,€,2850.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-15,995,Dragos Stratulat,Coralogix Ltd,€,3150.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,995,Dragos Stratulat,Coralogix Ltd,€,3000.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,995,Dragos Stratulat,Coralogix Ltd,€,2850.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-07-13,1637,Elias Court,Sirius XM Radio Inc,$,25900.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1637,Elias Court,Sirius XM Radio Inc,$,9800.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1637,Elias Court,Sirius XM Radio Inc,$,28000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1637,Elias Court,Sirius XM Radio Inc,$,26600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1018,Eric Nastase,Conduktor Inc.,€,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1018,Eric Nastase,Conduktor Inc.,€,3000.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1018,Eric Nastase,Conduktor Inc.,€,11250.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,1453,Fabio Epifani,Sirius XM Radio Inc,$,20400.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-19,1453,Fabio Epifani,Sirius XM Radio Inc,$,-20400.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1453,Fabio Epifani,Sirius XM Radio Inc,$,20400.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1453,Fabio Epifani,Sirius XM Radio Inc,$,18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1453,Fabio Epifani,Sirius XM Radio Inc,$,22800.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1453,Fabio Epifani,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1453,Fabio Epifani,Sirius XM Radio Inc,$,23400.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1453,Fabio Epifani,Sirius XM Radio Inc,$,22200.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1453,Fabio Epifani,Sirius XM Radio Inc,$,21000.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1453,Fabio Epifani,Sirius XM Radio Inc,$,20400.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1453,Fabio Epifani,Sirius XM Radio Inc,$,14400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1685,Filippo De Luca,Sirius XM Radio Inc,$,25625.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1685,Filippo De Luca,Sirius XM Radio Inc,$,22500.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-13,942,Gabriel Ciuloaica,Sporta Technologies Private Limited (Dream11),€,-6050.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,942,Gabriel Ciuloaica,Sporta Technologies Private Limited (Dream11),€,6050.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,942,Gabriel Ciuloaica,Sporta Technologies Private Limited (Dream11),€,-6050.0,Temp, India,TSP UK Invoice Tracker
+2023-01-04,1501,Gabriel Volpe,Sirius XM Radio Inc,$,35200.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1501,Gabriel Volpe,Sirius XM Radio Inc,$,35200.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1501,Gabriel Volpe,Sirius XM Radio Inc,$,27200.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1501,Gabriel Volpe,Sirius XM Radio Inc,$,28800.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1501,Gabriel Volpe,Sirius XM Radio Inc,$,32000.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1501,Gabriel Volpe,Sirius XM Radio Inc,$,25600.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1501,Gabriel Volpe,Sirius XM Radio Inc,$,32000.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1501,Gabriel Volpe,Sirius XM Radio Inc,$,32800.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1501,Gabriel Volpe,Sirius XM Radio Inc,$,36800.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1508,Gary Aghedo,Sirius XM Radio Inc,$,19500.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1508,Gary Aghedo,Sirius XM Radio Inc,$,1300.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1508,Gary Aghedo,Sirius XM Radio Inc,$,28600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1508,Gary Aghedo,Sirius XM Radio Inc,$,-28600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1508,Gary Aghedo,Sirius XM Radio Inc,$,28600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1508,Gary Aghedo,Sirius XM Radio Inc,$,27300.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1508,Gary Aghedo,Sirius XM Radio Inc,$,26000.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1508,Gary Aghedo,Sirius XM Radio Inc,$,20800.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1508,Gary Aghedo,Sirius XM Radio Inc,$,22100.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1508,Gary Aghedo,Sirius XM Radio Inc,$,29900.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1508,Gary Aghedo,Sirius XM Radio Inc,$,27300.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1508,Gary Aghedo,Sirius XM Radio Inc,$,27300.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1508,Gary Aghedo,Sirius XM Radio Inc,$,28600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1456,George Westwater,Sirius XM Radio Inc,$,27300.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1456,George Westwater,Sirius XM Radio Inc,$,22100.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1456,George Westwater,Sirius XM Radio Inc,$,19500.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1456,George Westwater,Sirius XM Radio Inc,$,27300.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1456,George Westwater,Sirius XM Radio Inc,$,20150.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1456,George Westwater,Sirius XM Radio Inc,$,26650.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1456,George Westwater,Sirius XM Radio Inc,$,24700.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1456,George Westwater,Sirius XM Radio Inc,$,16900.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1456,George Westwater,Sirius XM Radio Inc,$,26000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,489,Georgi Chochov,AFRY Digital Solutions AB,kr,106880.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-01,489,Georgi Chochov,AFRY Digital Solutions AB,kr,140280.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-03-01,489,Georgi Chochov,AFRY Digital Solutions AB,kr,133600.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-04-05,489,Georgi Chochov,AFRY Digital Solutions AB,kr,162825.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-03,489,Georgi Chochov,AFRY Digital Solutions AB,kr,123580.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-01-04,1027,Gerbrand Van Dieijien,Marktplaats B.V.,€,9396.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1493,Gerd Reiss,Leonteq Securities (Europe),Fr,1710.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,1493,Gerd Reiss,Leonteq Securities (Europe),Fr,-1140.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,1493,Gerd Reiss,Leonteq Securities (Europe),Fr,-1710.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-07,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,1140.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-02-07,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,1710.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-02-08,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,2707.5,Temp, Switzerland,TSP UK Invoice Tracker
+2023-03-01,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,2850.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-04-12,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,3277.5,Temp, Switzerland,TSP UK Invoice Tracker
+2023-05-03,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,2422.5,Temp, Switzerland,TSP UK Invoice Tracker
+2023-06-07,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,1995.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-07-05,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,3063.75,Temp, Switzerland,TSP UK Invoice Tracker
+2023-08-02,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,2850.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-09-06,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,3135.0,Temp, Switzerland,TSP UK Invoice Tracker
+2023-10-04,1493,Gerd Reiss,Leonteq Securities (Europe) - Helvetic,Fr,2921.25,Temp, Switzerland,TSP UK Invoice Tracker
+2023-09-22,1734,Gil Rosin,Sirius XM Radio Inc,$,26600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,17600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,32000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,27200.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,27200.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,35200.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,22400.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,6400.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,32000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,3200.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,33600.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,30400.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1469,Greg Lim-Stromire,Sirius XM Radio Inc,$,35200.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1113,Gregory Atkinson,AnyJunk,£,14000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-01,1113,Gregory Atkinson,AnyJunk,£,13300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1113,Gregory Atkinson,AnyJunk,£,7000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1113,Gregory Atkinson,AnyJunk,£,7000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,1113,Gregory Atkinson,AnyJunk,£,16100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-10,1113,Gregory Atkinson,AnyJunk,£,9800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1113,Gregory Atkinson,AnyJunk,£,14700.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1113,Gregory Atkinson,AnyJunk,£,16100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1113,Gregory Atkinson,AnyJunk,£,12600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1113,Gregory Atkinson,AnyJunk,£,8400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1113,Gregory Atkinson,AnyJunk,£,11900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1068,Gregory Evlash,Coralogix Ltd,€,8970.0,Temp, Israel,TSP UK Invoice Tracker
+2023-02-08,1068,Gregory Evlash,Coralogix Ltd,€,8970.0,Temp, Israel,TSP UK Invoice Tracker
+2023-02-08,1068,Gregory Evlash,Coralogix Ltd,€,-8970.0,Temp, Israel,TSP UK Invoice Tracker
+2023-01-13,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,-14280.0,Temp, India,TSP UK Invoice Tracker
+2023-01-13,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,-14280.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,-9520.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,14280.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,-14280.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,14280.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,9520.0,Temp, India,TSP UK Invoice Tracker
+2023-02-16,1280,Gregory Iwanek,Sporta Technologies Private Limited (Dream11),€,-14280.0,Temp, India,TSP UK Invoice Tracker
+2023-09-22,1768,Henrique Martins,Bol.com,€,1716.0,Margin Only, United Kingdom,TSP UK Invoice Tracker
+2023-09-22,1768,Henrique Martins,Bol.com,€,2184.0,Margin Only, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1571,Hristo Georgiev,Coremont,£,17100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1571,Hristo Georgiev,Coremont,£,19000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1571,Hristo Georgiev,Coremont,£,20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1571,Hristo Georgiev,Coremont,£,19000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1571,Hristo Georgiev,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-07,1571,Hristo Georgiev,Coremont,£,20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1571,Hristo Georgiev,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1571,Hristo Georgiev,Coremont,£,3800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1571,Hristo Georgiev,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1571,Hristo Georgiev,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,1182,Illia Synuhin,Coralogix Ltd,€,3960.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-11,1182,Illia Synuhin,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-08,1182,Illia Synuhin,Coralogix Ltd,€,3420.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1182,Illia Synuhin,Coralogix Ltd,€,2700.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-05,1182,Illia Synuhin,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-05-10,1182,Illia Synuhin,Coralogix Ltd,€,3420.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-21,1182,Illia Synuhin,Coralogix Ltd,€,3060.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1022,Jakub Babrzymaka,Conduktor Inc.,€,6030.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1022,Jakub Babrzymaka,Conduktor Inc.,€,14070.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1022,Jakub Babrzymaka,Conduktor Inc.,€,8710.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1022,Jakub Babrzymaka,Conduktor Inc.,€,14740.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,18750.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,17500.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,23750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,22500.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,22500.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1442,Jakub Kozlowski,Sirius XM Radio Inc,$,22500.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,978,Jakub Majak,Coralogix Ltd,€,12025.0,Temp, Israel,TSP UK Invoice Tracker
+2023-02-08,978,Jakub Majak,Coralogix Ltd,€,1300.0,Temp, Israel,TSP UK Invoice Tracker
+2023-02-08,978,Jakub Majak,Coralogix Ltd,€,-12025.0,Temp, Israel,TSP UK Invoice Tracker
+2023-02-08,978,Jakub Majak,Coralogix Ltd,€,12025.0,Temp, Israel,TSP UK Invoice Tracker
+2023-01-04,1386,Jelco Smid,Marktplaats B.V.,€,14606.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,1386,Jelco Smid,Marktplaats B.V.,€,17004.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1386,Jelco Smid,Marktplaats B.V.,€,17549.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1386,Jelco Smid,Marktplaats B.V.,€,19511.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1386,Jelco Smid,Marktplaats B.V.,€,14388.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1386,Jelco Smid,Marktplaats B.V.,€,18421.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1386,Jelco Smid,Marktplaats B.V.,€,19293.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1386,Jelco Smid,Marktplaats B.V.,€,13080.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1386,Jelco Smid,Marktplaats B.V.,€,11554.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1808,Jelco Smid,Marktplaats B.V.,€,9701.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1387,Jernej Legvart,Reality Games Polska SA,€,6765.0,Temp, Poland,TSP UK Invoice Tracker
+2023-02-08,1387,Jernej Legvart,Reality Games Polska SA,€,7298.0,Temp, Poland,TSP UK Invoice Tracker
+2023-03-01,1387,Jernej Legvart,Reality Games Polska SA,€,6765.0,Temp, Poland,TSP UK Invoice Tracker
+2023-04-05,1387,Jernej Legvart,Reality Games Polska SA,€,7544.0,Temp, Poland,TSP UK Invoice Tracker
+2023-05-10,1387,Jernej Legvart,Reality Games Polska SA,€,2337.0,Temp, Poland,TSP UK Invoice Tracker
+2023-01-04,1025,Joao Guedes,Conduktor Inc.,€,14300.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1025,Joao Guedes,Conduktor Inc.,€,650.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1025,Joao Guedes,Conduktor Inc.,€,13650.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,9262.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,5.7,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,8.84,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,12.24,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,20.83,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,118.72,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,1135.9,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-01,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,6175.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,7150.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,13975.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1161,Joao Paulo Sims Baena,Apollo Agriculture B.V.,€,13000.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-18,290,Jonas Heylen,Harvey Nash IT Consulting,€,9790.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-02-08,290,Jonas Heylen,Harvey Nash IT Consulting,€,11570.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-03-08,290,Jonas Heylen,Harvey Nash IT Consulting,€,14240.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-04-05,290,Jonas Heylen,Harvey Nash IT Consulting,€,15575.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-05-03,290,Jonas Heylen,Harvey Nash IT Consulting,€,12460.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-06-07,290,Jonas Heylen,Harvey Nash IT Consulting,€,12015.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-07-06,290,Jonas Heylen,Harvey Nash IT Consulting,€,16020.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-08-02,290,Jonas Heylen,Harvey Nash IT Consulting,€,12015.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-09-06,290,Jonas Heylen,Harvey Nash IT Consulting,€,9345.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-10-04,290,Jonas Heylen,Harvey Nash IT Consulting,€,14240.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-07-13,1660,Joshua Myers,Sirius XM Radio Inc,$,7000.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1660,Joshua Myers,Sirius XM Radio Inc,$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1660,Joshua Myers,Sirius XM Radio Inc,$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,654,Jozef Koval,ESL Gaming GmbH,€,4000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-10-02,1775,Jozef Koval,White Bullet Solutions,£,2600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-09,1775,Jozef Koval,White Bullet Solutions,£,-2600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1592,Kasper Kondzielski,Sirius XM Radio Inc,$,15400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1592,Kasper Kondzielski,Sirius XM Radio Inc,$,24200.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1592,Kasper Kondzielski,Sirius XM Radio Inc,$,22000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1592,Kasper Kondzielski,Sirius XM Radio Inc,$,16500.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1762,Katarzyna Kosek,Sirius XM Radio Inc,$,4725.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,1457,Laurence Bird,Sirius XM Radio Inc,$,25600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-19,1457,Laurence Bird,Sirius XM Radio Inc,$,-25600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1457,Laurence Bird,Sirius XM Radio Inc,$,25600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1457,Laurence Bird,Sirius XM Radio Inc,$,32800.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1457,Laurence Bird,Sirius XM Radio Inc,$,32000.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1457,Laurence Bird,Sirius XM Radio Inc,$,14400.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1457,Laurence Bird,Sirius XM Radio Inc,$,29600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1457,Laurence Bird,Sirius XM Radio Inc,$,29600.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1457,Laurence Bird,Sirius XM Radio Inc,$,27200.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1457,Laurence Bird,Sirius XM Radio Inc,$,33600.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1457,Laurence Bird,Sirius XM Radio Inc,$,35200.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-01,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,139944.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-01,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,146608.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-08,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,146608.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-03-08,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,133280.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-04-05,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,153272.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-11,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,-153272.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-16,699,Laurentiu Gavrilescu,Emagine consulting AB,kr,86632.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-16,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,66640.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-24,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,133280.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-06-07,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,146608.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-07-05,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,146608.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-08-02,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,139944.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-09-06,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,153272.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-10-04,1657,Laurentiu Gavrilescu,AFRY Digital Solutions AB,kr,139944.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-06-21,1640,Lucas Amador,Marktplaats B.V.,€,7800.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-09,1640,Lucas Amador,Adevinta Spain,€,12600.0,Temp, Spain,TSP UK Invoice Tracker
+2023-08-09,1640,Lucas Amador,Adevinta Spain,€,12000.0,Temp, Spain,TSP UK Invoice Tracker
+2023-09-06,1640,Lucas Amador,Adevinta Spain,€,13200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-10-04,1640,Lucas Amador,Adevinta Spain,€,6000.0,Temp, Spain,TSP UK Invoice Tracker
+2023-01-04,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-18,1431,Lucia Velasco,Disney Streaming Services,£,2058.81,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1431,Lucia Velasco,Disney Streaming Services,£,2058.81,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1431,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1431,Lucia Velasco,Disney Streaming Services,£,3088.22,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-09,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1431,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1431,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1602,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1602,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1602,Lucia Velasco,Disney Streaming Services,£,1715.68,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1602,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1602,Lucia Velasco,Disney Streaming Services,£,3431.35,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,1602,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-26,1602,Lucia Velasco,Disney Streaming Services,£,2401.95,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1602,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1602,Lucia Velasco,Disney Streaming Services,£,1372.54,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1602,Lucia Velasco,Disney Streaming Services,£,2745.08,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,765,Lucjan Skop,"QOMPLX, Inc.",£,8512.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-07,765,Lucjan Skop,"QOMPLX, Inc.",£,9632.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,765,Lucjan Skop,"QOMPLX, Inc.",£,-9632.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,765,Lucjan Skop,"QOMPLX, Inc.",£,9632.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-06,765,Lucjan Skop,"QOMPLX, Inc.",£,8960.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,765,Lucjan Skop,"QOMPLX, Inc.",£,9632.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,765,Lucjan Skop,"QOMPLX, Inc.",£,8960.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,765,Lucjan Skop,"QOMPLX, Inc.",£,-9632.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,765,Lucjan Skop,"QOMPLX, Inc.",£,-8960.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-11,765,Lucjan Skop,"QOMPLX, Inc.",£,10304.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-10,765,Lucjan Skop,"QOMPLX, Inc.",£,8736.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-06,765,Lucjan Skop,"QOMPLX, Inc.",£,9856.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,765,Lucjan Skop,"QOMPLX, Inc.",£,9856.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-25,765,Lucjan Skop,"QOMPLX, Inc.",£,6272.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-31,765,Lucjan Skop,"QOMPLX, Inc.",£,2240.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1304,Lukasz Gieron,Risk.Ident GmbH,€,14400.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,1079,Lukasz Musial,Leonteq Securities (Europe),£,17100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1079,Lukasz Musial,Leonteq Securities (Europe),£,18000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1079,Lukasz Musial,Leonteq Securities (Europe),£,18000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1079,Lukasz Musial,Leonteq Securities (Europe),£,5400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1079,Lukasz Musial,Leonteq Securities (Europe),£,8100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1079,Lukasz Musial,Leonteq Securities (Europe),£,16200.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1079,Lukasz Musial,Leonteq Securities (Europe),£,12600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-12,1079,Lukasz Musial,Leonteq Securities (Europe),£,18900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1079,Lukasz Musial,Leonteq Securities (Europe),£,17100.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1079,Lukasz Musial,Leonteq Securities (Europe),£,17550.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1079,Lukasz Musial,Leonteq Securities (Europe),£,18900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,728,Luminita Birnicu,"QOMPLX, Inc.",£,9332.8,Temp, United States,TSP UK Invoice Tracker
+2023-02-07,728,Luminita Birnicu,"QOMPLX, Inc.",£,9578.4,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,728,Luminita Birnicu,"QOMPLX, Inc.",£,9578.4,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,728,Luminita Birnicu,"QOMPLX, Inc.",£,-9578.4,Temp, United States,TSP UK Invoice Tracker
+2023-03-06,728,Luminita Birnicu,"QOMPLX, Inc.",£,6631.2,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,728,Luminita Birnicu,"QOMPLX, Inc.",£,9171.24,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,728,Luminita Birnicu,"QOMPLX, Inc.",£,-6631.2,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,728,Luminita Birnicu,"QOMPLX, Inc.",£,6349.32,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,728,Luminita Birnicu,"QOMPLX, Inc.",£,-9578.4,Temp, United States,TSP UK Invoice Tracker
+2023-04-11,728,Luminita Birnicu,"QOMPLX, Inc.",£,2821.92,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,728,Luminita Birnicu,"QOMPLX, Inc.",£,7525.12,Temp, United States,TSP UK Invoice Tracker
+2023-07-25,728,Luminita Birnicu,"QOMPLX, Inc.",£,5643.84,Temp, United States,TSP UK Invoice Tracker
+2023-07-31,728,Luminita Birnicu,"QOMPLX, Inc.",£,2351.6,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,14850.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-07,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,7425.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,17325.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,11550.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-09,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,4950.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,18975.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1581,Maciej Drynkorn,Shell Recharge Solutions B.V.,€,14850.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1045,Maciej Jasinski,Conduktor Inc.,€,13800.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1045,Maciej Jasinski,Conduktor Inc.,€,8700.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1045,Maciej Jasinski,Conduktor Inc.,€,2100.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1045,Maciej Jasinski,Conduktor Inc.,€,2000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,18900.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,14400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,18900.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,17100.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,19800.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,18900.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,16200.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1481,Marcin Sosnicki,Sirius XM Radio Inc,$,11700.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1066,Marco Bedulli,Coralogix Ltd,€,3600.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1066,Marco Bedulli,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1066,Marco Bedulli,Coralogix Ltd,€,-3600.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1066,Marco Bedulli,Coralogix Ltd,€,3600.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-15,1066,Marco Bedulli,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1066,Marco Bedulli,Coralogix Ltd,€,3420.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,1066,Marco Bedulli,Coralogix Ltd,€,4140.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-07,1066,Marco Bedulli,Coralogix Ltd,€,3060.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-07-13,1664,Mark Canlas,Sirius XM Radio Inc,$,13680.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1664,Mark Canlas,Sirius XM Radio Inc,$,27360.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1664,Mark Canlas,Sirius XM Radio Inc,$,28880.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,1167,Mateusz Ledwon,Coralogix Ltd,€,2835.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1167,Mateusz Ledwon,Coralogix Ltd,€,2700.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1167,Mateusz Ledwon,Coralogix Ltd,€,2970.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-08,1167,Mateusz Ledwon,Coralogix Ltd,€,2700.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-05,1167,Mateusz Ledwon,Coralogix Ltd,€,3105.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-05-10,1167,Mateusz Ledwon,Coralogix Ltd,€,1755.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-21,1167,Mateusz Ledwon,Coralogix Ltd,€,3105.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-07-12,1167,Mateusz Ledwon,Coralogix Ltd,€,1215.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,944,Matias Safranchik,Conduktor Inc.,€,8750.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,944,Matias Safranchik,Conduktor Inc.,€,5000.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,944,Matias Safranchik,Conduktor Inc.,€,13750.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1655,Matthew Sinton-Hewitt,Sirius XM Radio Inc,$,8750.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1655,Matthew Sinton-Hewitt,Sirius XM Radio Inc,$,20500.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1655,Matthew Sinton-Hewitt,Sirius XM Radio Inc,$,16000.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-01,1277,Max Drobotov,AFRY Digital Solutions AB,kr,126000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-01,1277,Max Drobotov,AFRY Digital Solutions AB,kr,132000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-01,1277,Max Drobotov,AFRY Digital Solutions AB,kr,132000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-02-01,1277,Max Drobotov,AFRY Digital Solutions AB,kr,102000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-03-08,1277,Max Drobotov,AFRY Digital Solutions AB,kr,108000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-04-05,1277,Max Drobotov,AFRY Digital Solutions AB,kr,132000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-05-03,1277,Max Drobotov,AFRY Digital Solutions AB,kr,120000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-06-07,1277,Max Drobotov,AFRY Digital Solutions AB,kr,120000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-07-12,1277,Max Drobotov,AFRY Digital Solutions AB,kr,126000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-08-09,1620,Max Drobotov,AFRY Digital Solutions AB,kr,126000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-10-04,1620,Max Drobotov,AFRY Digital Solutions AB,kr,132000.0,Temp, Sweden,TSP UK Invoice Tracker
+2023-01-04,615,Merlijn van Ittersum,Marktplaats B.V.,€,9900.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-11,1443,Michael Shepherd,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-19,1443,Michael Shepherd,Sirius XM Radio Inc,$,-25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1443,Michael Shepherd,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1443,Michael Shepherd,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1443,Michael Shepherd,Sirius XM Radio Inc,$,20000.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1443,Michael Shepherd,Sirius XM Radio Inc,$,28750.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1443,Michael Shepherd,Sirius XM Radio Inc,$,23750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1443,Michael Shepherd,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1443,Michael Shepherd,Sirius XM Radio Inc,$,27500.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1443,Michael Shepherd,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1443,Michael Shepherd,Sirius XM Radio Inc,$,28750.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,873,Michal Plachta,Apollo Agriculture B.V.,€,9350.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,873,Michal Plachta,Apollo Agriculture B.V.,€,284.63,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-25,873,Michal Plachta,Apollo Agriculture B.V.,€,192.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,873,Michal Plachta,Apollo Agriculture B.V.,€,10381.25,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,873,Michal Plachta,Apollo Agriculture B.V.,€,10381.25,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,873,Michal Plachta,Apollo Agriculture B.V.,€,12375.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,873,Michal Plachta,Apollo Agriculture B.V.,€,10346.88,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-07,873,Michal Plachta,Apollo Agriculture B.V.,€,5396.88,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-22,1735,Michal Plachta,Sirius XM Radio Inc,$,15750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1651,Michele Pittau,Coremont,£,1900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1651,Michele Pittau,Coremont,£,20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1651,Michele Pittau,Coremont,£,-20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1651,Michele Pittau,Coremont,£,1900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1651,Michele Pittau,Coremont,£,20900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1651,Michele Pittau,Coremont,£,-1900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1651,Michele Pittau,Coremont,£,19000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1651,Michele Pittau,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-07,1651,Michele Pittau,Coremont,£,16150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1651,Michele Pittau,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1651,Michele Pittau,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1651,Michele Pittau,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1651,Michele Pittau,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1651,Michele Pittau,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1486,Miguel Vila,Sirius XM Radio Inc,$,10000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1486,Miguel Vila,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1486,Miguel Vila,Sirius XM Radio Inc,$,10000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1486,Miguel Vila,Sirius XM Radio Inc,$,-10000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1486,Miguel Vila,Sirius XM Radio Inc,$,27500.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1486,Miguel Vila,Sirius XM Radio Inc,$,23750.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1486,Miguel Vila,Sirius XM Radio Inc,$,25625.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1486,Miguel Vila,Sirius XM Radio Inc,$,23750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1486,Miguel Vila,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1486,Miguel Vila,Sirius XM Radio Inc,$,27500.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1486,Miguel Vila,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1486,Miguel Vila,Sirius XM Radio Inc,$,26250.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,848,Mihai Soloi,Lorien Resourcing Limited,£,1972.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,848,Mihai Soloi,Lorien Resourcing Limited,£,3944.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,848,Mihai Soloi,Lorien Resourcing Limited,£,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,848,Mihai Soloi,Lorien Resourcing Limited,£,8874.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,848,Mihai Soloi,Lorien Resourcing Limited,£,20706.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,25704.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,1224.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,-1224.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,-25704.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,1224.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,25704.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,22032.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,6120.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,6120.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,6120.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-07,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,6120.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1681,Mihai Soloi,"American Wagering, Inc (USD)",$,24480.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-04-12,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-05-10,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-06-07,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-07-05,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-08-09,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-09-06,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-10-04,1524,Mikolaj Robakowski,Eskimi,€,8500.0,Temp, Lithuania,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,17600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,-16800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,-17600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,16800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,-7200.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1406,Mikolaj Szabo,Hypervolt Limited,£,7200.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1406,Mikolaj Szabo,Hypervolt Limited,£,16800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1406,Mikolaj Szabo,Hypervolt Limited,£,15600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1406,Mikolaj Szabo,Hypervolt Limited,Fr,218.55,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1406,Mikolaj Szabo,Hypervolt Limited,Fr,722.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1406,Mikolaj Szabo,Hypervolt Limited,£,16000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-29,1406,Mikolaj Szabo,Hypervolt Limited,£,628.87,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-29,1406,Mikolaj Szabo,Hypervolt Limited,Fr,-722.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-29,1406,Mikolaj Szabo,Hypervolt Limited,Fr,-218.55,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-29,1406,Mikolaj Szabo,Hypervolt Limited,£,190.14,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,1406,Mikolaj Szabo,Hypervolt Limited,£,10400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,205,Mirnes Topalovic,Marktplaats B.V.,€,12800.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,205,Mirnes Topalovic,Marktplaats B.V.,€,14080.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,205,Mirnes Topalovic,Marktplaats B.V.,€,12800.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,205,Mirnes Topalovic,Marktplaats B.V.,€,14720.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1026,Montgomery West,AnyJunk,£,8625.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1026,Montgomery West,AnyJunk,£,11250.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1026,Montgomery West,AnyJunk,£,4500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1534,Montgomery West,Sirius XM Radio Inc,$,20800.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1534,Montgomery West,Sirius XM Radio Inc,$,22750.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1534,Montgomery West,Sirius XM Radio Inc,$,23400.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1534,Montgomery West,Sirius XM Radio Inc,$,26650.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1534,Montgomery West,Sirius XM Radio Inc,$,24050.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1534,Montgomery West,Sirius XM Radio Inc,$,18200.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1534,Montgomery West,Sirius XM Radio Inc,$,26650.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,16800.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-12,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,-2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,8400.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,10800.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1450,Nicholas Fellows,"American Wagering, Inc (USD)",$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,675,Nicolas Ferrero,Marktplaats B.V.,€,6840.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,675,Nicolas Ferrero,Marktplaats B.V.,€,15120.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,675,Nicolas Ferrero,Marktplaats B.V.,€,14280.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-12,675,Nicolas Ferrero,Marktplaats B.V.,€,14280.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1614,Nicolas Ferrero,Marktplaats B.V.,€,6720.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1614,Nicolas Ferrero,Marktplaats B.V.,€,10920.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-11,868,Nikolai Pavlov,Conduktor Inc.,€,18040.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,868,Nikolai Pavlov,Conduktor Inc.,€,18040.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,932,Norbert Pabian,La Fourchette SAS,€,13272.0,Temp, France,TSP UK Invoice Tracker
+2023-02-08,932,Norbert Pabian,La Fourchette SAS,€,12008.0,Temp, France,TSP UK Invoice Tracker
+2023-03-08,932,Norbert Pabian,La Fourchette SAS,€,9480.0,Temp, France,TSP UK Invoice Tracker
+2023-04-05,932,Norbert Pabian,La Fourchette SAS,€,14536.0,Temp, France,TSP UK Invoice Tracker
+2023-05-03,932,Norbert Pabian,La Fourchette SAS,€,12008.0,Temp, France,TSP UK Invoice Tracker
+2023-06-07,932,Norbert Pabian,La Fourchette SAS,€,7584.0,Temp, France,TSP UK Invoice Tracker
+2023-07-05,932,Norbert Pabian,La Fourchette SAS,€,13904.0,Temp, France,TSP UK Invoice Tracker
+2023-08-02,932,Norbert Pabian,La Fourchette SAS,€,8848.0,Temp, France,TSP UK Invoice Tracker
+2023-09-06,932,Norbert Pabian,La Fourchette SAS,€,11376.0,Temp, France,TSP UK Invoice Tracker
+2023-10-04,932,Norbert Pabian,La Fourchette SAS,€,13272.0,Temp, France,TSP UK Invoice Tracker
+2023-01-04,925,Octavian Rusu,Marktplaats B.V.,€,500.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,925,Octavian Rusu,Marktplaats B.V.,€,18400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,925,Octavian Rusu,Marktplaats B.V.,€,400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,925,Octavian Rusu,Marktplaats B.V.,€,750.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,925,Octavian Rusu,Marktplaats B.V.,€,19320.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,925,Octavian Rusu,Marktplaats B.V.,€,600.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,925,Octavian Rusu,Adevinta Spain,€,18400.0,Temp, Spain,TSP UK Invoice Tracker
+2023-04-05,925,Octavian Rusu,Adevinta Spain,€,21160.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-03,925,Octavian Rusu,Adevinta Spain,€,200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-03,925,Octavian Rusu,Adevinta Spain,€,250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-03,925,Octavian Rusu,Adevinta Spain,€,5520.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Adevinta Spain,€,-5520.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Marktplaats B.V.,€,5520.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Adevinta Spain,€,-21160.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Adevinta Spain,€,-200.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Marktplaats B.V.,€,21160.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Adevinta Spain,€,-18400.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Adevinta Spain,€,-250.0,Temp, Spain,TSP UK Invoice Tracker
+2023-05-30,925,Octavian Rusu,Marktplaats B.V.,€,18400.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,29600.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,22200.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,10360.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,26640.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,2960.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1474,Oleg Efrem,"American Wagering, Inc (USD)",$,1480.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-26,1,Oliver Wickham,Disney Streaming Services,£,2745.09,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,2,Oliver Wickham,Disney Streaming Services,£,4117.64,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,2,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,2,Oliver Wickham,Disney Streaming Services,£,4346.39,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,2,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-06,2,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-06,2,Oliver Wickham,Disney Streaming Services,£,4117.64,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-06,2,Oliver Wickham,Disney Streaming Services,£,2745.09,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,915.03,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,2745.09,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4117.64,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1163,Oliver Wickham,Disney Streaming Services,£,-18400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1163,Oliver Wickham,Disney Streaming Services,£,3660.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1163,Oliver Wickham,Disney Streaming Services,£,4346.39,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1163,Oliver Wickham,Disney Streaming Services,£,4346.39,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1163,Oliver Wickham,Disney Streaming Services,£,3888.88,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1163,Oliver Wickham,Disney Streaming Services,£,2516.33,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1163,Oliver Wickham,Disney Streaming Services,£,2745.09,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1163,Oliver Wickham,Disney Streaming Services,£,4575.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-26,1163,Oliver Wickham,Disney Streaming Services,£,1372.55,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1648,Oliver Wickham,Sirius XM Radio Inc,$,29750.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1648,Oliver Wickham,Sirius XM Radio Inc,$,9800.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1648,Oliver Wickham,Sirius XM Radio Inc,$,28000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1648,Oliver Wickham,Sirius XM Radio Inc,$,19600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,1130,Olivier Deckers,Harvey Nash IT Consulting,€,11700.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-03-08,1130,Olivier Deckers,Harvey Nash IT Consulting,€,15300.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-03-08,1130,Olivier Deckers,Harvey Nash IT Consulting,€,17550.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-04-05,1130,Olivier Deckers,Harvey Nash IT Consulting,€,19800.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-05-10,1130,Olivier Deckers,Harvey Nash IT Consulting,€,3600.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-05-10,1130,Olivier Deckers,Harvey Nash IT Consulting,€,10800.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-06-07,1130,Olivier Deckers,Harvey Nash IT Consulting,€,11700.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-07-12,1130,Olivier Deckers,Harvey Nash IT Consulting,€,12600.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-08-02,1130,Olivier Deckers,Harvey Nash IT Consulting,€,18000.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-09-06,1130,Olivier Deckers,Harvey Nash IT Consulting,€,18900.0,Temp, Belgium,TSP UK Invoice Tracker
+2023-01-04,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,-5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-05,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-06,1178,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,1606,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-12,1606,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-16,1606,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,1606,Olzhas Aitkaliyev,ESL Gaming GmbH,€,5900.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1200,Oybek Hashimov,ESL Gaming GmbH,€,-6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-05,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-03,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,1200,Oybek Hashimov,ESL Gaming GmbH,€,-6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,1200,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,1641,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-12,1641,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-16,1641,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,1641,Oybek Hashimov,ESL Gaming GmbH,€,6100.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,1158,Pablo Ezequiel Barazzutti,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1158,Pablo Ezequiel Barazzutti,ESL Gaming GmbH,€,-6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1158,Pablo Ezequiel Barazzutti,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-15,1158,Pablo Ezequiel Barazzutti,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,1158,Pablo Ezequiel Barazzutti,ESL Gaming GmbH,€,6000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-04,1563,Pablo Ezequiel Barazzutti,MFM Investment Ltd,€,5600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1563,Pablo Ezequiel Barazzutti,MFM Investment Ltd,€,6650.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-05,1563,Pablo Ezequiel Barazzutti,MFM Investment Ltd,€,7700.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-04,1563,Pablo Ezequiel Barazzutti,MFM Investment Ltd,€,2450.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1638,Paul Oglesby,Sirius XM Radio Inc,$,9100.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1638,Paul Oglesby,Sirius XM Radio Inc,$,26000.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1638,Paul Oglesby,Sirius XM Radio Inc,$,26000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1638,Paul Oglesby,Sirius XM Radio Inc,$,23400.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1030,Pawel Dabala,ESL Gaming GmbH,€,5500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1030,Pawel Dabala,ESL Gaming GmbH,€,-5500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,1030,Pawel Dabala,ESL Gaming GmbH,€,5500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,1030,Pawel Dabala,ESL Gaming GmbH,€,5500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,1030,Pawel Dabala,ESL Gaming GmbH,€,5500.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,1478,Pawel Krupinski,The Guardian,£,11550.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,-825.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,-11550.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,825.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,-14850.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,14850.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1478,Pawel Krupinski,The Guardian,£,11550.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1478,Pawel Krupinski,The Guardian,£,17325.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1478,Pawel Krupinski,The Guardian,£,11550.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,1478,Pawel Krupinski,The Guardian,£,18150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1478,Pawel Krupinski,The Guardian,£,14850.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-26,1478,Pawel Krupinski,The Guardian,£,14850.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-26,1478,Pawel Krupinski,The Guardian,£,-14850.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1351,Perm Placement,Rethink Professional Services Limited T A RTM,£,17500.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1351,Perm Placement,Rethink Professional Services Limited T A RTM,£,-18750.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-02-01,1351,Perm Placement,Rethink Professional Services Limited T A RTM,£,1250.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-19,1447,Perm Placement,Evo Products Development Portugal Unipessoal Lda,€,17500.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-01-30,1447,Perm Placement,Evo Products Development Portugal Unipessoal Lda,€,-17500.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-01-30,1447,Perm Placement,Evo Products Development Portugal Unipessoal Lda,€,16000.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-01-06,1460,Perm Placement,Coralogix Ltd,€,29250.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-19,1460,Perm Placement,Coralogix Ltd,€,-29250.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-19,1460,Perm Placement,Coralogix Ltd,€,29250.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-18,1464,Perm Placement,Valsea IT SL,€,19500.0,Perm, Spain,TSP UK Invoice Tracker
+2023-01-12,1468,Perm Placement,Quantexa Ltd,£,-19690.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-12,1468,Perm Placement,Quantexa Ltd,£,17900.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-23,1476,Perm Placement,Rethink Professional Services Limited T A RTM,£,19600.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-09,1479,Perm Placement,Marktplaats B.V.,€,15000.0,Perm, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1495,Perm Placement,Snowplow Analytics Ltd ,€,20000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-07,1497,Perm Placement,BBC Iplayer and Sounds,£,9812.06,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-21,1513,Perm Placement,ITV Plc,£,12250.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-17,1514,Perm Placement,Valsea IT SL,€,11806.0,Perm, Spain,TSP UK Invoice Tracker
+2023-01-16,1515,Perm Placement,Valsea IT SL,€,10000.0,Perm, Spain,TSP UK Invoice Tracker
+2023-01-06,1516,Perm Placement,White Hat (Holdings),€,12600.0,Perm, Gibraltar,TSP UK Invoice Tracker
+2023-04-14,1522,Perm Placement,Quantexa Ltd,£,17000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,1523,Perm Placement,BBC Iplayer and Sounds,£,9000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-28,1523,Perm Placement,BBC Iplayer and Sounds,£,-9000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-28,1523,Perm Placement,BBC Iplayer and Sounds,£,8500.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-13,1525,Perm Placement,Optellum,£,24000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-11,1529,Perm Placement,Coralogix Ltd,€,30375.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-06,1530,Perm Placement,Coralogix Ltd,€,29250.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-06,1531,Perm Placement,Coralogix Ltd,€,29250.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-06,1532,Perm Placement,Coralogix Ltd,€,28000.0,Perm, Israel,TSP UK Invoice Tracker
+2023-01-30,1533,Perm Placement,Harry’s Grooming Limited ,£,15000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-01,1539,Perm Placement,BBC Iplayer and Sounds,£,7650.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-31,1540,Perm Placement,Digital Asset Holdings UK Ltd,£,22000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-02-03,1541,Perm Placement,Nandos Chickenland Ltd,£,19800.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-04-18,1541,Perm Placement,Nandos Chickenland Ltd,£,-19800.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-04-18,1541,Perm Placement,Nandos Chickenland Ltd,£,19800.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-04-18,1541,Perm Placement,Nandos Chickenland Ltd,£,-11880.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-02-14,1543,Perm Placement,Bright HR,£,9900.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1545,Perm Placement,Harry’s Grooming Limited ,£,20000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-06,1546,Perm Placement,Bright HR,£,7650.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-02,1560,Perm Placement,"FinSights Labs Unipessoal , Lda",€,11500.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-04-03,1570,Perm Placement,HP - Wolf Security,£,17000.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-23,1574,Perm Placement,Hypervolt Limited,£,32500.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-03-21,1576,Perm Placement,ITV Plc,£,14875.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-06-22,1577,Perm Placement,iCapital,€,8125.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1577,Perm Placement,iCapital,€,-8125.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1577,Perm Placement,"FinSights Labs Unipessoal , Lda",€,8125.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-05-10,1578,Perm Placement,Cboe Europe Limited,€,18225.0,Perm, Netherlands,TSP UK Invoice Tracker
+2023-05-15,1578,Perm Placement,Cboe Europe Limited,€,18225.0,Perm, Netherlands,TSP UK Invoice Tracker
+2023-05-15,1578,Perm Placement,Cboe Europe Limited,€,-18225.0,Perm, Netherlands,TSP UK Invoice Tracker
+2023-04-13,1579,Perm Placement,Current Health,£,13500.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-05-15,1582,Perm Placement,iCapital,€,16000.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-17,1582,Perm Placement,"FinSights Labs Unipessoal , Lda",€,16000.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-07-17,1582,Perm Placement,iCapital,€,-16000.0,Perm, United States,TSP UK Invoice Tracker
+2023-05-09,1587,Perm Placement,SuprPlay Ltd,€,21900.0,Perm, Malta,TSP UK Invoice Tracker
+2023-05-23,1588,Perm Placement,ITV Plc,£,12250.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-04-26,1590,Perm Placement,QAD Redzone,£,24750.0,Perm, United States,TSP UK Invoice Tracker
+2023-04-24,1619,Perm Placement,Coralogix Ltd,€,24750.0,Perm, Israel,TSP UK Invoice Tracker
+2023-06-22,1645,Perm Placement,iCapital,€,10000.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1645,Perm Placement,iCapital,€,-10000.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1645,Perm Placement,"FinSights Labs Unipessoal , Lda",€,10000.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-06-22,1649,Perm Placement,iCapital,€,8000.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1649,Perm Placement,"FinSights Labs Unipessoal , Lda",€,8000.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-07-27,1649,Perm Placement,iCapital,€,-8000.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-25,1652,Perm Placement,iCapital,€,15750.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1652,Perm Placement,"FinSights Labs Unipessoal , Lda",€,15750.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-07-27,1652,Perm Placement,iCapital,€,-15750.0,Perm, United States,TSP UK Invoice Tracker
+2023-06-22,1674,Perm Placement,iCapital,€,7250.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1674,Perm Placement,"FinSights Labs Unipessoal , Lda",€,7250.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-07-27,1674,Perm Placement,iCapital,€,-7250.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-25,1687,Perm Placement,Bright HR,£,8100.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-06-16,1691,Perm Placement,"American Wagering, Inc (USD)",$,21732.67,Perm, United States,TSP UK Invoice Tracker
+2023-06-22,1697,Perm Placement,iCapital,€,9250.0,Perm, United States,TSP UK Invoice Tracker
+2023-07-27,1697,Perm Placement,"FinSights Labs Unipessoal , Lda",€,9250.0,Perm, Portugal,TSP UK Invoice Tracker
+2023-07-27,1697,Perm Placement,iCapital,€,-9250.0,Perm, United States,TSP UK Invoice Tracker
+2023-08-25,1705,Perm Placement,"Pepsico Iberia Servicios Centrales, S.L",€,12300.0,Perm, Spain,TSP UK Invoice Tracker
+2023-09-15,1765,Perm Placement,Bright HR,£,8100.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-10-03,1783,Perm Placement,TreeHouse B.V.,€,12720.0,Perm, Netherlands,TSP UK Invoice Tracker
+2023-10-10,1825,Perm Placement,Bright HR,£,7560.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-10-10,1825,Perm Placement,Bright HR,£,-1560.0,Perm, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1422,Petr Osipov,MFM Investment Ltd,€,12760.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1422,Petr Osipov,MFM Investment Ltd,€,12760.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1422,Petr Osipov,MFM Investment Ltd,€,-12760.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1422,Petr Osipov,MFM Investment Ltd,€,12760.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1422,Petr Osipov,MFM Investment Ltd,€,7540.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1422,Petr Osipov,MFM Investment Ltd,€,4060.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-04,1422,Petr Osipov,MFM Investment Ltd,€,13340.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1422,Petr Osipov,MFM Investment Ltd,€,11600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-05,1616,Petr Osipov,MFM Investment Ltd,€,13340.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-04,1616,Petr Osipov,MFM Investment Ltd,€,12760.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1616,Petr Osipov,MFM Investment Ltd,€,12180.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-04,1789,Petr Osipov,MFM Investment Ltd,€,13340.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-02,1789,Petr Osipov,MFM Investment Ltd,€,12180.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,10807.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,21615.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,14737.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-09,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,982.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,11790.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,4912.5,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1589,Pierangelo Cecchetto,Shell Recharge Solutions B.V.,€,19650.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-05,872,Piotr Kalucki,ESL Gaming GmbH,€,-6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-05,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-03,872,Piotr Kalucki,ESL Gaming GmbH,€,5800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,872,Piotr Kalucki,ESL Gaming GmbH,€,-5800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-12,872,Piotr Kalucki,ESL Gaming GmbH,€,6700.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-16,1730,Piotr Kalucki,ESL Gaming GmbH,€,7000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,1730,Piotr Kalucki,ESL Gaming GmbH,€,7000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-10-04,1730,Piotr Kalucki,ESL Gaming GmbH,€,7000.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,878,Piotr Nowacki,"QOMPLX, Inc.",£,6930.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-07,878,Piotr Nowacki,"QOMPLX, Inc.",£,10395.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,878,Piotr Nowacki,"QOMPLX, Inc.",£,-10395.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-13,878,Piotr Nowacki,"QOMPLX, Inc.",£,10395.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-06,878,Piotr Nowacki,"QOMPLX, Inc.",£,9405.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,878,Piotr Nowacki,"QOMPLX, Inc.",£,9405.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,878,Piotr Nowacki,"QOMPLX, Inc.",£,-10395.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,878,Piotr Nowacki,"QOMPLX, Inc.",£,-9405.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-16,878,Piotr Nowacki,"QOMPLX, Inc.",£,10395.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-11,878,Piotr Nowacki,"QOMPLX, Inc.",£,8910.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-10,878,Piotr Nowacki,"QOMPLX, Inc.",£,8910.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-06,878,Piotr Nowacki,"QOMPLX, Inc.",£,9900.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,878,Piotr Nowacki,"QOMPLX, Inc.",£,8910.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-25,878,Piotr Nowacki,"QOMPLX, Inc.",£,6930.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-31,878,Piotr Nowacki,"QOMPLX, Inc.",£,2475.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1232,Povilas Versockas,Coralogix Ltd,€,4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1232,Povilas Versockas,Coralogix Ltd,€,4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1232,Povilas Versockas,Coralogix Ltd,€,-4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1232,Povilas Versockas,Coralogix Ltd,€,4290.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1232,Povilas Versockas,Coralogix Ltd,€,3120.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-05,1232,Povilas Versockas,Coralogix Ltd,€,4485.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-05-10,1232,Povilas Versockas,Coralogix Ltd,€,3900.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-06-21,1232,Povilas Versockas,Coralogix Ltd,€,3900.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-18,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-09,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-16,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-06,1131,Radek Busz,Disney Streaming Services,£,6862.72,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-06,1131,Radek Busz,Disney Streaming Services,£,-3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1131,Radek Busz,Disney Streaming Services,£,2573.52,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-26,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-06,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1131,Radek Busz,Disney Streaming Services,£,4289.2,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1131,Radek Busz,Disney Streaming Services,£,1715.68,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1131,Radek Busz,Disney Streaming Services,£,3431.36,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-22,1713,Radek Busz,Sirius XM Radio Inc,$,29700.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1713,Radek Busz,Sirius XM Radio Inc,$,17550.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,842,Radu-Dan Chiorean,La Fourchette SAS,€,9600.0,Temp, France,TSP UK Invoice Tracker
+2023-02-01,842,Radu-Dan Chiorean,La Fourchette SAS,€,11400.0,Temp, France,TSP UK Invoice Tracker
+2023-03-08,842,Radu-Dan Chiorean,La Fourchette SAS,€,11400.0,Temp, France,TSP UK Invoice Tracker
+2023-04-05,842,Radu-Dan Chiorean,La Fourchette SAS,€,12000.0,Temp, France,TSP UK Invoice Tracker
+2023-04-05,842,Radu-Dan Chiorean,La Fourchette SAS,€,612.0,Temp, France,TSP UK Invoice Tracker
+2023-05-03,842,Radu-Dan Chiorean,La Fourchette SAS,€,11016.0,Temp, France,TSP UK Invoice Tracker
+2023-06-07,842,Radu-Dan Chiorean,La Fourchette SAS,€,13158.0,Temp, France,TSP UK Invoice Tracker
+2023-07-05,842,Radu-Dan Chiorean,La Fourchette SAS,€,12240.0,Temp, France,TSP UK Invoice Tracker
+2023-08-02,842,Radu-Dan Chiorean,La Fourchette SAS,€,10404.0,Temp, France,TSP UK Invoice Tracker
+2023-09-06,842,Radu-Dan Chiorean,La Fourchette SAS,€,13158.0,Temp, France,TSP UK Invoice Tracker
+2023-10-04,842,Radu-Dan Chiorean,La Fourchette SAS,€,11934.0,Temp, France,TSP UK Invoice Tracker
+2023-01-11,1046,Rafael Figueiredo,Coralogix Ltd,€,3874.5,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1046,Rafael Figueiredo,Coralogix Ltd,€,3969.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1046,Rafael Figueiredo,Coralogix Ltd,€,3402.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4312.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4312.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4289.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,1725.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4289.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4289.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4289.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,3431.4,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1377,Rahul Phulore,Disney Streaming Services,£,4289.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-28,1377,Rahul Phulore,Disney Streaming Services,£,-55.97,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1377,Rahul Phulore,Disney Streaming Services,£,857.85,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-22,1700,Ravindra Rishudeo,Sirius XM Radio Inc,$,10050.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1458,Richard Dowsett,Sirius XM Radio Inc,$,31000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,1458,Richard Dowsett,Sirius XM Radio Inc,$,34100.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-19,1458,Richard Dowsett,Sirius XM Radio Inc,$,-34100.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1458,Richard Dowsett,Sirius XM Radio Inc,$,-31000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1458,Richard Dowsett,Sirius XM Radio Inc,$,30225.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-20,1458,Richard Dowsett,Sirius XM Radio Inc,$,31000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1458,Richard Dowsett,Sirius XM Radio Inc,$,30225.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1458,Richard Dowsett,Sirius XM Radio Inc,$,31775.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1458,Richard Dowsett,Sirius XM Radio Inc,$,35650.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1458,Richard Dowsett,Sirius XM Radio Inc,$,3100.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1112,Rocco Bruno,AnyJunk,£,10400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-01,1112,Rocco Bruno,AnyJunk,£,12350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1112,Rocco Bruno,AnyJunk,£,9750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1112,Rocco Bruno,AnyJunk,£,3250.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1112,Rocco Bruno,AnyJunk,£,14950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1112,Rocco Bruno,AnyJunk,£,11050.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1112,Rocco Bruno,AnyJunk,£,13650.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1112,Rocco Bruno,AnyJunk,£,14300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1112,Rocco Bruno,AnyJunk,£,8775.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1112,Rocco Bruno,AnyJunk,£,8125.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1112,Rocco Bruno,AnyJunk,£,12350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1,Rohan Shetty,Marktplaats B.V.,€,300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1,Rohan Shetty,Marktplaats B.V.,€,300.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1,Rohan Shetty,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1,Rohan Shetty,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-01-04,1459,Rohan Shetty,Marktplaats B.V.,€,16416.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,1459,Rohan Shetty,Marktplaats B.V.,€,19608.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,1459,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-02-08,1459,Rohan Shetty,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1459,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1459,Rohan Shetty,Marktplaats B.V.,€,18240.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-03-08,1459,Rohan Shetty,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-05,1459,Rohan Shetty,Marktplaats B.V.,€,20064.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-05-03,1459,Rohan Shetty,Marktplaats B.V.,€,15504.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-06-21,1459,Rohan Shetty,Marktplaats B.V.,€,19152.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-07-05,1459,Rohan Shetty,Marktplaats B.V.,€,20064.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-08-02,1459,Rohan Shetty,Marktplaats B.V.,€,19152.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-09-06,1459,Rohan Shetty,Marktplaats B.V.,€,20976.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1767,Rohan Shetty,Marktplaats B.V.,€,2520.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1767,Rohan Shetty,Marktplaats B.V.,€,200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-04,1767,Rohan Shetty,Marktplaats B.V.,€,250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-05,1767,Rohan Shetty,Marktplaats B.V.,€,-2520.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-05,1767,Rohan Shetty,Marktplaats B.V.,€,-200.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-10-05,1767,Rohan Shetty,Marktplaats B.V.,€,-250.0,Temp, Netherlands,TSP UK Invoice Tracker
+2023-04-04,1564,Roman Kryvenchenko,MFM Investment Ltd,€,4930.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1564,Roman Kryvenchenko,MFM Investment Ltd,€,5510.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-05,1564,Roman Kryvenchenko,MFM Investment Ltd,€,6380.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-04,1564,Roman Kryvenchenko,MFM Investment Ltd,€,6380.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1564,Roman Kryvenchenko,MFM Investment Ltd,€,6090.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-04,1564,Roman Kryvenchenko,MFM Investment Ltd,€,6670.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-02,1564,Roman Kryvenchenko,MFM Investment Ltd,€,1740.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-02,1776,Roman Kryvenchenko,MFM Investment Ltd,€,4350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1573,Sakis Karagiannis,Coremont,£,15300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-11,1573,Sakis Karagiannis,Coremont,£,-15300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-11,1573,Sakis Karagiannis,Coremont,£,15300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1573,Sakis Karagiannis,Coremont,£,12150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1573,Sakis Karagiannis,Coremont,£,19800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1573,Sakis Karagiannis,Coremont,£,18000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1573,Sakis Karagiannis,Coremont,£,900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1573,Sakis Karagiannis,Coremont,£,14400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1573,Sakis Karagiannis,Coremont,£,900.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1573,Sakis Karagiannis,Coremont,£,4500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1573,Sakis Karagiannis,Coremont,£,3600.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1573,Sakis Karagiannis,Coremont,£,4500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1147,Sebastian Vercruysse,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-11,1147,Sebastian Vercruysse,Coralogix Ltd,€,1620.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1147,Sebastian Vercruysse,Coralogix Ltd,€,4752.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1147,Sebastian Vercruysse,Coralogix Ltd,€,3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1147,Sebastian Vercruysse,Coralogix Ltd,€,-3780.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-29,1147,Sebastian Vercruysse,Coralogix Ltd,€,4104.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-12,1147,Sebastian Vercruysse,Coralogix Ltd,€,2592.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-05-10,1147,Sebastian Vercruysse,Coralogix Ltd,€,4104.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-04,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-18,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-15,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-03,870,Selyutin Dmitry,Precog,$,10500.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1653,Sergejs Terentjevs,Sirius XM Radio Inc,$,27000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1653,Sergejs Terentjevs,Sirius XM Radio Inc,$,29700.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1653,Sergejs Terentjevs,Sirius XM Radio Inc,$,20250.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1653,Sergejs Terentjevs,Sirius XM Radio Inc,$,31050.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1547,Sergi Toda Flores,AnyJunk,£,1450.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1547,Sergi Toda Flores,AnyJunk,£,16675.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1547,Sergi Toda Flores,AnyJunk,£,1450.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,1547,Sergi Toda Flores,AnyJunk,£,15950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-10,1547,Sergi Toda Flores,AnyJunk,£,10150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1547,Sergi Toda Flores,AnyJunk,£,16675.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1547,Sergi Toda Flores,AnyJunk,£,15950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1547,Sergi Toda Flores,AnyJunk,£,5800.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,1547,Sergi Toda Flores,AnyJunk,£,14500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1547,Sergi Toda Flores,AnyJunk,£,14137.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1480,Shah Saraei,Sirius XM Radio Inc,$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1480,Shah Saraei,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1480,Shah Saraei,Sirius XM Radio Inc,$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1480,Shah Saraei,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1480,Shah Saraei,Sirius XM Radio Inc,$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1480,Shah Saraei,Sirius XM Radio Inc,$,9600.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1480,Shah Saraei,Sirius XM Radio Inc,$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1480,Shah Saraei,Sirius XM Radio Inc,$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1480,Shah Saraei,Sirius XM Radio Inc,$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-11,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-02-08,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-03-08,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-12,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-04-12,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-03,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,663,Sherzod Gapirov,ESL Gaming GmbH,€,-6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-05-11,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-06-07,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-07-12,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-08-16,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-09-07,663,Sherzod Gapirov,ESL Gaming GmbH,€,6800.0,Temp, Germany,TSP UK Invoice Tracker
+2023-01-04,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5565.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-10,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5565.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-10,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,-5565.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5830.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-15,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5565.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,4770.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,6095.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5830.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5300.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-07,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,6095.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1359,Sushant Adhikari,Raindrop Technologies Holdings Ltd,£,5565.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,948,Szabolcs Illes,AnyJunk,£,10125.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-01,948,Szabolcs Illes,AnyJunk,£,13837.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,948,Szabolcs Illes,AnyJunk,£,13162.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,948,Szabolcs Illes,AnyJunk,£,14175.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-03,948,Szabolcs Illes,AnyJunk,£,12150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,948,Szabolcs Illes,AnyJunk,£,12825.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,948,Szabolcs Illes,AnyJunk,£,11137.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,948,Szabolcs Illes,AnyJunk,£,14175.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,948,Szabolcs Illes,AnyJunk,£,12150.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,948,Szabolcs Illes,AnyJunk,£,7762.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-12,1562,Tiago Filipe,Marlow Navigation,€,2640.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-05-03,1562,Tiago Filipe,Marlow Navigation,€,7260.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-06-06,1562,Tiago Filipe,Marlow Navigation,€,8800.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-07-04,1562,Tiago Filipe,Marlow Navigation,€,4400.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-08-02,1562,Tiago Filipe,Marlow Navigation,€,7920.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-09-07,1562,Tiago Filipe,Marlow Navigation,€,9680.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-10-04,1562,Tiago Filipe,Marlow Navigation,€,9240.0,Temp, Cyprus,TSP UK Invoice Tracker
+2023-01-25,746,Todor Kolev,Lorien Resourcing Limited,£,4025.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-07,746,Todor Kolev,Lorien Resourcing Limited,£,-4025.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1473,Todor Kolev,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1473,Todor Kolev,"American Wagering, Inc (USD)",$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1473,Todor Kolev,"American Wagering, Inc (USD)",$,15600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1473,Todor Kolev,"American Wagering, Inc (USD)",$,8400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1473,Todor Kolev,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-03,1473,Todor Kolev,"American Wagering, Inc (USD)",$,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1473,Todor Kolev,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1473,Todor Kolev,"American Wagering, Inc (USD)",$,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1473,Todor Kolev,"American Wagering, Inc (USD)",$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1473,Todor Kolev,"American Wagering, Inc (USD)",$,-26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1473,Todor Kolev,"American Wagering, Inc (USD)",$,26400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1473,Todor Kolev,"American Wagering, Inc (USD)",$,18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1473,Todor Kolev,"American Wagering, Inc (USD)",$,15600.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1473,Todor Kolev,"American Wagering, Inc (USD)",$,7200.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1473,Todor Kolev,"American Wagering, Inc (USD)",$,4800.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1473,Todor Kolev,"American Wagering, Inc (USD)",$,25200.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1466,Tony Magne,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-02-08,1466,Tony Magne,"American Wagering, Inc (USD)",$,20400.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1466,Tony Magne,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-01,1466,Tony Magne,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-29,1466,Tony Magne,"American Wagering, Inc (USD)",$,2400.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-05,1466,Tony Magne,"American Wagering, Inc (USD)",$,21600.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1466,Tony Magne,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-03,1466,Tony Magne,"American Wagering, Inc (USD)",$,9600.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1466,Tony Magne,"American Wagering, Inc (USD)",$,16800.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1466,Tony Magne,"American Wagering, Inc (USD)",$,12000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-05,1466,Tony Magne,"American Wagering, Inc (USD)",$,18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-12,1466,Tony Magne,"American Wagering, Inc (USD)",$,6000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1466,Tony Magne,"American Wagering, Inc (USD)",$,18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-26,1466,Tony Magne,"American Wagering, Inc (USD)",$,-18000.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-02,1466,Tony Magne,"American Wagering, Inc (USD)",$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1466,Tony Magne,"American Wagering, Inc (USD)",$,27600.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-06,1466,Tony Magne,"American Wagering, Inc (USD)",$,1200.0,Temp, United States,TSP UK Invoice Tracker
+2023-10-04,1466,Tony Magne,"American Wagering, Inc (USD)",$,24000.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,438,Vincent Munier,Leonteq Securities (Europe),£,20350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,438,Vincent Munier,Leonteq Securities (Europe),£,20350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-08,438,Vincent Munier,Leonteq Securities (Europe),£,20350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,438,Vincent Munier,Leonteq Securities (Europe),£,18500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-04-05,438,Vincent Munier,Leonteq Securities (Europe),£,21275.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-10,438,Vincent Munier,Leonteq Securities (Europe),£,18500.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-06-07,438,Vincent Munier,Leonteq Securities (Europe),£,21275.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-05,438,Vincent Munier,Leonteq Securities (Europe),£,20350.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,438,Vincent Munier,Leonteq Securities (Europe),£,19425.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-06,438,Vincent Munier,Leonteq Securities (Europe),£,21275.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,438,Vincent Munier,Leonteq Securities (Europe),£,19425.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,25000.0,Temp, United States,TSP UK Invoice Tracker
+2023-03-08,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,27500.0,Temp, United States,TSP UK Invoice Tracker
+2023-04-12,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,28125.0,Temp, United States,TSP UK Invoice Tracker
+2023-05-11,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,23750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,28750.0,Temp, United States,TSP UK Invoice Tracker
+2023-07-13,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,27500.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,10000.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1432,Viswanath Jayachandran,Sirius XM Radio Inc,$,28750.0,Temp, United States,TSP UK Invoice Tracker
+2023-06-07,1627,Vladas Lapinskas,atHome Group Sarl,€,9350.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-06-07,1627,Vladas Lapinskas,atHome Group Sarl,€,1700.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-07-05,1627,Vladas Lapinskas,atHome Group Sarl,€,9350.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-08-02,1627,Vladas Lapinskas,atHome Group Sarl,€,4250.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-08-09,1627,Vladas Lapinskas,atHome Group Sarl,€,4675.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-09-07,1627,Vladas Lapinskas,atHome Group Sarl,€,8925.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-10-04,1627,Vladas Lapinskas,atHome Group Sarl,€,4250.0,Temp, Luxembourg,TSP UK Invoice Tracker
+2023-01-04,906,Vladimir Korbut,Estafet,€,8784.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1684,William Rose,Sirius XM Radio Inc,$,7400.0,Temp, United States,TSP UK Invoice Tracker
+2023-08-15,1684,William Rose,Sirius XM Radio Inc,$,27380.0,Temp, United States,TSP UK Invoice Tracker
+2023-09-22,1684,William Rose,Sirius XM Radio Inc,$,28860.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-04,1043,Wojciech Urbanski,Coralogix Ltd,€,3000.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-01-18,1043,Wojciech Urbanski,Coralogix Ltd,€,3150.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1043,Wojciech Urbanski,Coralogix Ltd,€,-3000.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-08,1043,Wojciech Urbanski,Coralogix Ltd,€,3000.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-02-15,1043,Wojciech Urbanski,Coralogix Ltd,€,2550.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-03-08,1043,Wojciech Urbanski,Coralogix Ltd,€,3000.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-04-05,1043,Wojciech Urbanski,Coralogix Ltd,€,3450.0,Margin Only, Israel,TSP UK Invoice Tracker
+2023-07-05,1656,Xavier Lemaignen,Coremont,£,18050.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1656,Xavier Lemaignen,Coremont,£,-18050.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-13,1656,Xavier Lemaignen,Coremont,£,18050.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-02,1656,Xavier Lemaignen,Coremont,£,19000.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-09,1656,Xavier Lemaignen,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-07,1656,Xavier Lemaignen,Coremont,£,11400.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1656,Xavier Lemaignen,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1656,Xavier Lemaignen,Coremont,£,950.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1656,Xavier Lemaignen,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1656,Xavier Lemaignen,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1656,Xavier Lemaignen,Coremont,£,4750.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-09-22,1755,Zainab Ali,Sirius XM Radio Inc,$,19500.0,Temp, United States,TSP UK Invoice Tracker
+2023-01-05,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1,Zoe Bryant,Disney Streaming Services,£,1486.92,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1,Zoe Bryant,Disney Streaming Services,£,1486.92,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-18,1,Zoe Bryant,Disney Streaming Services,£,2990.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-02-22,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-08,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-09,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-14,1,Zoe Bryant,Disney Streaming Services,£,-16.15,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-03-16,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-04,1,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-16,1,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-24,1,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-05-26,1,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1,Zoe Bryant,Disney Streaming Services,£,1486.92,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-06,1,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-07-31,1131,Zoe Bryant,Disney Streaming Services,£,0.12,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,1495.0,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,2230.38,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-05,1257,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-25,1257,Zoe Bryant,Disney Streaming Services,£,-8596.25,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-08-21,1760,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,3345.57,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,2602.11,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,3717.3,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-10-04,1760,Zoe Bryant,Disney Streaming Services,£,2973.84,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1385,,MFM Investment Ltd,€,81742.5,Temp, United Kingdom,TSP UK Invoice Tracker
+2023-01-04,1385,,MFM Investment Ltd,€,-81742.5,Temp, United Kingdom,TSP UK Invoice Tracker

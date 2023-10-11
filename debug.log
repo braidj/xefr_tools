@@ -1,0 +1,16 @@
+2023-10-11 22:12:14,229 - INFO - Endpoints: initiated for LOCAL instance on xefr-signify-dev database via http://localhost:7080
+2023-10-11 22:12:14,231 - INFO - Mongo: initialised for LOCAL instance on xefr-signify-dev using mongodb://localhost:27017/xefr-signify-dev
+2023-10-11 22:12:14,231 - INFO - Running from LOCAL Mongo instance on xefr-signify-dev database
+2023-10-11 22:12:14,231 - INFO - Mongo: Getting schema id for TSP UK Placements Forecast
+2023-10-11 22:12:14,235 - INFO - Mongo: Schema id for TSP UK Placements Forecast is b087b785-931b-4340-b182-0a5c5b697415
+2023-10-11 22:12:14,235 - DEBUG - persist_data: {'curl_command': 'curl "http://localhost:7080/api/data/format/csv/b087b785-931b-4340-b182-0a5c5b697415?apikey=hA1SZc2NFDxlJs4MwcIdaP1cOfn3er8q"', 'schema_name': 'TSP UK Placements Forecast', 'show_detail': False}
+2023-10-11 22:12:14,608 - DEBUG - check_csv_folder_exists received: {'file_path': 'data/xefr/TSP UK Placements Forecast', 'create': True, 'logger': <Logger utilities (DEBUG)>}
+2023-10-11 22:12:14,608 - DEBUG - Directory data/xefr exists
+2023-10-11 22:12:14,623 - INFO - Mongo: Returned schema details for TSP UK Placements Forecast
+2023-10-11 22:12:14,624 - INFO - Mongo: Getting schema id for Metrics Working Days
+2023-10-11 22:12:14,624 - INFO - Mongo: Schema id for Metrics Working Days is 1c48fbf6-d991-4cfa-a8ad-8ad52048f44b
+2023-10-11 22:12:14,624 - DEBUG - persist_data: {'curl_command': 'curl "http://localhost:7080/api/data/format/csv/1c48fbf6-d991-4cfa-a8ad-8ad52048f44b?apikey=hA1SZc2NFDxlJs4MwcIdaP1cOfn3er8q"', 'schema_name': 'Metrics Working Days', 'show_detail': False}
+2023-10-11 22:12:14,946 - DEBUG - check_csv_folder_exists received: {'file_path': 'data/xefr/Metrics Working Days', 'create': True, 'logger': <Logger utilities (DEBUG)>}
+2023-10-11 22:12:14,946 - DEBUG - Directory data/xefr exists
+2023-10-11 22:12:14,953 - INFO - Mongo: Returned schema details for Metrics Working Days
+2023-10-11 22:12:14,954 - INFO - Mongo: Disconnected from LOCAL instance
