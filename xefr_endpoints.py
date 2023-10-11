@@ -3,18 +3,23 @@ import configparser
 import os
 import sys
 
+
 class EndPoints(object):
     """Query the XEFR endpoints"""
 
     def __init__(self,template,format,logger):
         """Initialise the connector"""
-        
+        logger.debug("Initialising EndPoints")
         self.cfg = configparser.ConfigParser()
-        self.cfg.read("signify.ini")
+        self.cfg.read("xefr_tools.ini")
 
         self.logger = logger
         self.server =self.cfg[template]['server']
-        self.end_point = self.cfg[template]['end_point']
+        self.api_key = self.cfg[template]['api_key']
+        self.endpoints = {}
+
+        for option in self.cfg['ENDPOINTS']:
+            self.endpoints[option] = self.cfg.get('ENDPOINTS', option)
 
         if format not in ['csv','json']:
             print(f"Format {format} not supported")
@@ -33,13 +38,15 @@ class EndPoints(object):
 
         self.logger.debug("EndPoints initiated with: %s", self.server)
 
-    def get_single_endpoint(self,schema_id,use_temp=True):
+    def get_endpoint_curl(self,schema_id,endpoint_name,use_temp=True):
         """
-        Returns a single end point
+        Returns the curk command for a specific endpoint
         """
 
-        curl_command_header = f'curl -H "X-API-KEY: {self.api_key}" {self.server}/{self.end_point}/{self.format}/{schema_id}'
-        curl_command_temp = f'curl "{self.server}/{self.end_point}/{self.format}/{schema_id}?apikey={self.api_key}"'
+        endpoint = self.endpoints[endpoint_name]
+
+        curl_command_header = f'curl -H "X-API-KEY: {self.api_key}" {self.server}/{endpoint}/{self.format}/{schema_id}'
+        curl_command_temp = f'curl "{self.server}/{endpoint}/{self.format}/{schema_id}?apikey={self.api_key}"'
 
         if use_temp:
             curl_command = curl_command_temp
@@ -63,7 +70,7 @@ class EndPoints(object):
             curl_command_header = f'curl -H "X-API-KEY: {self.api_key}" {self.server}/{self.end_point}/{self.format}/{schema_id}'
             curl_command_temp = f'curl "{self.server}/{self.end_point}/{self.format}/{schema_id}?apikey={self.api_key}"'
 
-            curl_command = self.get_single_endpoint(schema_id,use_temp)
+            curl_command = self.get_endpoint_curl(schema_id,use_temp)
 
             row = {'schema':schema,'curl_command':curl_command,'schema_id':schema_id}
             results.append(row)
