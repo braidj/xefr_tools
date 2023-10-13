@@ -114,8 +114,8 @@ def nw_schema_copy(input_file, details):
 
 if __name__ == '__main__' :
 
-    #report_items('schemas')
+    report_items('schemas')
     #report_items('portals')
 
-    extract_json(['US NFI View'],'schemas')
-    extract_json(['US NFI'],'portals')
+    # extract_json(['US NFI View'],'schemas')
+    # extract_json(['US NFI'],'portals')

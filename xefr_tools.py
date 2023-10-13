@@ -310,14 +310,6 @@ def print_schema_details(schema_tag,use_csv=True,use_name=True):
             else:
                 print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
 
-        # print()
-        # for attribute in details['attributes']:
-        #     p_name = f'"attributes.{attribute["id"]}": 1,'
-
-        #     if use_csv:
-        #         print(f"{details['name']},{attribute['id']}")
-        #     else:
-        #         print("{:<20}".format(p_name))
 
     else:
         print(f"\nSchema {schema_tag} not found.\n")
