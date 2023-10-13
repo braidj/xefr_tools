@@ -3,6 +3,7 @@ import sys
 import subprocess
 import json
 import data_folders as DATA_FOLDER
+import common_funcs
 import xefr_endpoints
 import pandas as pd
 
@@ -38,7 +39,7 @@ def persist_data(curl_command,schema_name,show_detail=False):
     else:
         curl_output = subprocess.check_output(curl_command,shell=True,stderr=subprocess.PIPE)
 
-    output_file = os.path.join(DATA_FOLDER.XEFR,schema_name)
+    output_file = os.path.join(DATA_FOLDER.XEFR,schema_name)+".csv"
     utilities.check_csv_folder_exists(output_file,True,logger)
 
     with open(output_file, 'wb') as file:
@@ -61,7 +62,7 @@ def portal_backup(portal_name):
     Creates a backup of a portal, and all its attributes into
     its own file
     """
-    downloads = get_download_directory()
+    downloads = common_funcs.get_download_directory()
     source_file = f"{downloads}{os.sep}portals.json"
     destination_file = f"{downloads}{os.sep}{portal_name}.json"
 
@@ -94,7 +95,7 @@ def report_dependencies(portal_name):
             "schemaId": "9ed7f42e-380d-490a-bd21-85e36ea7abbf",
     """
 
-    downloads = get_download_directory()
+    downloads = common_funcs.get_download_directory()
     source_file = f"{downloads}{os.sep}portals.json"
 
     with open(source_file, 'r') as file:
@@ -124,16 +125,6 @@ def report_dependencies(portal_name):
                 schemaID = portlet.get("schemaId")
                 print("\t\t",schema_name,":",schemaID)
 
-def get_download_directory():
-    """
-    Get the user's home directory
-    """
-    home_directory = os.path.expanduser("~")
-
-    download_directory = os.path.join(home_directory, "Downloads")
-
-    return download_directory
-
 def portlets_update(portal_name,formatting_details,skip_items):
     """
     Apply a standard set of formats against all portlets in a portal
@@ -143,7 +134,7 @@ def portlets_update(portal_name,formatting_details,skip_items):
         1 - M portletHolder to childPortals
     """
 
-    downloads = get_download_directory()
+    downloads = common_funcs.get_download_directory()
     source_file = f"{downloads}{os.sep}portals.json"
     destination_file = f"{downloads}{os.sep}formatted_portal.json"
 
@@ -265,7 +256,7 @@ def update_defs(schema_or_portal,details):
     Returns jason compatible array and the destination file
     """
     
-    downloads = get_download_directory()
+    downloads = common_funcs.get_download_directory()
     source_file = f"{downloads}{os.sep}{schema_or_portal}.json"
     destination_file = f"{downloads}{os.sep}updated_{schema_or_portal}.json"
 
@@ -294,7 +285,7 @@ def download_schemas_data(schema_list):
         else:
             print(f"Schema {schema} not found")
 
-def print_schema_details(schema_tag,use_name=True):
+def print_schema_details(schema_tag,use_csv=True,use_name=True):
     """
     Prints the details of a schema if they exist !
     """
@@ -306,45 +297,35 @@ def print_schema_details(schema_tag,use_name=True):
         raise ValueError("use_name must be True or False")
 
     if details != 0:
+
         print()
-        print("{:<30} {:<10}".format(details['name'], details['id']),"\n")
+        if use_csv:
+            print(f"{details['name']},{details['id']})\n")
+        else:
+            print("{:<30} {:<10}".format(details['name'], details['id']),"\n")
 
         for attribute in details['attributes']:
-            print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
+            if use_csv:
+                print(f"{attribute['name']},{attribute['type']},{attribute['id']}")
+            else:
+                print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
+
+        # print()
+        # for attribute in details['attributes']:
+        #     p_name = f'"attributes.{attribute["id"]}": 1,'
+
+        #     if use_csv:
+        #         print(f"{details['name']},{attribute['id']}")
+        #     else:
+        #         print("{:<20}".format(p_name))
 
     else:
         print(f"\nSchema {schema_tag} not found.\n")
 
-if __name__ == '__main__':
-
-    run_config = f"Running from {instance} Mongo instance on {database} database"
-    logger.info(run_config)
-    print(run_config)
-
-    # Working code tested
-    #download_schemas_data(['TSP UK Placements Forecast'])
-    #forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
-
-    forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days']
-    schema_ids = ['74633e84-deba-4720-8181-c07629a1c665','6d422fc3-3d24-4650-b069-def85c1f888c']
-
-
-    for schema in forecast_schemas:
-        #download_schemas_data([schema])
-        print_schema_details(schema)
-
-    for schema in schema_ids:
-        #download_schemas_data([schema])
-        print_schema_details(schema,False)
-
-    # tsp_uk_placements_forecast_details = mongo.get_schema_details('TSP UK Placements Forecast')
-    # metrics_working_days = mongo.get_schema_details('Metrics Working Days')
-
-    # print_schema_details(tsp_uk_placements_forecast_details)
-    # print_schema_details(metrics_working_days)
-
-    mongo.disconnect()
-
+def ignore():
+    """
+    Code block to be ignored for now
+    """
     # COPY_TYPES = ["replace","append"]
 
     # portal_details = {
@@ -389,3 +370,57 @@ if __name__ == '__main__':
     #         print(f"File {new_json_file} created")
     #     except:
     #         print("Bad do do happened")
+    pass
+
+
+def schema_actions():
+    """
+    Scratch pad to carry out schema operations
+    """
+    schema_details = {
+        "from_schema":"US NFI View",
+        "to_schema" :"US NFI No FOREX View"
+    }
+
+    downloads = common_funcs.get_download_directory()
+    source_file = f"{downloads}{os.sep}schema.json"
+    destination_file = f"{downloads}{os.sep}updated_schema.json"
+
+    data_list = []
+
+    data_list = [schema_copy(source_file, schema_details)]
+
+    with open(destination_file, 'w') as json_file:
+        try:
+            json.dump(data_list, json_file, indent=4)
+            print(f"File {destination_file} created")
+        except:
+            print("Bad do do happened")
+
+if __name__ == '__main__':
+
+    run_config = f"Running from {instance} Mongo instance on {database} database"
+    logger.info(run_config)
+    print(run_config)
+
+    schema_actions()
+    sys.exit()
+
+    # Working code tested
+    print_schema_details(['US NFI No FOREX View'])
+    sys.exit()
+
+    forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days','UK Forecast View']
+    sample_ids=['74633e84-deba-4720-8181-c07629a1c665',
+                '6d422fc3-3d24-4650-b069-def85c1f888c',
+                'f699b63e-c176-48d7-94a3-ba9d0b5ffa2e',
+                'a9160d18-330d-45ef-81d7-8599a75b2fe1'
+                ]
+
+    for schema in sample_ids:
+        #download_schemas_data([schema])
+        print_schema_details(schema,use_csv=False,use_name=False)
+
+
+    mongo.disconnect()
+
