@@ -2,5 +2,5 @@ data/xefr/data/xefr/
 __pycache__/
 debug.log
 data/xefr/Metrics Working Days.csv
-.gitignore
-data/xefr/TSP UK Placements Forecast.csv
+
+
