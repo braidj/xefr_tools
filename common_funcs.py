@@ -6,6 +6,23 @@ import os
 
 permitted_types = ['schemas','portals']
 
+text_colours= {
+    "RESET": "\033[0m",
+    "BOLD": "\033[1m",
+    "RED" :"\033[91m",
+    "GREEN": "\033[92m",
+    "YELLOW": "\033[93m",
+    "BLUE" :"\033[94m",
+    "MAGENTA": "\033[95m",
+    "CYAN" :"\033[96m"
+}
+
+def colour_text(text, colour):
+    """
+    Colour the text using ANSI escape codes
+    """
+    print (f"{text_colours[colour]}{text}{text_colours['RESET']}")
+
 def get_download_directory():
     """
     Get the user's home directory

@@ -40,7 +40,7 @@ def extract_json(item_list,item_type):
     source json files and writing them to individual files
     """
     if item_type not in cf.permitted_types:
-        raise Exception(f"Type {item_type} not permitted, only {permitted_types}")
+        raise Exception(f"Type {item_type} not permitted, only {cf.permitted_types}")
     
     source_file = cf.get_source_json(item_type)
 
