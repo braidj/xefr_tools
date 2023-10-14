@@ -68,49 +68,42 @@ def extract_json(item_list,item_type):
                         print(f"Error writing {title} to {outputfile}")
                         print(e)
 
-def nw_schema_copy(input_file, details):
-    #TODO not working for pivot views
+def copy_mongo_schema(source_name, new_name, new_name_id):
     """
-    Duplicate the contents of the from_schema to the to_schema
-    N.B.
-    schema.attributes is the contents required to copy
-    schema.pipelineText is required for Pivots
-    schema.typeClass is the type of schema (e.g. "view")
-    schema.autoGenerateId is not required for pivots
+    Copy an exisitng mongo db view schema to a new schema
+    N.B. The new schema must already exist.
+    Results in new file being created
     """
-    bol_has_pipeline = False
 
-    print(f"Copying contents of {details['from_schema']} to {details['to_schema']}")
+    source_file = cf.get_source_json("schemas")
 
-    with open(input_file, 'r') as file:
+    with open(source_file, 'r') as file:
         data = json.load(file)
 
-    # Assuming your JSON file is a list of schema objects
-    for schema in data:
-        title = schema.get("name")
+        for item in data:
 
-        if title == details["from_schema"]:
-            contents = schema.get("attributes")
-            type_class = schema.get("typeClass")
-            #auto_generate_id = schema.get("autoGenerateId")
+            id = item.get("id")
+            title = item.get("name")
 
-            if "pipelineText" in schema.keys():
-                pipeline = schema.get("pipelineText")
-                bol_has_pipeline = True
+            if title == source_name:
 
-        if title == details["to_schema"]:
-            update_schema = schema
+                item["id"] = new_name_id
+                item["name"] = new_name
 
-    update_schema["attributes"] = contents
+                pipeline_str = item.get("pipelineText")
+                pipeline_str = pipeline_str.replace(source_name, new_name)
+                item["pipelineText"] = pipeline_str
 
-    if bol_has_pipeline:
-        update_schema["pipelineText"] = pipeline
-        update_schema.pop("autoGenerateId")
+                outputfile = cf.get_output_json("schemas", new_name)
 
-    update_schema["typeClass"] = type_class
-    
-    return update_schema
+                with open(outputfile, 'w') as file:
+                    try:
+                        json.dump([item], file, indent=4)
+                        print("{:<20} {:<20} {:<5} {:<20}".format(new_name,new_name_id, '---->',outputfile))
 
+                    except Exception as e:
+                        print(f"Error writing {title} to {outputfile}")
+                        print(e)
 
 if __name__ == '__main__' :
 

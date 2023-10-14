@@ -8,7 +8,8 @@ available_commands = {
     "0: list schemas": (jt.report_items,["schemas"]),
     "1: list portals": (jt.report_items,["portals"]),
     "2: extract schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
-    "3: extract portal ['portal name']": (jt.extract_json,["item_list=?","portals"])
+    "3: extract portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
+    "4: duplicate mongo schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_mongo_schema,["source_name=?","new_name=?","new_name_id=?"])
 }
 
 script_version = "1.0-OCT23"
@@ -34,10 +35,10 @@ def run_selected_command(desc,func, func_args):
     contains_question_mark = any('?' in item for item in func_args)
 
     if contains_question_mark:
-
+        cf.colour_text(f"Function {desc.strip()} requires parameters","GREEN")
         for arg in func_args:
             if '?' in arg:
-                print(f"For {desc.strip()} enter value(s) for argument: {arg}")
+                cf.colour_text(f"Enter value(s) for argument: {arg}","GREEN")
                 user_input = input()
                 func_args[func_args.index(arg)] = user_input
             
