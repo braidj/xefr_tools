@@ -1,7 +1,12 @@
 import common_funcs as cf
 import json
+import os
+
+utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
+
+
 #TODO: Add logging
-#TODO: Set download path in single location
+
 
 def report_items(item_type):
     """
@@ -68,9 +73,9 @@ def extract_json(item_list,item_type):
                         print(f"Error writing {title} to {outputfile}")
                         print(e)
 
-def copy_mongo_schema(source_name, new_name, new_name_id):
+def copy_schema(source_name, new_name, new_name_id):
     """
-    Copy an exisitng mongo db view schema to a new schema
+    Copy an existing schema to a new schema, can handle mongo schemas
     N.B. The new schema must already exist.
     Results in new file being created
     """
@@ -90,9 +95,10 @@ def copy_mongo_schema(source_name, new_name, new_name_id):
                 item["id"] = new_name_id
                 item["name"] = new_name
 
-                pipeline_str = item.get("pipelineText")
-                pipeline_str = pipeline_str.replace(source_name, new_name)
-                item["pipelineText"] = pipeline_str
+                if "pipelineText" in item:
+                    pipeline_str = item.get("pipelineText")
+                    pipeline_str = pipeline_str.replace(source_name, new_name)
+                    item["pipelineText"] = pipeline_str
 
                 outputfile = cf.get_output_json("schemas", new_name)
 

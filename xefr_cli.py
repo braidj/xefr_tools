@@ -3,24 +3,57 @@ import sys
 import signal
 import json_tools as jt
 import common_funcs as cf
+import xefr_endpoints
+
+utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
+sys.path.append(utils_path)
+
+utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
+sys.path.append(utils_path)
+
+#TODO endpoints only required to download data neatly from XEFR for a given schema
+
+import utilities
+import mongo_connector
+
+
+logging = utilities.MyLogger()
+logging.reset_log()
+logger = logging.getLogger()
+logger.info(f"XEFR CLI: started")
+
+database = 'xefr-signify-dev'
+instance = "LOCAL"
+
+mongo = mongo_connector.Mongo(instance,database,logger)
+xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 
 available_commands = {
-    "0: list schemas": (jt.report_items,["schemas"]),
-    "1: list portals": (jt.report_items,["portals"]),
-    "2: extract schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
-    "3: extract portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
-    "4: duplicate mongo schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_mongo_schema,["source_name=?","new_name=?","new_name_id=?"])
+    "0: List schemas": (jt.report_items,["schemas"]),
+    "1: List portals": (jt.report_items,["portals"]),
+    "2: Extract specific schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
+    "3: Extract specific portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
+    "4: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,["source_name=?","new_name=?","new_name_id=?"]),
+    "5: Download schema data ['schema name']": (xefr.download_schemas_data,["schema_list=?"]),
+    "6: Download all schema data": (xefr.download_all_schemas_data,[])
 }
 
-script_version = "1.0-OCT23"
+script_version = "1.2-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
 
+def clean_shutdown():
+    """
+    Handles the clean shutdown of the program
+    """
+    print("\nExiting the program.")
+    mongo.disconnect()
+    sys.exit()
+
 # Define a function to handle Ctrl+C (SIGINT)
 def signal_handler(sig, frame):
-    print("\nExiting the program.")
-    sys.exit()
+    clean_shutdown()
 
 # Register the signal handler for Ctrl+C
 signal.signal(signal.SIGINT, signal_handler)
@@ -30,7 +63,11 @@ def run_selected_command(desc,func, func_args):
     Handles the derivation of the arguments required to
     run the user selected command.
     Any arugment that has a '?' in the value will be user prompted
+    N.B.Automatically downloads the latest schemas / portals.json
     """
+
+    mongo.get_xefr_json("schemas")
+    mongo.get_xefr_json("portals")
 
     contains_question_mark = any('?' in item for item in func_args)
 
@@ -45,7 +82,6 @@ def run_selected_command(desc,func, func_args):
         _ = func(*func_args)
     else:
         _ = func(*func_args)
-
 
 def check_command(user_input):
     """
@@ -85,7 +121,7 @@ def command_line_input():
     while True:
         user_input = input("\nEnter a command or type 'exit' to quit: ")
         if user_input == 'exit':
-           sys.exit()
+           clean_shutdown()
         else:
             if user_input =="?":
                 print("Available commands:")

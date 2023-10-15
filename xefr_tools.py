@@ -1,8 +1,6 @@
 import os
 import sys
-import subprocess
 import json
-import data_folders as DATA_FOLDER
 import common_funcs
 import xefr_endpoints
 import pandas as pd
@@ -26,61 +24,6 @@ instance = "LOCAL"
 xefr = xefr_endpoints.EndPoints(instance,database,logger)
 mongo = mongo_connector.Mongo(instance,database,logger)
 
-def persist_data(curl_command,schema_name,show_detail=False):
-    """
-    Run the curl command and save the output to a file
-    if show_detail is set to True will display the 
-    download details.
-    """
-    logger.debug('persist_data: %s', locals())
-
-    if show_detail:
-        curl_output = subprocess.check_output(curl_command, shell=True)
-    else:
-        curl_output = subprocess.check_output(curl_command,shell=True,stderr=subprocess.PIPE)
-
-    output_file = os.path.join(DATA_FOLDER.XEFR,schema_name)+".csv"
-    utilities.check_csv_folder_exists(output_file,True,logger)
-
-    with open(output_file, 'wb') as file:
-        file.write(curl_output)
-    try:
-        df = pd.read_csv(output_file)
-
-        if schema_name in DATA_FOLDER.sort_orders: # Require data to be sorted
-            utilities.data_frame_sort_and_save(df,output_file,DATA_FOLDER.sort_orders[schema_name],logger)
-
-        record_count = len(df)
-
-    except pd.errors.EmptyDataError:
-        record_count = 0
-
-    print(f"\n{schema_name}: {record_count} rows downloaded to {output_file}\n")
-
-def portal_backup(portal_name):
-    """
-    Creates a backup of a portal, and all its attributes into
-    its own file
-    """
-    downloads = common_funcs.get_download_directory()
-    source_file = f"{downloads}{os.sep}portals.json"
-    destination_file = f"{downloads}{os.sep}{portal_name}.json"
-
-    with open(source_file, 'r') as file:
-        data = json.load(file)
-
-    for portal in data:
-        title = portal.get("title")
-
-        if title == portal_name:
-            target_portal = portal
-
-    with open(destination_file, 'w') as json_file:
-        try:
-            json.dump([target_portal], json_file, indent=4)
-            print(f"File {destination_file} created")
-        except:
-            print("Bad do do happened")
 
 def report_dependencies(portal_name):
     """
@@ -169,48 +112,6 @@ def portlets_update(portal_name,formatting_details,skip_items):
         except:
             print("Bad do do happened")
 
-def schema_copy(input_file, details):
-    """
-    Duplicate the contents of the from_schema to the to_schema
-    N.B.
-    schema.attributes is the contents required to copy
-    schema.pipelineText is required for Pivots
-    schema.typeClass is the type of schema (e.g. "view")
-    schema.autoGenerateId is not required for pivots
-    """
-    bol_has_pipeline = False
-
-    print(f"Copying contents of {details['from_schema']} to {details['to_schema']}")
-
-    with open(input_file, 'r') as file:
-        data = json.load(file)
-
-    # Assuming your JSON file is a list of schema objects
-    for schema in data:
-        title = schema.get("name")
-
-        if title == details["from_schema"]:
-            contents = schema.get("attributes")
-            type_class = schema.get("typeClass")
-            #auto_generate_id = schema.get("autoGenerateId")
-
-            if "pipelineText" in schema.keys():
-                pipeline = schema.get("pipelineText")
-                bol_has_pipeline = True
-
-        if title == details["to_schema"]:
-            update_schema = schema
-
-    update_schema["attributes"] = contents
-
-    if bol_has_pipeline:
-        update_schema["pipelineText"] = pipeline
-        update_schema.pop("autoGenerateId")
-
-    update_schema["typeClass"] = type_class
-    
-    return update_schema
-
 def portal_copy_section(input_file, details):
     """
     Copies a portal section from one portal to another
@@ -270,49 +171,6 @@ def update_defs(schema_or_portal,details):
 
     return data_list, destination_file
 
-def download_schemas_data(schema_list):
-    """
-    Downloads the data from specified schemas
-    """
-
-    for schema in schema_list:
-
-        output_file = os.path.join(DATA_FOLDER.XEFR,schema +'.csv')
-        schema_id = mongo.get_schema_id(schema)
-        if schema_id != 0:
-            curl_cmd = xefr.get_endpoint_curl(schema_id,'data',True)
-            persist_data(curl_cmd,schema)
-        else:
-            print(f"Schema {schema} not found")
-
-def print_schema_details(schema_tag,use_csv=True,use_name=True):
-    """
-    Prints the details of a schema if they exist !
-    """
-    if use_name:
-        details = mongo.get_schema_details(schema_tag)
-    elif use_name == False:
-        details = mongo.get_schema_details_by_id(schema_tag)
-    else:
-        raise ValueError("use_name must be True or False")
-
-    if details != 0:
-
-        print()
-        if use_csv:
-            print(f"{details['name']},{details['id']})\n")
-        else:
-            print("{:<30} {:<10}".format(details['name'], details['id']),"\n")
-
-        for attribute in details['attributes']:
-            if use_csv:
-                print(f"{attribute['name']},{attribute['type']},{attribute['id']}")
-            else:
-                print("{:<20} {:<10} {:<10}".format(attribute['name'], attribute['type'], attribute['id']))
-
-
-    else:
-        print(f"\nSchema {schema_tag} not found.\n")
 
 def ignore():
     """
@@ -336,10 +194,6 @@ def ignore():
     #         "banded": True,
     # }
 
-    # schema_details = {
-    #     "from_schema":"Metrics GBP Forex Daily",
-    #     "to_schema" :"Metrics USD Forex Daily"
-    # }
 
     # # Tested and works
     # # portlets_update
@@ -356,63 +210,11 @@ def ignore():
     # combined_details = {**portal_details, **schema_details}
     # data_list, new_json_file = update_defs(update_type,combined_details)
 
-    # with open(new_json_file, 'w') as json_file:
-    #     try:
-    #         json.dump(data_list, json_file, indent=4)
-    #         print(f"File {new_json_file} created")
-    #     except:
-    #         print("Bad do do happened")
     pass
-
-
-def schema_actions():
-    """
-    Scratch pad to carry out schema operations
-    """
-    schema_details = {
-        "from_schema":"US NFI View",
-        "to_schema" :"US NFI No FOREX View"
-    }
-
-    downloads = common_funcs.get_download_directory()
-    source_file = f"{downloads}{os.sep}schema.json"
-    destination_file = f"{downloads}{os.sep}updated_schema.json"
-
-    data_list = []
-
-    data_list = [schema_copy(source_file, schema_details)]
-
-    with open(destination_file, 'w') as json_file:
-        try:
-            json.dump(data_list, json_file, indent=4)
-            print(f"File {destination_file} created")
-        except:
-            print("Bad do do happened")
 
 if __name__ == '__main__':
 
     run_config = f"Running from {instance} Mongo instance on {database} database"
     logger.info(run_config)
     print(run_config)
-
-    schema_actions()
-    sys.exit()
-
-    # Working code tested
-    print_schema_details(['US NFI No FOREX View'])
-    sys.exit()
-
-    forecast_schemas = ['TSP UK Placements Forecast','Metrics Working Days','UK Forecast View']
-    sample_ids=['74633e84-deba-4720-8181-c07629a1c665',
-                '6d422fc3-3d24-4650-b069-def85c1f888c',
-                'f699b63e-c176-48d7-94a3-ba9d0b5ffa2e',
-                'a9160d18-330d-45ef-81d7-8599a75b2fe1'
-                ]
-
-    for schema in sample_ids:
-        #download_schemas_data([schema])
-        print_schema_details(schema,use_csv=False,use_name=False)
-
-
-    mongo.disconnect()
 

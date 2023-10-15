@@ -17,6 +17,14 @@ text_colours= {
     "CYAN" :"\033[96m"
 }
 
+sort_orders = {
+    'Metrics UK NFI Adjustments':'Candidate,Placement,InvoiceDate',
+    'TSP UK Invoice Tracker':'Candidate,Placement,InvoiceDate',
+    'Metrics GBP Forex Daily':'Year,Month,Day,Symbol',
+    'Bullhorn Candidates':'Consultant',
+    'Bullhorn Consultant Details':'Consultant'
+}
+
 def colour_text(text, colour):
     """
     Colour the text using ANSI escape codes
