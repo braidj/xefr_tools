@@ -8,9 +8,6 @@ import pandas as pd
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
 
-utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
-sys.path.append(utils_path)
-
 import utilities
 import mongo_connector
 

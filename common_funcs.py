@@ -1,7 +1,7 @@
 """
 Collection of functions used by xefre_tools scripts
 """
-
+from datetime import datetime
 import os
 
 permitted_types = ['schemas','portals']
@@ -24,6 +24,18 @@ sort_orders = {
     'Bullhorn Candidates':'Consultant',
     'Bullhorn Consultant Details':'Consultant'
 }
+
+def add_ts_prefix(full_file_path):
+    """
+    Add a timestamp prefix to file name component of a file path
+    """
+
+    now = datetime.now()
+    timestamp = now.strftime("%Y_%m_%d_%H%M%S")
+    directory, filename = os.path.split(full_file_path)
+    new_filename = f"{timestamp}_{filename}"
+    updated_file_path = os.path.join(directory, new_filename)
+    return updated_file_path
 
 def colour_text(text, colour):
     """

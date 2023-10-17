@@ -2,11 +2,7 @@ import common_funcs as cf
 import json
 import os
 
-utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
-
-
 #TODO: Add logging
-
 
 def report_items(item_type):
     """
@@ -39,10 +35,11 @@ def report_items(item_type):
         id, name = stuff
         print("{:<5} {:<35} {:<20}".format(i,name, id))
 
-def extract_json(item_list,item_type):
+def extract_json(item_list,item_type,backup=True):
     """
     Handle extracting the schema(s) or portal(s) from the 
     source json files and writing them to individual files
+    If backup is set as True, will add a timestamp to the name
     """
     if item_type not in cf.permitted_types:
         raise Exception(f"Type {item_type} not permitted, only {cf.permitted_types}")
@@ -63,6 +60,9 @@ def extract_json(item_list,item_type):
             if title in item_list:
                 
                 outputfile = cf.get_output_json(item_type, title)
+
+                if backup:
+                    outputfile = cf.add_ts_prefix(outputfile)
 
                 with open(outputfile, 'w') as file:
                     try:

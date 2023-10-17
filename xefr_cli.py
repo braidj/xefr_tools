@@ -8,9 +8,6 @@ import xefr_endpoints
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
 
-utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'mongo'))
-sys.path.append(utils_path)
-
 #TODO endpoints only required to download data neatly from XEFR for a given schema
 
 import utilities
@@ -28,17 +25,21 @@ instance = "LOCAL"
 mongo = mongo_connector.Mongo(instance,database,logger)
 xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 
+active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB views/UK Forecast View.json"
+
 available_commands = {
-    "0: List schemas": (jt.report_items,["schemas"]),
-    "1: List portals": (jt.report_items,["portals"]),
-    "2: Extract specific schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
-    "3: Extract specific portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
-    "4: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,["source_name=?","new_name=?","new_name_id=?"]),
-    "5: Download schema data ['schema name']": (xefr.download_schemas_data,["schema_list=?"]),
-    "6: Download all schema data": (xefr.download_all_schemas_data,[])
+    "0: Shutdown (hard)": (sys.exit,[]),
+    "1: List schemas": (jt.report_items,["schemas"]),
+    "2: List portals": (jt.report_items,["portals"]),
+    "3: Extract specific schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
+    "4: Extract specific portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
+    "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,["source_name=?","new_name=?","new_name_id=?"]),
+    "6: Download schema data ['schema name']": (xefr.download_schemas_data,["schema_list=?"]),
+    "7: Download all schema data": (xefr.download_all_schemas_data,[]),
+    "8: Confirm active mongoDB view": (print,[active_mongo_view])
 }
 
-script_version = "1.2-OCT23"
+script_version = "1.3-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
