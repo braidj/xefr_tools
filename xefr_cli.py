@@ -36,7 +36,8 @@ available_commands = {
     "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,["source_name=?","new_name=?","new_name_id=?"]),
     "6: Download schema data ['schema name']": (xefr.download_schemas_data,["schema_list=?"]),
     "7: Download all schema data": (xefr.download_all_schemas_data,[]),
-    "8: Confirm active mongoDB view": (print,[active_mongo_view])
+    "8: Confirm active mongoDB view": (print,[active_mongo_view]),
+    "9: Display schema data ['schema name']": (xefr.display_schema,["schema_name=?"])
 }
 
 script_version = "1.3-OCT23"

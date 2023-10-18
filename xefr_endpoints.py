@@ -4,6 +4,9 @@ import os
 import subprocess
 import common_funcs as cf   
 import pandas as pd
+import csv
+import io
+from prettytable import PrettyTable
 
 
 class EndPoints(object):
@@ -55,6 +58,38 @@ class EndPoints(object):
             self.persist_data(curl_cmd,schema_name,output_file,show_detail)
         else:
             print(f"Schema {schema_name} not found")
+
+    def display_data(self,curl_command,schema_name,show_detail=False):
+        """
+        Displays the first 10 rows of data nicely formatted
+        """
+
+        if show_detail:
+            print(curl_command)
+            curl_output = subprocess.check_output(curl_command, shell=True)
+        else:
+            curl_output = subprocess.check_output(curl_command,shell=True,stderr=subprocess.PIPE)
+
+        csv_data_string = curl_output.decode('utf-8')
+
+        # Create a StringIO object to work with the CSV module
+        csv_data_io = io.StringIO(csv_data_string)
+
+        # Create a CSV reader
+        csv_reader = csv.reader(csv_data_io)
+
+        # Create a PrettyTable instance and set the column names from the header
+        header = next(csv_reader)
+        table = PrettyTable(header)
+
+        # Add the first 10 data rows to the table
+        for i, row in enumerate(csv_reader):
+            if i >= 10:
+                break
+            table.add_row(row)
+
+        # Print the formatted table
+        print(table)
 
     def persist_data(self,curl_command,schema_name,output_file,show_detail=False):
         """
@@ -128,4 +163,14 @@ class EndPoints(object):
 
         return results
 
-        
+    def display_schema(self,schema_name):
+        """
+        Show the first 10 rows of data from a schema
+        """
+        schema_id = self.mongo.get_schema_id(schema_name)
+
+        if schema_id != 0:
+            curl_cmd = self.get_endpoint_curl(schema_id,'data',True)
+            curl_output = self.display_data(curl_cmd,schema_name)
+        else:
+            print(f"Schema {schema_name} not found")
