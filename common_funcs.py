@@ -25,6 +25,11 @@ sort_orders = {
     'Bullhorn Consultant Details':'Consultant'
 }
 
+# Hide these columns when displaying schema data
+hide_columns = {
+    'UK Forecast View':'Type,PlacementCandidateLookup,ChargeCode,Multiplier,ExchangeRate,CompanyName,Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,Currency'
+}
+
 def add_ts_prefix(full_file_path):
     """
     Add a timestamp prefix to file name component of a file path

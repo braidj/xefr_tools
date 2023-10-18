@@ -80,13 +80,28 @@ class EndPoints(object):
 
         # Create a PrettyTable instance and set the column names from the header
         header = next(csv_reader)
-        table = PrettyTable(header)
+
+        if schema_name in cf.hide_columns: # Filter out columns if required
+            columns_to_exclude = cf.hide_columns[schema_name].split(',')
+        else:
+            columns_to_exclude = []
+
+        # Create a PrettyTable instance without the excluded columns
+        table = PrettyTable([col for col in header if col not in columns_to_exclude])
 
         # Add the first 10 data rows to the table
         for i, row in enumerate(csv_reader):
             if i >= 10:
                 break
-            table.add_row(row)
+            # Create a filtered row without the excluded columns
+            filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]
+            table.add_row(filtered_row)
+
+        # # Add the first 10 data rows to the table
+        # for i, row in enumerate(csv_reader):
+        #     if i >= 10:
+        #         break
+        #     table.add_row(row)
 
         # Print the formatted table
         print(table)

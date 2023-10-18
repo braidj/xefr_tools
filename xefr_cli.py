@@ -27,15 +27,16 @@ mongo = mongo_connector.Mongo(instance,database,logger)
 xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 
 active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB views/UK Forecast View.json"
+command_history = {"last_command": "not run yet"} # re-run the last command easily
 
 available_commands = {
     "0: Confirm active mongoDB view": (print,(active_mongo_view)),
     "1: List schemas": (jt.report_items,("schemas")),
     "2: List portals": (jt.report_items,("portals")),
-    "3: Extract specific schema ['schema name']": (jt.extract_json,("item_list=?","schemas")),
-    "4: Extract specific portal ['portal name']": (jt.extract_json,("item_list=?","portals")),
+    "3: Extract specific schema ['schema name']": (jt.extract_json,("object_name=?","schemas")),
+    "4: Extract specific portal ['portal name']": (jt.extract_json,("object_name=?","portals")),
     "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "6: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_list=?")),
+    "6: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_name=?")),
     "7: Download all schema data": (xefr.download_all_schemas_data,()),
     "8: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?"))
 }
@@ -51,6 +52,10 @@ script_version = "1.4-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
+
+
+def test():
+    print("can not run this yet")
 
 def clean_shutdown():
     """
@@ -76,7 +81,14 @@ def run_selected_command(cmd_id):
     """
 
     selected_func,template_args = command_attributes[cmd_id]
-    template_args_list = template_args.split(',')
+
+    if type(template_args) == tuple:
+        template_args_list = list(template_args)
+    if type(template_args) == str:
+        template_args_list = template_args.split(',')
+    if type(template_args) == dict:
+        template_args_list = [template_args]
+
     func_desc = command_descriptions[cmd_id]
 
     args_list=[] # used to store the arguments to pass to the function
@@ -89,13 +101,15 @@ def run_selected_command(cmd_id):
         if '?' in arg:
             cf.colour_text(f"{func_desc}: Enter value(s) for: {arg}","GREEN")
             user_input = input()
-            
+
             if len(template_args_list) == 1: # only one arg, so postional style not required
                 arg = user_input
             else:
                 arg = arg.replace('?',user_input)
 
         args_list.append(arg)
+
+    command_history['last_command'] = [selected_func,args_list]
 
     _ = selected_func(*args_list)
 

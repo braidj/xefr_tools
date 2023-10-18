@@ -35,7 +35,7 @@ def report_items(item_type):
         id, name = stuff
         print("{:<5} {:<35} {:<20}".format(i,name, id))
 
-def extract_json(item_list,item_type,backup=True):
+def extract_json(object_name,item_type,backup=True):
     """
     Handle extracting the schema(s) or portal(s) from the 
     source json files and writing them to individual files
@@ -57,7 +57,7 @@ def extract_json(item_list,item_type,backup=True):
             if item_type == 'portals':
                 title = item.get("title")
 
-            if title in item_list:
+            if title in object_name:
                 
                 outputfile = cf.get_output_json(item_type, title)
 
