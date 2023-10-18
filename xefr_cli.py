@@ -4,6 +4,7 @@ import signal
 import json_tools as jt
 import common_funcs as cf
 import xefr_endpoints
+import types
 
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
@@ -28,19 +29,25 @@ xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB views/UK Forecast View.json"
 
 available_commands = {
-    "0: Shutdown (hard)": (sys.exit,[]),
-    "1: List schemas": (jt.report_items,["schemas"]),
-    "2: List portals": (jt.report_items,["portals"]),
-    "3: Extract specific schema ['schema name']": (jt.extract_json,["item_list=?","schemas"]),
-    "4: Extract specific portal ['portal name']": (jt.extract_json,["item_list=?","portals"]),
-    "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,["source_name=?","new_name=?","new_name_id=?"]),
-    "6: Download schema data ['schema name']": (xefr.download_schemas_data,["schema_list=?"]),
-    "7: Download all schema data": (xefr.download_all_schemas_data,[]),
-    "8: Confirm active mongoDB view": (print,[active_mongo_view]),
-    "9: Display schema data ['schema name']": (xefr.display_schema,["schema_name=?"])
+    "0: Confirm active mongoDB view": (print,(active_mongo_view)),
+    "1: List schemas": (jt.report_items,("schemas")),
+    "2: List portals": (jt.report_items,("portals")),
+    "3: Extract specific schema ['schema name']": (jt.extract_json,("item_list=?","schemas")),
+    "4: Extract specific portal ['portal name']": (jt.extract_json,("item_list=?","portals")),
+    "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
+    "6: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_list=?")),
+    "7: Download all schema data": (xefr.download_all_schemas_data,()),
+    "8: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?"))
 }
 
-script_version = "1.3-OCT23"
+command_raw_keys = list(available_commands.keys())
+command_attributes = list(available_commands.values())
+command_ids = [(x.split(':')[0]) for x in command_raw_keys]
+permitted_str_commands = ['x','?']
+command_descriptions= [x.split(':')[1] for x in command_raw_keys]
+all_permitted_command_ids = command_ids + permitted_str_commands
+
+script_version = "1.4-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
@@ -60,49 +67,72 @@ def signal_handler(sig, frame):
 # Register the signal handler for Ctrl+C
 signal.signal(signal.SIGINT, signal_handler)
 
-def run_selected_command(desc,func, func_args):
+def run_selected_command(cmd_id):
     """
     Handles the derivation of the arguments required to
     run the user selected command.
-    Any arugment that has a '?' in the value will be user prompted
+    Any argument that has a '?' in the value will be user prompted
     N.B.Automatically downloads the latest schemas / portals.json
     """
+
+    selected_func,template_args = command_attributes[cmd_id]
+    template_args_list = template_args.split(',')
+    func_desc = command_descriptions[cmd_id]
+
+    args_list=[] # used to store the arguments to pass to the function
 
     mongo.get_xefr_json("schemas")
     mongo.get_xefr_json("portals")
 
-    contains_question_mark = any('?' in item for item in func_args)
+    for arg in template_args_list:
 
-    if contains_question_mark:
-        cf.colour_text(f"Function {desc.strip()} requires parameters","GREEN")
-        for arg in func_args:
-            if '?' in arg:
-                cf.colour_text(f"Enter value(s) for argument: {arg}","GREEN")
-                user_input = input()
-                func_args[func_args.index(arg)] = user_input
+        if '?' in arg:
+            cf.colour_text(f"{func_desc}: Enter value(s) for: {arg}","GREEN")
+            user_input = input()
             
-        _ = func(*func_args)
-    else:
-        _ = func(*func_args)
+            if len(template_args_list) == 1: # only one arg, so postional style not required
+                arg = user_input
+            else:
+                arg = arg.replace('?',user_input)
+
+        args_list.append(arg)
+
+    _ = selected_func(*args_list)
 
 def check_command(user_input):
     """
     Maps the user input to the appropriate function
     N.B. User just types the number of the command
+    To pass it to commands library needs to be a int
     """
 
-    raw_keys = list(available_commands.keys())
-    cmd_ids = [int(x.split(':')[0]) for x in raw_keys]
-    cmd_labels = [x.split(':')[1] for x in raw_keys]
+    selected_cmd_id = user_input.strip()
 
-    if int(user_input) not in cmd_ids:
+    if selected_cmd_id not in all_permitted_command_ids:
+        print(f"You typed {user_input} which is not of the permitted  commands\n{all_permitted_command_ids}\n")
         display_intro()
-        print(f"You typed {user_input} which is not of the command numbers\n{raw_keys}\n")
-    else:
-        selected_func, arg = available_commands[raw_keys[int(user_input)]]
-        run_selected_command(cmd_labels[int(user_input)],selected_func, arg)
         return
-    
+
+    if selected_cmd_id in permitted_str_commands:
+        if user_input == '?':
+            display_commands()
+            return
+        else:
+            clean_shutdown()
+            return
+
+    run_selected_command(int(selected_cmd_id))
+    return
+
+def display_commands():
+    """
+    Display the available commands
+    """
+    print("Available commands:")
+
+    for command in available_commands:
+        print(command)
+
 def display_intro():
     """
     Display the intro text for the CLI
@@ -111,7 +141,7 @@ def display_intro():
     box_len = 47
     cf.colour_text('_' * box_len,"GREEN")
     cf.colour_text(f"Welcome to the XEFR CLI! [version {script_version}]","GREEN")
-    print("Type 'exit', or control c to quit the program.")
+    print("Type 'x', or control c to quit the program.")
     print("Type '? to see a list of commands.")
     cf.colour_text("Select command by the number only.","RED")
     cf.colour_text('_' * box_len,"GREEN")
@@ -121,16 +151,9 @@ def command_line_input():
     display_intro()
 
     while True:
-        user_input = input("\nEnter a command or type 'exit' to quit: ")
-        if user_input == 'exit':
-           clean_shutdown()
-        else:
-            if user_input =="?":
-                print("Available commands:")
-                for command in available_commands:
-                    print(command)
-            else:
-                check_command(user_input)
+
+        user_input = input("\nEnter a command or type 'x' to quit: ")
+        check_command(user_input)
 
 if __name__ == '__main__':
     command_line_input()
