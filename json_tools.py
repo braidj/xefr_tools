@@ -2,6 +2,7 @@ import common_funcs as cf
 import json
 import os
 from tabulate import tabulate
+import re
 
 #TODO: Add logging
 
@@ -136,9 +137,9 @@ def copy_schema(source_name, new_name, new_name_id):
                         print(f"Error writing {title} to {outputfile}")
                         print(e)
 
-def get_pipeline(schema_name):
+def get_pipeline_text(schema_name):
     """
-    Returns the pipeline for a given schema
+    Returns the pipeline text for a given schema
     """
     source_file = cf.get_source_json("schemas")
 
@@ -154,24 +155,32 @@ def get_pipeline(schema_name):
                 if "pipelineText" in item:
                     pipeline_str = item.get("pipelineText")
 
-                    lines = [line.strip() for line in pipeline_str.split('\n')]
-                    formatted_data = '\n'.join(lines)
-                    print(formatted_data)
-                    outputfile = cf.get_xefr_directory() + os.sep + "pipeline_" + schema_name + ".json"
+                    return pipeline_str
 
-                    with open(outputfile, 'w') as file:
-                        try:
-                            json.dump(formatted_data, file, indent=4)
-                            print("{:<4} {:<20} {:<5} {:<20}".format(schema_name,'Pipeline', '---->',outputfile))
+def get_pipeline_columns(schema_name):
+    """
+    Returns a sorted, distinct list of columns referenced in the pipeline
+    """
+    schema = schema_name.strip()
+    pipeline = get_pipeline_text(schema)
+    pattern = r'\{([^}]+)\}'
 
-                        except Exception as e:
-                            print(f"Error writing {title} to {outputfile}")
-                            print(e)
+    matches = re.findall(pattern, pipeline)
+    distinct_sorted_matches = sorted(set(matches))# Remove duplicates, sort the matches
+
+    column_details = [x for x in distinct_sorted_matches if "$" not in x]
+    all_tables = [x.split('.')[0] for x in column_details]
+    distinct_tables = sorted(set(all_tables))
+
+    cf.colour_text(f"{schema} pipeline depends on {len(distinct_tables)} tables","BLUE")
+    for table_nos, table in enumerate(distinct_tables,1):
+        print()
+        cf.colour_text(f"{table_nos}: {table}","BLUE")
+
+        for col in column_details:
+            if col.startswith(table):
+                print(f"\t\t{col}")
 
 if __name__ == '__main__' :
 
-    report_items('schemas')
-    #report_items('portals')
-
-    # extract_json(['US NFI View'],'schemas')
-    # extract_json(['US NFI'],'portals')
+    get_pipeline_columns("UK Forecast View")

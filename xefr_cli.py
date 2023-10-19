@@ -31,17 +31,16 @@ command_history = {"last_command": "not run yet"} # re-run the last command easi
 full_script_path = os.path.abspath(__file__)
 
 available_commands = {
-    "0: Schema Report ['schema name']": (jt.schema_report,("schema_name=?")),
-    "1: List schemas": (jt.report_items,("schemas")),
-    "2: List portals": (jt.report_items,("portals")),
-    "3: Extract specific schema ['schema name']": (jt.extract_json,("object_name=?","schemas")),
-    "4: Extract specific portal ['portal name']": (jt.extract_json,("object_name=?","portals")),
+    "0: List schemas": (jt.report_items,("schemas")),
+    "1: Schema Report ['schema name']": (jt.schema_report,("schema_name=?")),
+    "2: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?")),
+    "3: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_name=?")),
+    "4: Extract specific schema ['schema name']": (jt.extract_json,("object_name=?","schemas")),
     "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "6: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_name=?")),
-    "7: Download all schema data": (xefr.download_all_schemas_data,()),
-    "8: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?")),
-    "9: Download Pipeline text ['schema name']": (jt.get_pipeline,("schema_name=?"))
-
+    "6: Download all schema data": (xefr.download_all_schemas_data,()),
+    "7: Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("schema_name=?")),
+    "8: List portals": (jt.report_items,("portals")),
+    "9: Extract specific portal ['portal name']": (jt.extract_json,("object_name=?","portals"))
 }
 
 command_raw_keys = list(available_commands.keys())
