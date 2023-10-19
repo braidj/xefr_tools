@@ -1,8 +1,33 @@
 import common_funcs as cf
 import json
 import os
+from tabulate import tabulate
 
 #TODO: Add logging
+
+def schema_report(schema_name):
+    """
+    Outputs a formatted report displaying the key information for a schema
+    """
+
+    item_type = 'schemas'
+    schema = schema_name.strip()
+    source_file = cf.get_source_json(item_type)
+    print(source_file)
+
+    with open(source_file, 'r') as file:
+        data = json.load(file)
+
+        for item in data:
+
+            if item.get("name") == schema:
+
+                cf.colour_text(f'Schema Name: {schema}',"BLUE")
+                cf.colour_text(f'Description: {item.get("description")}',"BLUE")
+
+                raw_attributes = item.get("attributes")
+                table_data = [[col["name"], col["type"], col["id"]] for col in raw_attributes]
+                print(tabulate(table_data, headers=["Name", "Type", "ID"], tablefmt="grid"))
 
 def report_items(item_type):
     """
@@ -110,6 +135,38 @@ def copy_schema(source_name, new_name, new_name_id):
                     except Exception as e:
                         print(f"Error writing {title} to {outputfile}")
                         print(e)
+
+def get_pipeline(schema_name):
+    """
+    Returns the pipeline for a given schema
+    """
+    source_file = cf.get_source_json("schemas")
+
+    with open(source_file, 'r') as file:
+        data = json.load(file)
+
+        for item in data:
+
+            title = item.get("name")
+
+            if title == schema_name:
+
+                if "pipelineText" in item:
+                    pipeline_str = item.get("pipelineText")
+
+                    lines = [line.strip() for line in pipeline_str.split('\n')]
+                    formatted_data = '\n'.join(lines)
+                    print(formatted_data)
+                    outputfile = cf.get_xefr_directory() + os.sep + "pipeline_" + schema_name + ".json"
+
+                    with open(outputfile, 'w') as file:
+                        try:
+                            json.dump(formatted_data, file, indent=4)
+                            print("{:<4} {:<20} {:<5} {:<20}".format(schema_name,'Pipeline', '---->',outputfile))
+
+                        except Exception as e:
+                            print(f"Error writing {title} to {outputfile}")
+                            print(e)
 
 if __name__ == '__main__' :
 

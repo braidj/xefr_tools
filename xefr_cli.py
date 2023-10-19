@@ -28,9 +28,10 @@ xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 
 active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB views/UK Forecast View.json"
 command_history = {"last_command": "not run yet"} # re-run the last command easily
+full_script_path = os.path.abspath(__file__)
 
 available_commands = {
-    "0: Confirm active mongoDB view": (print,(active_mongo_view)),
+    "0: Schema Report ['schema name']": (jt.schema_report,("schema_name=?")),
     "1: List schemas": (jt.report_items,("schemas")),
     "2: List portals": (jt.report_items,("portals")),
     "3: Extract specific schema ['schema name']": (jt.extract_json,("object_name=?","schemas")),
@@ -38,13 +39,15 @@ available_commands = {
     "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
     "6: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_name=?")),
     "7: Download all schema data": (xefr.download_all_schemas_data,()),
-    "8: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?"))
+    "8: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?")),
+    "9: Download Pipeline text ['schema name']": (jt.get_pipeline,("schema_name=?"))
+
 }
 
 command_raw_keys = list(available_commands.keys())
 command_attributes = list(available_commands.values())
 command_ids = [(x.split(':')[0]) for x in command_raw_keys]
-permitted_str_commands = ['x','?']
+permitted_str_commands = ['x','?','r']
 command_descriptions= [x.split(':')[1] for x in command_raw_keys]
 all_permitted_command_ids = command_ids + permitted_str_commands
 
@@ -52,10 +55,6 @@ script_version = "1.4-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
-
-
-def test():
-    print("can not run this yet")
 
 def clean_shutdown():
     """
@@ -113,6 +112,15 @@ def run_selected_command(cmd_id):
 
     _ = selected_func(*args_list)
 
+def rerun_last_command():
+    """
+    RE-runs the last command
+    """
+    cf.colour_text("Re-running the last command","BLUE")
+    selected_func,args_list = command_history['last_command']
+
+    _ = selected_func(*args_list)
+
 def check_command(user_input):
     """
     Maps the user input to the appropriate function
@@ -131,8 +139,11 @@ def check_command(user_input):
         if user_input == '?':
             display_commands()
             return
-        else:
+        elif user_input == 'x':
             clean_shutdown()
+            return
+        elif user_input == 'r':
+            rerun_last_command()
             return
 
     run_selected_command(int(selected_cmd_id))
