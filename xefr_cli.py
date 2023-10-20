@@ -9,12 +9,10 @@ import types
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
 
-#TODO endpoints only required to download data neatly from XEFR for a given schema
-
 import utilities
 import mongo_connector
 
-
+script_version = "1.61-OCT23"
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
@@ -51,7 +49,7 @@ command_descriptions = list(avail_commands.keys())
 permitted_str_commands = ['x','?','r']
 all_permitted_command_ids = command_ids + permitted_str_commands
 
-script_version = "1.6-OCT23"
+
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
@@ -79,6 +77,9 @@ def run_selected_command(cmd_id):
     N.B.Automatically downloads the latest schemas / portals.json
     """
 
+    mongo.get_xefr_json("schemas")
+    mongo.get_xefr_json("portals")
+
     adj_id = cmd_id - 1 # adjust for 0 indexing
     selected_func,template_args = command_attributes[adj_id]
 
@@ -92,9 +93,6 @@ def run_selected_command(cmd_id):
     func_desc = command_descriptions[adj_id]
 
     args_list=[] # used to store the arguments to pass to the function
-
-    mongo.get_xefr_json("schemas")
-    mongo.get_xefr_json("portals")
 
     for arg in template_args_list:
         
