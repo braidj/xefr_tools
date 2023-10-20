@@ -137,9 +137,10 @@ def copy_schema(source_name, new_name, new_name_id):
                         print(f"Error writing {title} to {outputfile}")
                         print(e)
 
-def get_pipeline_text(schema_name):
+def get_pipeline_text(schema_name,display=False):
     """
     Returns the pipeline text for a given schema
+    Note use of display to print the pipeline text only
     """
     source_file = cf.get_source_json("schemas")
 
@@ -155,7 +156,10 @@ def get_pipeline_text(schema_name):
                 if "pipelineText" in item:
                     pipeline_str = item.get("pipelineText")
 
-                    return pipeline_str
+                    if display:
+                        cf.colour_text(pipeline_str,"GREEN")
+                    else:
+                        return pipeline_str
 
 def get_pipeline_columns(schema_name):
     """

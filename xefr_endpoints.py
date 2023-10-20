@@ -91,7 +91,7 @@ class EndPoints(object):
 
         # Add the first 10 data rows to the table
         for i, row in enumerate(csv_reader):
-            if i >= 10:
+            if i >= 250:
                 break
             # Create a filtered row without the excluded columns
             filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]

@@ -27,7 +27,7 @@ sort_orders = {
 
 # Hide these columns when displaying schema data
 hide_columns = {
-    'UK Forecast View':'Type,PlacementCandidateLookup,ChargeCode,Multiplier,ExchangeRate,CompanyName,Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,Currency,InvoiceDate,LinePrice'
+    'UK Forecast View':'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,Currency,LinePrice,Country,Consultant'
 }
 
 def add_ts_prefix(full_file_path):

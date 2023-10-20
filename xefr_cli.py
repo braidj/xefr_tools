@@ -32,15 +32,17 @@ full_script_path = os.path.abspath(__file__)
 
 available_commands = {
     "0: List schemas": (jt.report_items,("schemas")),
-    "1: Schema Report ['schema name']": (jt.schema_report,("schema_name=?")),
-    "2: Display schema data ['schema name']": (xefr.display_schema,("schema_name=?")),
-    "3: Download schema data ['schema name']": (xefr.download_schemas_data,("schema_name=?")),
-    "4: Extract specific schema ['schema name']": (jt.extract_json,("object_name=?","schemas")),
-    "5: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "6: Download all schema data": (xefr.download_all_schemas_data,()),
-    "7: Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("schema_name=?")),
-    "8: List portals": (jt.report_items,("portals")),
-    "9: Extract specific portal ['portal name']": (jt.extract_json,("object_name=?","portals"))
+    "1: Report on schema ['schema name']": (jt.schema_report,("?")),
+    "2: Display schema data ['schema name']": (xefr.display_schema,("?")),
+    "3: Download schema data ['schema name']": (xefr.download_schemas_data,("?")),
+    "4: Download all schema data": (xefr.download_all_schemas_data,()),
+    "5: Extract specific schema ['schema name']": (jt.extract_json,("?","schemas")),
+    "6: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
+    "7: Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
+    "8: Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
+    "9: List portals": (jt.report_items,("portals")),
+    "10: Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
+    "11: Clear screen": (os.system,("clear"))
 }
 
 command_raw_keys = list(available_commands.keys())
@@ -50,7 +52,7 @@ permitted_str_commands = ['x','?','r']
 command_descriptions= [x.split(':')[1] for x in command_raw_keys]
 all_permitted_command_ids = command_ids + permitted_str_commands
 
-script_version = "1.4-OCT23"
+script_version = "1.5-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
@@ -95,17 +97,19 @@ def run_selected_command(cmd_id):
     mongo.get_xefr_json("portals")
 
     for arg in template_args_list:
+        
+        if type(arg) == bool:
+            pass
 
-        if '?' in arg:
-            cf.colour_text(f"{func_desc}: Enter value(s) for: {arg}","GREEN")
-            user_input = input()
-
-            if len(template_args_list) == 1: # only one arg, so postional style not required
-                arg = user_input
-            else:
-                arg = arg.replace('?',user_input)
+        else:
+            if '?' in arg:
+                cf.colour_text(f"{func_desc}: Enter value(s) for: {arg}","GREEN")
+                user_input = input()
+                arg = user_input.strip()
 
         args_list.append(arg)
+
+    print(f"Running with args: {args_list}")
 
     command_history['last_command'] = [selected_func,args_list]
 
