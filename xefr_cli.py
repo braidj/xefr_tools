@@ -30,29 +30,28 @@ active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB
 command_history = {"last_command": "not run yet"} # re-run the last command easily
 full_script_path = os.path.abspath(__file__)
 
-available_commands = {
-    "0: List schemas": (jt.report_items,("schemas")),
-    "1: Report on schema ['schema name']": (jt.schema_report,("?")),
-    "2: Display schema data ['schema name']": (xefr.display_schema,("?")),
-    "3: Download schema data ['schema name']": (xefr.download_schemas_data,("?")),
-    "4: Download all schema data": (xefr.download_all_schemas_data,()),
-    "5: Extract specific schema ['schema name']": (jt.extract_json,("?","schemas")),
-    "6: Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "7: Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
-    "8: Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
-    "9: List portals": (jt.report_items,("portals")),
-    "10: Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
-    "11: Clear screen": (os.system,("clear"))
+avail_commands = {
+    "List schemas": (jt.report_items,("schemas")),
+    "Report on schema ['schema name']": (jt.schema_report,("?")),
+    "Display schema data ['schema name']": (xefr.display_schema,("?")),
+    "Download schema data ['schema name']": (xefr.download_schemas_data,("?")),
+    "Download all schema data": (xefr.download_all_schemas_data,()),
+    "Extract specific schema ['schema name']": (jt.extract_json,("?","schemas")),
+    "Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
+    "Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
+    "Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
+    "List portals": (jt.report_items,("portals")),
+    "Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
+    "Clear screen": (os.system,("clear"))
 }
 
-command_raw_keys = list(available_commands.keys())
-command_attributes = list(available_commands.values())
-command_ids = [(x.split(':')[0]) for x in command_raw_keys]
+command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
+command_attributes = list(avail_commands.values())
+command_descriptions = list(avail_commands.keys())
 permitted_str_commands = ['x','?','r']
-command_descriptions= [x.split(':')[1] for x in command_raw_keys]
 all_permitted_command_ids = command_ids + permitted_str_commands
 
-script_version = "1.5-OCT23"
+script_version = "1.6-OCT23"
 
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
@@ -80,7 +79,8 @@ def run_selected_command(cmd_id):
     N.B.Automatically downloads the latest schemas / portals.json
     """
 
-    selected_func,template_args = command_attributes[cmd_id]
+    adj_id = cmd_id - 1 # adjust for 0 indexing
+    selected_func,template_args = command_attributes[adj_id]
 
     if type(template_args) == tuple:
         template_args_list = list(template_args)
@@ -89,7 +89,7 @@ def run_selected_command(cmd_id):
     if type(template_args) == dict:
         template_args_list = [template_args]
 
-    func_desc = command_descriptions[cmd_id]
+    func_desc = command_descriptions[adj_id]
 
     args_list=[] # used to store the arguments to pass to the function
 
@@ -157,9 +157,8 @@ def display_commands():
     Display the available commands
     """
     print("Available commands:")
-
-    for command in available_commands:
-        print(command)
+    for i, cmd in enumerate(command_descriptions):
+        print(f"{i+1}: {cmd}")
 
 def display_intro():
     """
