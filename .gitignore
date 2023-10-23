@@ -1,5 +1,7 @@
 data/xefr/data/xefr/
 __pycache__/
 debug.log
-
-
+data/.DS_Store
+data/mongoDB views/UK Forecast View/.DS_Store
+data/mongoDB views/.DS_Store
+.DS_Store
