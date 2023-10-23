@@ -12,7 +12,7 @@ sys.path.append(utils_path)
 import utilities
 import mongo_connector
 
-script_version = "1.61-OCT23"
+script_version = "1.62-OCT23"
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
@@ -106,8 +106,6 @@ def run_selected_command(cmd_id):
                 arg = user_input.strip()
 
         args_list.append(arg)
-
-    print(f"Running with args: {args_list}")
 
     command_history['last_command'] = [selected_func,args_list]
 

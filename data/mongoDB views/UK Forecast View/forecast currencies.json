@@ -1,0 +1,21 @@
+//THIS IS THE QUERY TO GET THE LATEST FORECAST EXCHANGE RATE FOR EACH PC SYMBOL//
+
+{
+    $lookup: {
+        from: "dataInstances",
+        localField: $id{UK Forecast View.PC Symbol},
+        foreignField: $id{Metrics GBP Forex Daily.Symbol},
+        pipeline: [
+            {
+                $sort: {
+                        "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                }
+            },
+            {
+                $limit: 1
+            }
+            ],
+        as: "ForecastExchangeRates"
+    }
+
+}

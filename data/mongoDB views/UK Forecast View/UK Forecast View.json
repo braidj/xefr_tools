@@ -1,0 +1,228 @@
+[
+    {
+        $match: {
+        schemaId: $id{TSP UK Placements Forecast}
+        }
+    },
+    {
+            $project: {
+             id: 1,
+             schemaId: $id{UK Forecast View},
+             $id{UK Forecast View.Candidate}: $$id{TSP UK Placements Forecast.Candidate},
+             $id{UK Forecast View.CompanyName}: $$id{TSP UK Placements Forecast.CompanyName},
+             $id{UK Forecast View.Placement}: { $toString: $$id{TSP UK Placements Forecast.Placement} },
+             $id{UK Forecast View.InvoiceDate}: $$id{TSP UK Placements Forecast.Forecast Date},
+             $id{UK Forecast View.Currency}: $$id{TSP UK Placements Forecast.CC Symbol},
+             $id{UK Forecast View.LinePrice}: $$id{TSP UK Placements Forecast.Charge Rate},
+             $id{UK Forecast View.ChargeCode}: "Temp",
+             $id{UK Forecast View.Source}: "UK Placements Forecast",
+             $id{UK Forecast View.Country}: "UK",
+             $id{UK Forecast View.Placement Start}: $$id{TSP UK Placements Forecast.Placement Start},
+             $id{UK Forecast View.Placement End}: $$id{TSP UK Placements Forecast.Placement End},
+             $id{UK Forecast View.PC Symbol}: $$id{TSP UK Placements Forecast.PC Symbol},
+             $id{UK Forecast View.Pay Rate}: $$id{TSP UK Placements Forecast.Pay Rate},
+             $id{UK Forecast View.Unit}: $$id{TSP UK Placements Forecast.Unit}
+            }
+    },
+    {
+        $set: {
+            $id{UK Forecast View.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{UK Forecast View.InvoiceDate} } } },
+            $id{UK Forecast View.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{UK Forecast View.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{UK Forecast View.InvoiceDate} } }] }] },
+            $id{UK Forecast View.Day}: { $dayOfMonth: { $toDate: $$id{UK Forecast View.InvoiceDate} } },
+            $id{UK Forecast View.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{UK Forecast View.InvoiceDate} } }] }] },
+            $id{UK Forecast View.Multiplier}: { $cond: { if: { $eq: [$$id{UK Forecast View.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
+        }
+    },
+    {
+        $set: {
+            fxLookup: {
+            $concat: [
+                { $toString: $$id{UK Forecast View.Year} },
+                { $toString: $$id{UK Forecast View.Month} },
+                { $toString: $$id{UK Forecast View.Day} },
+                { $toString: $$id{UK Forecast View.Currency} }
+            ]
+            }
+        }
+    },
+    {
+        $set: {
+            $id{UK Forecast View.WorkingDaysCK}:{
+            $concat: [
+                "UK",
+                {$toString: $$id{UK Forecast View.Year} },
+                {$toString: $$id{UK Forecast View.Month} }
+            ] 
+            }
+        }
+    },
+    {
+        $lookup:{
+            from: "dataInstances",
+            localField: $id{UK Forecast View.WorkingDaysCK},
+            foreignField: "compoundIndexValues._id{Metrics Working Days}.workingDaysLookup",
+            as: "workingDays"
+        }
+    },
+{
+$set: {"firstWorkingDays":{ $arrayElemAt: ["$workingDays",0]}}
+},
+{
+$set : { $id{UK Forecast View.WorkingDays}: "$firstWorkingDays._id{Metrics Working Days.Nos Days}" }
+},
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: "fxLookup",
+            foreignField: "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup",
+            as: "exchangeRates"
+        }
+    },
+    {
+        $set: {
+            "firstRate": { $arrayElemAt: ["$exchangeRates", 0] }
+        }
+    },
+    {
+        $set: {
+            $id{UK Forecast View.ExchangeRate}: { $cond: [ { $eq: [$$id{UK Forecast View.Currency}, "£"] } , 1, "$firstRate._id{Metrics GBP Forex Daily.GBP Rate}" ] }
+        }
+    },
+    {
+        $unset: ["exchangeRates", "firstRate", "fxLookup"]
+    },
+    {
+        $set: {
+            consultantLookup: {
+            $concat: [
+            { $toString: $$id{UK Forecast View.Placement} },
+            { $toString: $$id{UK Forecast View.Candidate} }
+            ]
+            }
+        }
+    },
+        {
+        $set: { $id{UK Forecast View.PlacementCandidateLookup}: "$consultantLookup" }
+        },
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: "consultantLookup",
+            foreignField: "compoundIndexValues._id{TSP UK Placements Tracker}.placementCandidateLookup",
+            as: "consultants"
+        }
+    },
+    {
+        $set: {
+            "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
+        }
+    },
+    {
+        $set: {
+        $id{UK Forecast View.Consultant}: "$firstConsultant._id{TSP UK Placements Tracker.Consultant}"
+        }
+    },
+    {
+        $unset: ["consultants", "firstConsultant", "consultantLookup"]
+    },
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{UK Forecast View.ChargeCode},
+            foreignField: $id{Metrics Charge Codes.ChargeCode},
+            as: "types"
+        }
+    },
+    {
+        $set: {
+            "firstType": { $arrayElemAt: ["$types", 0] }
+        }
+    },
+    {
+        $set: {
+            $id{UK Forecast View.Type}: "$firstType._id{Metrics Charge Codes.Type}"
+        }
+    },
+    {
+        $unset: ["types", "firstType"]
+    },
+    {
+        $set: {
+            $id{UK Forecast View.GBPLinePrice}: {
+                $cond: {
+                    if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
+                    then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]},
+                    else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]}
+                }
+            }
+        }
+    },
+{
+    $set: {
+        $id{UK Forecast View.Pay Rate GBP}: {
+            $cond: {
+                if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
+                then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]},
+                else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]}
+            }
+        }
+    }
+},
+{
+    $set: {
+        $id{UK Forecast View.Net Revenue GBP}: {
+            $subtract:[ $$id{UK Forecast View.GBPLinePrice}, $$id{UK Forecast View.Pay Rate GBP} ]
+        }
+    }
+},
+{
+    $set:{
+        $id{UK Forecast View.Forecast GBP}: {
+            $cond: {
+                if: {
+                    $eq: [ $$id{UK Forecast View.Unit}, "Per Day"]
+                },
+                then: {
+                    $multiply: [{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
+                },
+                else: $$id{UK Forecast View.Forecast GBP}
+            }
+        }
+    }
+},
+{
+    $set:{
+        $id{UK Forecast View.Forecast GBP}: {
+            $cond: {
+                if: {
+                    $eq: [ $$id{UK Forecast View.Unit}, "Per Hour"]
+                },
+                then: {
+                    $multiply: [7.5,{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
+                },
+                else: $$id{UK Forecast View.Forecast GBP}
+            }
+        }
+    }
+},
+{
+    $lookup: {
+        from: "dataInstances",
+        localField: $id{UK Forecast View.PC Symbol},
+        foreignField: $id{Metrics GBP Forex Daily.Symbol},
+        pipeline: [
+            {
+                $sort: {
+                        "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                }
+            },
+            {
+                $limit: 1
+            }
+            ],
+        as: "ForecastExchangeRates"
+    }
+
+}
+
+]

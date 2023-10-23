@@ -1,0 +1,11 @@
+{
+    $set: {
+        $id{UK Forecast View.Pay Rate GBP}: {
+            $cond: {
+                if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
+                then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]},
+                else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]}
+            }
+        }
+    }
+}

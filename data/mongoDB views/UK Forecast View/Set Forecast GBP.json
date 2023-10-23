@@ -1,0 +1,37 @@
+{
+    $set:{
+        $id{UK Forecast View.Forecast GBP}: {
+            $cond: {
+                if: {
+                    $eq: { [ $$id{UK Forecast View.Unit}, "Per Day"] }
+                },
+                then: {
+                    $multiply: [$$id{UK Forecast View.WorkingDays}, $$id{UK Forecast View.Net Revenue GBP}]
+                },
+                else: $$id{UK Forecast View.Forecast GBP}
+            }
+        }
+    }
+}
+
+$id{UK NFI View.Multiplier}: { $cond: { if: { $eq: [$$id{UK NFI View.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
+
+
+//Simons
+{
+    $set: {
+        $id{UK NFI View.GBPLinePrice}: {
+            $cond: {
+                if: {
+                    $gt: [$$id{UK NFI View.ExchangeRate}, 1] 
+                },
+                then: { 
+                    $multiply: [ $$id{UK NFI View.Multiplier}, { $divide: [$$id{UK NFI View.LinePrice}, $$id{UK NFI View.ExchangeRate}] } ]
+                },
+                else: { 
+                $multiply: [ $$id{UK NFI View.Multiplier}, { $multiply: [$$id{UK NFI View.LinePrice}, $$id{UK NFI View.ExchangeRate}] } ]
+                }
+            }
+        }
+    }
+}
