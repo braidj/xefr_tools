@@ -37,7 +37,7 @@
     }
     /* END */
     ,
-    /* Charge Symbol FX lookup */
+    /* Charge Rate FX lookup */
     /* ------------------------------------------------------------------------ */
     {
         $lookup: {
@@ -87,9 +87,17 @@
             }
         }
     }
+    ,
+    {
+        $set:{
+            $id{UK Forecast View.GBPLinePrice}: {
+                $round: [{$toDouble:$$id{UK Forecast View.GBPLinePrice}},2]
+            }
+        }
+    }
     /* END */
     ,
-    /* Simplified lookup last PC Symbol */
+    /* Pay Rate FX Lookup */
     {
         $lookup: {
             from: "dataInstances",
@@ -135,10 +143,17 @@
                 }
             }
         }
+    },
+    {
+        $set:{
+            $id{UK Forecast View.Pay Rate GBP}: {
+                $round: [{$toDouble:$$id{UK Forecast View.Pay Rate GBP}},2]
+            }
+        }
     }
     /* END */
     ,
-
+    
     /* Working Days Lookup */
     /* ------------------------------------------------------------------------ */
     {
@@ -238,6 +253,7 @@
     }
     /* END */
     ,
+    /* Calculate Net Revenue and final forecast GBP based on working days */
     {
         $set: {
             $id{UK Forecast View.Net Revenue GBP}: {
@@ -277,4 +293,6 @@
             }
         }
     }
+    /* END */
+
 ]
