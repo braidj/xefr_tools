@@ -1,0 +1,38 @@
+[
+    {
+        $match: {
+            schemaId: $id{Metrics GBP Forex Daily}
+        }
+    },
+    {
+        $group:{
+            _id: {
+                "Year": $$id{Metrics GBP Forex Daily.Year},
+                "Month": $$id{Metrics GBP Forex Daily.Month},
+                "Symbol": $$id{Metrics GBP Forex Daily.Symbol}
+            },
+            "maxDay": {$max: $$id{Metrics GBP Forex Daily.Day}},
+            "Rate": {$top:{output:[$$id{Metrics GBP Forex Daily.GBP Rate}],sortBy:{$id{Metrics GBP Forex Daily.Day}:-1}}}
+
+
+        }
+    },
+    {
+        $project: {
+           id:"1",
+           schemaId: $id{Forecast Currencies View},
+           $id{Forecast Currencies View.Year}: "$_id.Year",
+           $id{Forecast Currencies View.Month}: "$_id.Month",
+           $id{Forecast Currencies View.Symbol}: "$_id.Symbol",
+           $id{Forecast Currencies View.GBP Rate}: {$arrayElemAt:["$Rate",0]}
+        }
+    },
+    {
+        $sort: {
+            $id{Forecast Currencies View.Year}: 1,
+            $id{Forecast Currencies View.Month}: 1,
+            $id{Forecast Currencies View.Symbol}: 1
+        }
+    }
+
+]
