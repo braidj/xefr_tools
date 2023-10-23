@@ -24,6 +24,8 @@
              $id{UK Forecast View.Unit}: $$id{TSP UK Placements Forecast.Unit}
             }
     },
+    /* Common Fields */
+    /* ------------------------------------------------------------------------ */
     {
         $set: {
             $id{UK Forecast View.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{UK Forecast View.InvoiceDate} } } },
@@ -32,22 +34,116 @@
             $id{UK Forecast View.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{UK Forecast View.InvoiceDate} } }] }] },
             $id{UK Forecast View.Multiplier}: { $cond: { if: { $eq: [$$id{UK Forecast View.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
         }
-    },
+    }
+    /* END */
+    ,
+    /* Charge Symbol FX lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{UK Forecast View.Currency},
+            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            pipeline: [
+                {
+                    $sort: {
+                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                    }
+                },
+                {
+                    $limit: 1
+                }
+                ],
+            as: "ForecastChargeExchangeRates"
+        }
+    }
+    ,
+    {
+        $set: { 
+            "firstChargeExchangeRates" : { $arrayElemAt: ["$ForecastChargeExchangeRates",0]} 
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{UK Forecast View.ExchangeRate}: { 
+                $cond: [ { $eq: [$$id{UK Forecast View.Currency}, "£"] } , 1, "$firstChargeExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
+            }
+        }
+    }
+    ,
+    {
+        $unset: ["ForecastChargeExchangeRates", "firstChargeExchangeRates"]
+    }
+    ,
     {
         $set: {
-            fxLookup: {
-            $concat: [
-                { $toString: $$id{UK Forecast View.Year} },
-                { $toString: $$id{UK Forecast View.Month} },
-                { $toString: $$id{UK Forecast View.Day} },
-                { $toString: $$id{UK Forecast View.Currency} }
-            ]
+            $id{UK Forecast View.GBPLinePrice}: {
+                $cond: {
+                    if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
+                    then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]},
+                    else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]}
+                }
+            }
+        }
+    }
+    /* END */
+    ,
+    /* Simplified lookup last PC Symbol */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{UK Forecast View.PC Symbol},
+            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            pipeline: [
+                {
+                    $sort: {
+                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                    }
+                },
+                {
+                    $limit: 1
+                }
+                ],
+            as: "ForecastPayExchangeRates"
+        }
+
+    },
+    {
+        $set: { 
+            "firstPayExchangeRates" : { $arrayElemAt: ["$ForecastPayExchangeRates",0]} 
+        }
+    },
+    {
+        $set:{
+            $id{UK Forecast View.Pay Exchange Rate}: { 
+                $cond: [ { $eq: [$$id{UK Forecast View.PC Symbol}, "£"] } , 1, "$firstPayExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
             }
         }
     },
     {
+        $unset: ["ForecastPayExchangeRates", "firstPayExchangeRates"]
+    }
+    ,
+    {
         $set: {
-            $id{UK Forecast View.WorkingDaysCK}:{
+            $id{UK Forecast View.Pay Rate GBP}: {
+                $cond: {
+                    if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
+                    then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]},
+                    else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]}
+                }
+            }
+        }
+    }
+    /* END */
+    ,
+
+    /* Working Days Lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $set: {
+            wdLookup:{
             $concat: [
                 "UK",
                 {$toString: $$id{UK Forecast View.Year} },
@@ -59,38 +155,25 @@
     {
         $lookup:{
             from: "dataInstances",
-            localField: $id{UK Forecast View.WorkingDaysCK},
+            localField: "wdLookup",
             foreignField: "compoundIndexValues._id{Metrics Working Days}.workingDaysLookup",
             as: "workingDays"
         }
     },
-{
-$set: {"firstWorkingDays":{ $arrayElemAt: ["$workingDays",0]}}
-},
-{
-$set : { $id{UK Forecast View.WorkingDays}: "$firstWorkingDays._id{Metrics Working Days.Nos Days}" }
-},
     {
-        $lookup: {
-            from: "dataInstances",
-            localField: "fxLookup",
-            foreignField: "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup",
-            as: "exchangeRates"
-        }
+        $set: {"firstWorkingDays":{ $arrayElemAt: ["$workingDays",0]}}
     },
     {
-        $set: {
-            "firstRate": { $arrayElemAt: ["$exchangeRates", 0] }
-        }
+        $set : { $id{UK Forecast View.WorkingDays}: "$firstWorkingDays._id{Metrics Working Days.Nos Days}" }
     },
     {
-        $set: {
-            $id{UK Forecast View.ExchangeRate}: { $cond: [ { $eq: [$$id{UK Forecast View.Currency}, "£"] } , 1, "$firstRate._id{Metrics GBP Forex Daily.GBP Rate}" ] }
-        }
-    },
-    {
-        $unset: ["exchangeRates", "firstRate", "fxLookup"]
-    },
+        $unset: ["workingDays", "firstWorkingDays", "wdLookup"]
+    }
+    /* END */
+    ,
+
+    /* Consultant Lookup */
+    /* ------------------------------------------------------------------------ */
     {
         $set: {
             consultantLookup: {
@@ -124,7 +207,12 @@ $set : { $id{UK Forecast View.WorkingDays}: "$firstWorkingDays._id{Metrics Worki
     },
     {
         $unset: ["consultants", "firstConsultant", "consultantLookup"]
-    },
+    }
+    /* END */
+    ,
+
+    /* Charge Code Lookup */
+    /* ------------------------------------------------------------------------ */
     {
         $lookup: {
             from: "dataInstances",
@@ -137,92 +225,56 @@ $set : { $id{UK Forecast View.WorkingDays}: "$firstWorkingDays._id{Metrics Worki
         $set: {
             "firstType": { $arrayElemAt: ["$types", 0] }
         }
-    },
+    }
+    ,
     {
         $set: {
             $id{UK Forecast View.Type}: "$firstType._id{Metrics Charge Codes.Type}"
         }
-    },
+    }
+    ,
     {
         $unset: ["types", "firstType"]
-    },
+    }
+    /* END */
+    ,
     {
         $set: {
-            $id{UK Forecast View.GBPLinePrice}: {
+            $id{UK Forecast View.Net Revenue GBP}: {
+                $subtract:[ $$id{UK Forecast View.GBPLinePrice}, $$id{UK Forecast View.Pay Rate GBP} ]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{UK Forecast View.Forecast GBP}: {
                 $cond: {
-                    if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
-                    then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]},
-                    else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.LinePrice}, $$id{UK Forecast View.ExchangeRate}] } ]}
+                    if: {
+                        $eq: [ $$id{UK Forecast View.Unit}, "Per Day"]
+                    },
+                    then: {
+                        $multiply: [{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
+                    },
+                    else: $$id{UK Forecast View.Forecast GBP}
                 }
             }
         }
-    },
-{
-    $set: {
-        $id{UK Forecast View.Pay Rate GBP}: {
-            $cond: {
-                if: { $gt: [$$id{UK Forecast View.ExchangeRate}, 1] },
-                then: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $divide: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]},
-                else: { $multiply: [ $$id{UK Forecast View.Multiplier}, { $multiply: [$$id{UK Forecast View.Pay Rate}, $$id{UK Forecast View.ExchangeRate}] } ]}
-            }
-        }
     }
-},
-{
-    $set: {
-        $id{UK Forecast View.Net Revenue GBP}: {
-            $subtract:[ $$id{UK Forecast View.GBPLinePrice}, $$id{UK Forecast View.Pay Rate GBP} ]
-        }
-    }
-},
-{
-    $set:{
-        $id{UK Forecast View.Forecast GBP}: {
-            $cond: {
-                if: {
-                    $eq: [ $$id{UK Forecast View.Unit}, "Per Day"]
-                },
-                then: {
-                    $multiply: [{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
-                },
-                else: $$id{UK Forecast View.Forecast GBP}
-            }
-        }
-    }
-},
-{
-    $set:{
-        $id{UK Forecast View.Forecast GBP}: {
-            $cond: {
-                if: {
-                    $eq: [ $$id{UK Forecast View.Unit}, "Per Hour"]
-                },
-                then: {
-                    $multiply: [7.5,{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
-                },
-                else: $$id{UK Forecast View.Forecast GBP}
-            }
-        }
-    }
-},
-{
-    $lookup: {
-        from: "dataInstances",
-        localField: $id{UK Forecast View.PC Symbol},
-        foreignField: $id{Metrics GBP Forex Daily.Symbol},
-        pipeline: [
-            {
-                $sort: {
-                        "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+    ,
+    {
+        $set:{
+            $id{UK Forecast View.Forecast GBP}: {
+                $cond: {
+                    if: {
+                        $eq: [ $$id{UK Forecast View.Unit}, "Per Hour"]
+                    },
+                    then: {
+                        $multiply: [7.5,{$toDouble:$$id{UK Forecast View.WorkingDays}}, {$toDouble:$$id{UK Forecast View.Net Revenue GBP}}]
+                    },
+                    else: $$id{UK Forecast View.Forecast GBP}
                 }
-            },
-            {
-                $limit: 1
             }
-            ],
-        as: "ForecastExchangeRates"
+        }
     }
-
-}
-
 ]
