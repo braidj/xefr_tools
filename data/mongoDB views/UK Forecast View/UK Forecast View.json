@@ -264,6 +264,14 @@
     ,
     {
         $set:{
+            $id{UK Forecast View.Net Revenue GBP}: {
+                $round: [{$toDouble:$$id{UK Forecast View.Net Revenue GBP}},2]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
             $id{UK Forecast View.Forecast GBP}: {
                 $cond: {
                     if: {
@@ -290,6 +298,14 @@
                     },
                     else: $$id{UK Forecast View.Forecast GBP}
                 }
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{UK Forecast View.Forecast GBP}: {
+                $round: [{$toDouble:$$id{UK Forecast View.Forecast GBP}},2]
             }
         }
     }
