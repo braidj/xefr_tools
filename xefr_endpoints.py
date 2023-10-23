@@ -59,7 +59,7 @@ class EndPoints(object):
         else:
             print(f"Schema {schema_name} not found")
 
-    def display_data(self,curl_command,schema_name,show_detail=False):
+    def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=20):
         """
         Displays the first 10 rows of data nicely formatted
         """
@@ -91,7 +91,7 @@ class EndPoints(object):
 
         # Add the first 10 data rows to the table
         for i, row in enumerate(csv_reader):
-            if i >= 250:
+            if i >= nos_rows:
                 break
             # Create a filtered row without the excluded columns
             filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]

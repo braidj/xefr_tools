@@ -3,6 +3,8 @@ Collection of functions used by xefre_tools scripts
 """
 from datetime import datetime
 import os
+import sys
+import subprocess
 
 permitted_types = ['schemas','portals']
 
@@ -27,8 +29,20 @@ sort_orders = {
 
 # Hide these columns when displaying schema data
 hide_columns = {
-    'UK Forecast View':'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,Currency,LinePrice,Country,Consultant'
+    'UK Forecast View': (
+        'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
+        'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
+        'Currency,Country,Consultant'
+    )
 }
+
+def restart_xefr_cli():
+    python = sys.executable
+    script = "xefr_cli.py"  # Replace with the actual filename
+
+    colour_text("Restarting xefr_cli.py", "RED")
+    # Launch a new instance of xefr_cli.py
+    subprocess.Popen([python, script])
 
 def add_ts_prefix(full_file_path):
     """

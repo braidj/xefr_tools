@@ -6,13 +6,16 @@ import common_funcs as cf
 import xefr_endpoints
 import types
 
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler
+
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
 
 import utilities
 import mongo_connector
 
-script_version = "1.62-OCT23"
+script_version = "2.0-OCT23"
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
@@ -40,7 +43,8 @@ avail_commands = {
     "Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
     "List portals": (jt.report_items,("portals")),
     "Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
-    "Clear screen": (os.system,("clear"))
+    "Clear screen": (os.system,("clear")),
+    "Restart CLI": (cf.restart_xefr_cli,())
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
