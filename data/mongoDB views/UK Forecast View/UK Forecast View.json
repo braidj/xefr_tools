@@ -37,6 +37,39 @@
     }
     /* END */
     ,
+    /* Get the current forecast date */
+    [
+        {
+          $match: {
+            schemaId: $id{Metrics Forecast Date}
+          }
+        }
+        ,
+        {
+          $addFields: {
+            forecast:
+            $id{Metrics Forecast Date.Forecast Date From},
+          }
+        }
+        ,
+        {
+          $sort: {
+            forecast: -1,
+          }
+        }
+        ,
+        {
+          $limit: 1
+        }
+        ,
+        {
+          $set: {
+            mydate: "$forecast"
+          }
+        }
+    ]
+    /* End */
+    ,
     /* Charge Rate FX lookup */
     /* ------------------------------------------------------------------------ */
     {
@@ -199,9 +232,6 @@
             }
         }
     },
-        {
-        $set: { $id{UK Forecast View.PlacementCandidateLookup}: "$consultantLookup" }
-        },
     {
         $lookup: {
             from: "dataInstances",
