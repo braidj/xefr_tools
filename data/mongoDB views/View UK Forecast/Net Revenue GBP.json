@@ -1,7 +1,0 @@
-{
-    $set: {
-        $id{UK Forecast View.Net Revenue GBP}: {
-            $subtract:[ $$id{UK Forecast View.GBPLinePrice}, $$id{UK Forecast View.Pay Rate GBP} ]
-        }
-    }
-}

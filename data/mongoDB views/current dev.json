@@ -1,5 +1,3 @@
-//THIS IS THE QUERY TO GET THE LATEST FORECAST EXCHANGE RATE FOR EACH PC SYMBOL//
-
 {
     $lookup: {
         from: "dataInstances",

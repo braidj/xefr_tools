@@ -1,0 +1,49 @@
+[
+    {
+      $match:
+        {
+          schemaId: $id{Metrics GBP Forex Daily}
+        }
+    },
+    {
+      $sort:
+        {
+          "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+        }
+    },
+    {
+      $group:
+        {
+          _id: $$id{Metrics GBP Forex Daily.Symbol}
+          , 
+          rate: {
+            $first: $$id{Metrics GBP Forex Daily.GBP Rate}
+          }
+          ,
+          year: {
+            $first: $$id{Metrics GBP Forex Daily.Year}
+          }
+          ,
+          month: {
+            $first: $$id{Metrics GBP Forex Daily.Month}
+          }
+          ,
+          day: {
+            $first: $$id{Metrics GBP Forex Daily.Day}
+          }
+        }
+    }
+    ,
+    {
+        $project: {
+            id: 1,
+            schemaId: $id{View Forecast Currencies},
+            $id{View Forecast Currencies.Symbol}: "$_id",
+            $id{View Forecast Currencies.GBP Rate}: "$rate",
+            $id{View Forecast Currencies.Month}: "$month",
+            $id{View Forecast Currencies.Day}: "$day",
+            $id{View Forecast Currencies.Year}: "$year"
+            
+        }
+    }
+  ]
