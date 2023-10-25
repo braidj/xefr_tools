@@ -49,17 +49,22 @@ def report_items(item_type):
 
             if item_type == 'schemas':
                 title = item.get("name")
+                type_class = item.get("typeClass")
+                type_class = type_class.replace("com.xerini.xefr.model.","")
             
             if item_type == 'portals':
                 title = item.get("title")
-            
-            results[id] = title
+                type_class = "n/a"
+
+            results[id] = [title,type_class]
 
     sorted_results = sorted(results.items(), key=lambda x: x[1])
     print(f"\nAll {item_type} items\n")
-    for i, stuff in enumerate(sorted_results,1):
-        id, name = stuff
-        print("{:<5} {:<35} {:<20}".format(i,name, id))
+    for i, details in enumerate(sorted_results,1):
+
+        id = details[0]
+        name, type_class = details[1]
+        print("{:<5} {:<35} {:<20} {:<20}".format(i,name, type_class, id))
 
 def extract_json(object_name,item_type,backup=True):
     """
