@@ -1,0 +1,311 @@
+[
+    {
+        $match: {
+        schemaId: $id{TSP UK Placements Forecast}
+        }
+    },
+    {
+            $project: {
+             id: 1,
+             schemaId: $id{View UK Forecast},
+             $id{View UK Forecast.Candidate}: $$id{TSP UK Placements Forecast.Candidate},
+             $id{View UK Forecast.CompanyName}: $$id{TSP UK Placements Forecast.CompanyName},
+             $id{View UK Forecast.Placement}: { $toString: $$id{TSP UK Placements Forecast.Placement} },
+             $id{View UK Forecast.InvoiceDate}: $$id{TSP UK Placements Forecast.Forecast Date},
+             $id{View UK Forecast.Currency}: $$id{TSP UK Placements Forecast.CC Symbol},
+             $id{View UK Forecast.LinePrice}: $$id{TSP UK Placements Forecast.Charge Rate},
+             $id{View UK Forecast.ChargeCode}: "Temp",
+             $id{View UK Forecast.Source}: "UK Placements Forecast",
+             $id{View UK Forecast.Country}: "UK",
+             $id{View UK Forecast.Placement Start}: $$id{TSP UK Placements Forecast.Placement Start},
+             $id{View UK Forecast.Placement End}: $$id{TSP UK Placements Forecast.Placement End},
+             $id{View UK Forecast.PC Symbol}: $$id{TSP UK Placements Forecast.PC Symbol},
+             $id{View UK Forecast.Pay Rate}: $$id{TSP UK Placements Forecast.Pay Rate},
+             $id{View UK Forecast.Unit}: $$id{TSP UK Placements Forecast.Unit}
+            }
+    },
+    /* Common Fields */
+    /* ------------------------------------------------------------------------ */
+    {
+        $set: {
+            $id{View UK Forecast.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{View UK Forecast.InvoiceDate} } } },
+            $id{View UK Forecast.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{View UK Forecast.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{View UK Forecast.InvoiceDate} } }] }] },
+            $id{View UK Forecast.Day}: { $dayOfMonth: { $toDate: $$id{View UK Forecast.InvoiceDate} } },
+            $id{View UK Forecast.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{View UK Forecast.InvoiceDate} } }] }] },
+            $id{View UK Forecast.Multiplier}: { $cond: { if: { $eq: [$$id{View UK Forecast.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
+        }
+    }
+    /* END */
+    ,
+    /* Charge Rate FX lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{View UK Forecast.Currency},
+            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            pipeline: [
+                {
+                    $sort: {
+                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                    }
+                },
+                {
+                    $limit: 1
+                }
+                ],
+            as: "ForecastChargeExchangeRates"
+        }
+    }
+    ,
+    {
+        $set: { 
+            "firstChargeExchangeRates" : { $arrayElemAt: ["$ForecastChargeExchangeRates",0]} 
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.ExchangeRate}: { 
+                $cond: [ { $eq: [$$id{View UK Forecast.Currency}, "£"] } , 1, "$firstChargeExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
+            }
+        }
+    }
+    ,
+    {
+        $unset: ["ForecastChargeExchangeRates", "firstChargeExchangeRates"]
+    }
+    ,
+    {
+        $set: {
+            $id{View UK Forecast.GBPLinePrice}: {
+                $cond: {
+                    if: { $gt: [$$id{View UK Forecast.ExchangeRate}, 1] },
+                    then: { $multiply: [ $$id{View UK Forecast.Multiplier}, { $divide: [$$id{View UK Forecast.LinePrice}, $$id{View UK Forecast.ExchangeRate}] } ]},
+                    else: { $multiply: [ $$id{View UK Forecast.Multiplier}, { $multiply: [$$id{View UK Forecast.LinePrice}, $$id{View UK Forecast.ExchangeRate}] } ]}
+                }
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.GBPLinePrice}: {
+                $round: [{$toDouble:$$id{View UK Forecast.GBPLinePrice}},2]
+            }
+        }
+    }
+    /* END */
+    ,
+    /* Pay Rate FX Lookup */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{View UK Forecast.PC Symbol},
+            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            pipeline: [
+                {
+                    $sort: {
+                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                    }
+                },
+                {
+                    $limit: 1
+                }
+                ],
+            as: "ForecastPayExchangeRates"
+        }
+  
+    },
+    {
+        $set: { 
+            "firstPayExchangeRates" : { $arrayElemAt: ["$ForecastPayExchangeRates",0]} 
+        }
+    },
+    {
+        $set:{
+            $id{View UK Forecast.Pay Exchange Rate}: { 
+                $cond: [ { $eq: [$$id{View UK Forecast.PC Symbol}, "£"] } , 1, "$firstPayExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
+            }
+        }
+    },
+    {
+        $unset: ["ForecastPayExchangeRates", "firstPayExchangeRates"]
+    }
+    ,
+    {
+        $set: {
+            $id{View UK Forecast.Pay Rate GBP}: {
+                $cond: {
+                    if: { $gt: [$$id{View UK Forecast.ExchangeRate}, 1] },
+                    then: { $multiply: [ $$id{View UK Forecast.Multiplier}, { $divide: [$$id{View UK Forecast.Pay Rate}, $$id{View UK Forecast.ExchangeRate}] } ]},
+                    else: { $multiply: [ $$id{View UK Forecast.Multiplier}, { $multiply: [$$id{View UK Forecast.Pay Rate}, $$id{View UK Forecast.ExchangeRate}] } ]}
+                }
+            }
+        }
+    },
+    {
+        $set:{
+            $id{View UK Forecast.Pay Rate GBP}: {
+                $round: [{$toDouble:$$id{View UK Forecast.Pay Rate GBP}},2]
+            }
+        }
+    }
+    /* END */
+    ,
+    
+    /* Working Days Lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $set: {
+            wdLookup:{
+            $concat: [
+                "UK",
+                {$toString: $$id{View UK Forecast.Year} },
+                {$toString: $$id{View UK Forecast.Month} }
+            ] 
+            }
+        }
+    },
+    {
+        $lookup:{
+            from: "dataInstances",
+            localField: "wdLookup",
+            foreignField: "compoundIndexValues._id{Metrics Working Days}.workingDaysLookup",
+            as: "workingDays"
+        }
+    },
+    {
+        $set: {"firstWorkingDays":{ $arrayElemAt: ["$workingDays",0]}}
+    },
+    {
+        $set : { $id{View UK Forecast.WorkingDays}: "$firstWorkingDays._id{Metrics Working Days.Nos Days}" }
+    },
+    {
+        $unset: ["workingDays", "firstWorkingDays", "wdLookup"]
+    }
+    /* END */
+    ,
+  
+    /* Consultant Lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $set: {
+            consultantLookup: {
+            $concat: [
+            { $toString: $$id{View UK Forecast.Placement} },
+            { $toString: $$id{View UK Forecast.Candidate} }
+            ]
+            }
+        }
+    },
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: "consultantLookup",
+            foreignField: "compoundIndexValues._id{TSP UK Placements Tracker}.placementCandidateLookup",
+            as: "consultants"
+        }
+    },
+    {
+        $set: {
+            "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
+        }
+    },
+    {
+        $set: {
+        $id{View UK Forecast.Consultant}: "$firstConsultant._id{TSP UK Placements Tracker.Consultant}"
+        }
+    },
+    {
+        $unset: ["consultants", "firstConsultant", "consultantLookup"]
+    }
+    /* END */
+    ,
+  
+    /* Charge Code Lookup */
+    /* ------------------------------------------------------------------------ */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{View UK Forecast.ChargeCode},
+            foreignField: $id{Metrics Charge Codes.ChargeCode},
+            as: "types"
+        }
+    },
+    {
+        $set: {
+            "firstType": { $arrayElemAt: ["$types", 0] }
+        }
+    }
+    ,
+    {
+        $set: {
+            $id{View UK Forecast.Type}: "$firstType._id{Metrics Charge Codes.Type}"
+        }
+    }
+    ,
+    {
+        $unset: ["types", "firstType"]
+    }
+    /* END */
+    ,
+    /* Calculate Net Revenue and final forecast GBP based on working days */
+    {
+        $set: {
+            $id{View UK Forecast.Net Revenue GBP}: {
+                $subtract:[ $$id{View UK Forecast.GBPLinePrice}, $$id{View UK Forecast.Pay Rate GBP} ]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.Net Revenue GBP}: {
+                $round: [{$toDouble:$$id{View UK Forecast.Net Revenue GBP}},2]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.Forecast GBP}: {
+                $cond: {
+                    if: {
+                        $eq: [ $$id{View UK Forecast.Unit}, "Per Day"]
+                    },
+                    then: {
+                        $multiply: [{$toDouble:$$id{View UK Forecast.WorkingDays}}, {$toDouble:$$id{View UK Forecast.Net Revenue GBP}}]
+                    },
+                    else: $$id{View UK Forecast.Forecast GBP}
+                }
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.Forecast GBP}: {
+                $cond: {
+                    if: {
+                        $eq: [ $$id{View UK Forecast.Unit}, "Per Hour"]
+                    },
+                    then: {
+                        $multiply: [7.5,{$toDouble:$$id{View UK Forecast.WorkingDays}}, {$toDouble:$$id{View UK Forecast.Net Revenue GBP}}]
+                    },
+                    else: $$id{View UK Forecast.Forecast GBP}
+                }
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View UK Forecast.Forecast GBP}: {
+                $round: [{$toDouble:$$id{View UK Forecast.Forecast GBP}},2]
+            }
+        }
+    }
+    /* END */
+  
+  ]
