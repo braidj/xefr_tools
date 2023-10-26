@@ -1,0 +1,35 @@
+[
+    {
+      $match:
+        {
+          schemaId:
+            $id{FOREX GBP}
+        }
+    },
+    {
+      $group:
+        {
+          _id: {
+            year: $$id{FOREX GBP.Year},
+            month: $$id{FOREX GBP.Month},
+            day: $$id{FOREX GBP.Day},
+            symbol: $$id{FOREX GBP.Symbol}
+          },
+          count: {
+            $count: {}
+          }
+        }
+    },
+    {
+      $project:
+        {
+          id: 1,
+          schemaId: $id{View FOREX GBP Count},
+          $id{View FOREX GBP Count.Year}: "$_id.year",
+          $id{View FOREX GBP Count.Month}: "$_id.month",
+          $id{View FOREX GBP Count.Day}: { $toInt: "$_id.day"},
+          $id{View FOREX GBP Count.Symbol}: "$_id.symbol",
+          $id{View FOREX GBP Count.Count}: "$count"
+        }
+    }
+  ]
