@@ -43,11 +43,11 @@
         $lookup: {
             from: "dataInstances",
             localField: $id{View UK Forecast.Currency},
-            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            foreignField: $id{FOREX GBP.Symbol},
             pipeline: [
                 {
                     $sort: {
-                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                            "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
                     }
                 },
                 {
@@ -67,7 +67,7 @@
     {
         $set:{
             $id{View UK Forecast.ExchangeRate}: { 
-                $cond: [ { $eq: [$$id{View UK Forecast.Currency}, "£"] } , 1, "$firstChargeExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
+                $cond: [ { $eq: [$$id{View UK Forecast.Currency}, "£"] } , 1, "$firstChargeExchangeRates._id{FOREX GBP.GBP Rate}" ]
             }
         }
     }
@@ -102,11 +102,11 @@
         $lookup: {
             from: "dataInstances",
             localField: $id{View UK Forecast.PC Symbol},
-            foreignField: $id{Metrics GBP Forex Daily.Symbol},
+            foreignField: $id{FOREX GBP.Symbol},
             pipeline: [
                 {
                     $sort: {
-                            "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup": -1
+                            "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
                     }
                 },
                 {
@@ -125,7 +125,7 @@
     {
         $set:{
             $id{View UK Forecast.Pay Exchange Rate}: { 
-                $cond: [ { $eq: [$$id{View UK Forecast.PC Symbol}, "£"] } , 1, "$firstPayExchangeRates._id{Metrics GBP Forex Daily.GBP Rate}" ]
+                $cond: [ { $eq: [$$id{View UK Forecast.PC Symbol}, "£"] } , 1, "$firstPayExchangeRates._id{FOREX GBP.GBP Rate}" ]
             }
         }
     },
@@ -307,5 +307,6 @@
         }
     }
     /* END */
+
   
   ]

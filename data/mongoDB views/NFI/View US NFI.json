@@ -1,0 +1,144 @@
+[
+    {
+     $match: {
+      schemaId: $id{TSP US Invoice Tracker}
+     }
+    },
+    {
+     $project: {
+      id: 1,
+      schemaId: $id{View US NFI},
+      $id{View US NFI.Candidate}: $$id{TSP US Invoice Tracker.Candidate},
+      $id{View US NFI.CompanyName}: $$id{TSP US Invoice Tracker.CompanyName},
+      $id{View US NFI.Placement}: { $toString: $$id{TSP US Invoice Tracker.Placement} },
+      $id{View US NFI.InvoiceDate}: $$id{TSP US Invoice Tracker.InvoiceDate},
+      $id{View US NFI.Currency}: $$id{TSP US Invoice Tracker.Currency},
+      $id{View US NFI.LinePrice}: $$id{TSP US Invoice Tracker.LinePrice},
+      $id{View US NFI.ChargeCode}: $$id{TSP US Invoice Tracker.ChargeCode},
+      $id{View US NFI.Source}: $$id{TSP US Invoice Tracker.Source},
+      $id{View US NFI.Country}: $$id{TSP US Invoice Tracker.Country}
+     }
+    },
+    {
+     $unionWith: {
+      coll: "dataInstances",
+      pipeline: [
+       {
+        $match: {
+         schemaId: $id{TSP US Contractor Invoices Tracker}
+        }
+       },
+       {
+        $project: {
+         id: 1,
+         schemaId: $id{View US NFI},
+         $id{View US NFI.Candidate}: $$id{TSP US Contractor Invoices Tracker.Candidate},
+         $id{View US NFI.CompanyName}: $$id{TSP US Contractor Invoices Tracker.CompanyName},
+         $id{View US NFI.Placement}: { $toString: $$id{TSP US Contractor Invoices Tracker.Placement} },
+         $id{View US NFI.InvoiceDate}: $$id{TSP US Contractor Invoices Tracker.InvoiceDate},
+         $id{View US NFI.Currency}: $$id{TSP US Contractor Invoices Tracker.Currency},
+         $id{View US NFI.LinePrice}: $$id{TSP US Contractor Invoices Tracker.LinePrice},
+         $id{View US NFI.ChargeCode}: $$id{TSP US Contractor Invoices Tracker.ChargeCode},
+         $id{View US NFI.Source}: $$id{TSP US Contractor Invoices Tracker.Source},
+         $id{View US NFI.Country}: $$id{TSP US Contractor Invoices Tracker.Country}
+        }
+       }
+      ]
+     }
+    },
+    {
+     $unionWith: {
+      coll: "dataInstances",
+      pipeline: [
+       {
+        $match: {
+         schemaId: $id{Adjustments US NFI}
+        }
+       },
+       {
+        $project: {
+         id: 1,
+         schemaId: $id{View US NFI},
+         $id{View US NFI.Candidate}: $$id{Adjustments US NFI.Candidate},
+         $id{View US NFI.CompanyName}: $$id{Adjustments US NFI.CompanyName},
+         $id{View US NFI.Placement}: { $toString: $$id{Adjustments US NFI.Placement} },
+         $id{View US NFI.InvoiceDate}: $$id{Adjustments US NFI.InvoiceDate},
+         $id{View US NFI.Currency}: $$id{Adjustments US NFI.Currency},
+         $id{View US NFI.LinePrice}: $$id{Adjustments US NFI.LinePrice},
+         $id{View US NFI.ChargeCode}: $$id{Adjustments US NFI.ChargeCode},
+         $id{View US NFI.Source}: $$id{Adjustments US NFI.Source}
+        }
+       }
+      ]
+     }
+    },
+    {
+     $set: {
+      $id{View US NFI.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{View US NFI.InvoiceDate} } } },
+      $id{View US NFI.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{View US NFI.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{View US NFI.InvoiceDate} } }] }] },
+      $id{View US NFI.Day}: { $dayOfMonth: { $toDate: $$id{View US NFI.InvoiceDate} } },
+      $id{View US NFI.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{View US NFI.InvoiceDate} } }] }] },
+      $id{View US NFI.Multiplier}: { $cond: { if: { $eq: [$$id{View US NFI.Source}, "TSP US Contractor Invoices"] }, then: -1, else: 1 } }
+     }
+    },
+   
+    {
+     $set: {
+      consultantLookup: {
+       $concat: [
+        { $toString: $$id{View US NFI.Placement} },
+        { $toString: $$id{View US NFI.Candidate} }
+       ]
+      }
+     }
+    },
+    {
+     $lookup: {
+      from: "dataInstances",
+      localField: "consultantLookup",
+      foreignField: "compoundIndexValues._id{TSP US Placements Tracker}.placementCandidateLookup",
+      as: "consultants"
+     }
+    },
+    {
+     $set: {
+      "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
+     }
+    },
+    {
+     $set: {
+      $id{View US NFI.Consultant}: "$firstConsultant._id{TSP US Placements Tracker.Consultant}"
+     }
+    },
+    {
+     $unset: ["consultants", "firstConsultant", "consultantLookup"]
+    },
+    {
+     $lookup: {
+      from: "dataInstances",
+      localField: $id{View US NFI.ChargeCode},
+      foreignField: $id{Metrics Charge Codes.ChargeCode},
+      as: "types"
+     }
+    },
+    {
+     $set: {
+      "firstType": { $arrayElemAt: ["$types", 0] }
+     }
+    },
+    {
+     $set: {
+      $id{View US NFI.Type}: "$firstType._id{Metrics Charge Codes.Type}"
+     }
+    },
+    {
+     $unset: ["types", "firstType"]
+    },
+    {
+     $set: {
+      $id{View US NFI.USDLinePrice}: {
+       $multiply: [$$id{View US NFI.LinePrice},$$id{View US NFI.Multiplier}]
+      }
+     }
+    }
+   ]

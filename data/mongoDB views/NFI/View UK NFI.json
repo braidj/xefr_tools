@@ -52,21 +52,21 @@
       pipeline: [
        {
         $match: {
-         schemaId: $id{Metrics UK NFI Adjustments}
+         schemaId: $id{Adjustments UK NFI}
         }
        },
        {
         $project: {
          id: 1,
          schemaId: $id{View UK NFI},
-         $id{View UK NFI.Candidate}: $$id{Metrics UK NFI Adjustments.Candidate},
-         $id{View UK NFI.CompanyName}: $$id{Metrics UK NFI Adjustments.CompanyName},
-         $id{View UK NFI.Placement}: { $toString: $$id{Metrics UK NFI Adjustments.Placement} },
-         $id{View UK NFI.InvoiceDate}: $$id{Metrics UK NFI Adjustments.InvoiceDate},
-         $id{View UK NFI.Currency}: $$id{Metrics UK NFI Adjustments.Currency},
-         $id{View UK NFI.LinePrice}: $$id{Metrics UK NFI Adjustments.LinePrice},
-         $id{View UK NFI.ChargeCode}: $$id{Metrics UK NFI Adjustments.ChargeCode},
-         $id{View UK NFI.Source}: $$id{Metrics UK NFI Adjustments.Source}
+         $id{View UK NFI.Candidate}: $$id{Adjustments UK NFI.Candidate},
+         $id{View UK NFI.CompanyName}: $$id{Adjustments UK NFI.CompanyName},
+         $id{View UK NFI.Placement}: { $toString: $$id{Adjustments UK NFI.Placement} },
+         $id{View UK NFI.InvoiceDate}: $$id{Adjustments UK NFI.InvoiceDate},
+         $id{View UK NFI.Currency}: $$id{Adjustments UK NFI.Currency},
+         $id{View UK NFI.LinePrice}: $$id{Adjustments UK NFI.LinePrice},
+         $id{View UK NFI.ChargeCode}: $$id{Adjustments UK NFI.ChargeCode},
+         $id{View UK NFI.Source}: $$id{Adjustments UK NFI.Source}
         }
        }
       ]
@@ -97,7 +97,7 @@
      $lookup: {
       from: "dataInstances",
       localField: "fxLookup",
-      foreignField: "compoundIndexValues._id{Metrics GBP Forex Daily}.gbpFXLookup",
+      foreignField: "compoundIndexValues._id{FOREX GBP}.gbpFXLookup",
       as: "exchangeRates"
      }
     },
@@ -108,7 +108,7 @@
     },
     {
      $set: {
-      $id{View UK NFI.ExchangeRate}: { $cond: [ { $eq: [$$id{View UK NFI.Currency}, "£"] } , 1, "$firstRate._id{Metrics GBP Forex Daily.GBP Rate}" ] }
+      $id{View UK NFI.ExchangeRate}: { $cond: [ { $eq: [$$id{View UK NFI.Currency}, "£"] } , 1, "$firstRate._id{FOREX GBP.GBP Rate}" ] }
      }
     },
     {

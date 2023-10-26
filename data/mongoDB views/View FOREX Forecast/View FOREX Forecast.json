@@ -1,0 +1,49 @@
+[
+  {
+    $match:
+      {
+        schemaId: $id{FOREX GBP}
+      }
+  },
+  {
+    $sort:
+      {
+        "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
+      }
+  },
+  {
+    $group:
+      {
+        _id: $$id{FOREX GBP.Symbol}
+        , 
+        rate: {
+          $first: $$id{FOREX GBP.GBP Rate}
+        }
+        ,
+        year: {
+          $first: $$id{FOREX GBP.Year}
+        }
+        ,
+        month: {
+          $first: $$id{FOREX GBP.Month}
+        }
+        ,
+        day: {
+          $first: $$id{FOREX GBP.Day}
+        }
+      }
+  }
+  ,
+  {
+      $project: {
+          id: 1,
+          schemaId: $id{View FOREX Forecast},
+          $id{View FOREX Forecast.Symbol}: "$_id",
+          $id{View FOREX Forecast.GBP Rate}: "$rate",
+          $id{View FOREX Forecast.Month}: "$month",
+          $id{View FOREX Forecast.Day}: "$day",
+          $id{View FOREX Forecast.Year}: "$year"
+          
+      }
+  }
+]
