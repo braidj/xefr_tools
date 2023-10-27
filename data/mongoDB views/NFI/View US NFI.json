@@ -141,4 +141,49 @@
       }
      }
     }
+    ,
+    /* Bring in the Forecast date */
+    {
+        $lookup: {
+          from: "dataInstances",
+          pipeline: [
+              {
+                $match: {
+                  schemaId: $id{FOREX Forecast Date}
+                }
+              }
+              ,
+              {
+                $project: {
+                  ForecastDate: $$id{FOREX Forecast Date.Forecast Date From}
+                }
+              }
+              ,
+              {
+                $sort: {
+                  ForecastDate: -1
+                }
+              }
+              ,
+              {
+                $limit: 1
+              }  
+          ]
+          ,
+          as: "forecast_date"
+        }
+      }
+      ,
+      {
+          $set: { 
+              "firstForecastDate" : { $arrayElemAt: ["$forecast_date",0]} 
+          }
+      }
+      ,
+      {
+        $set: {
+          $id{View US NFI.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
+        }
+      }
+      /* END */
    ]
