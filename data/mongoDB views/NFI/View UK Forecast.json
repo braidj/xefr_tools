@@ -359,5 +359,13 @@
     }
     
   }
+  ,
+  {
+    $set:{
+        $id{View UK Forecast.Forecast GBP}: { $cond: { if: { $lte: [$$id{View UK Forecast.InvoiceDate}, $$id{View UK Forecast.Forecast Cut Off}] }, then: 0, else: $$id{View UK Forecast.Forecast GBP} } }
+    }
+    
+  }
+  
   
   ]
