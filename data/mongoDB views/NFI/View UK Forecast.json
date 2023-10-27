@@ -347,17 +347,17 @@
   }
   ,
   {
-    $set:{
-        $id{View UK Forecast.Net Revenue GBP}: { $cond: { if: { $lte: [$$id{View UK Forecast.InvoiceDate}, "$firstForecastDate.ForecastDate"] }, then: 0, else: $$id{View UK Forecast.Net Revenue GBP} } }
-    }
-    
-  }
-  ,
-
-  {
     $set: {
       $id{View UK Forecast.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
     }
+  }
+  /* END */
+  ,
+  {
+    $set:{
+        $id{View UK Forecast.Net Revenue GBP}: { $cond: { if: { $lte: [$$id{View UK Forecast.InvoiceDate}, $$id{View UK Forecast.Forecast Cut Off}] }, then: 0, else: $$id{View UK Forecast.Net Revenue GBP} } }
+    }
+    
   }
   
   ]
