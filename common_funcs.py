@@ -43,6 +43,11 @@ hide_columns = {
         'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
         'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
         'Currency,Country,Consultant'
+    ),
+    'View UK NFI Forecast': (
+        'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
+        'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
+        'Currency,Country,Consultant'
     )
 }
 
