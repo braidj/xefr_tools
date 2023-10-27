@@ -14,8 +14,10 @@ sys.path.append(utils_path)
 
 import utilities
 import mongo_connector
+import os
 
-script_version = "2.0-OCT23"
+script_name = os.path.basename(__file__)
+script_version = f"{script_name} 2.1-OCT23"
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
@@ -44,7 +46,8 @@ avail_commands = {
     "List portals": (jt.report_items,("portals")),
     "Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
     "Clear screen": (os.system,("clear")),
-    "Restart CLI": (cf.restart_xefr_cli,())
+    "Restart CLI": (cf.restart_xefr_cli,()),
+    "Display pids": (cf.get_running_processes,(script_name,))
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
@@ -165,9 +168,9 @@ def display_intro():
     Display the intro text for the CLI
     """
     os.system("clear")
-    box_len = 47
+    box_len = 61
     cf.colour_text('_' * box_len,"GREEN")
-    cf.colour_text(f"Welcome to the XEFR CLI! [version {script_version}]","GREEN")
+    cf.colour_text(f"Welcome to the XEFR tools CLI [version {script_version}]","GREEN")
     print("Type 'x', or control c to quit the program.")
     print("Type '? to see a list of commands.")
     cf.colour_text("Select command by the number only.","RED")
@@ -176,6 +179,7 @@ def display_intro():
 def command_line_input():
 
     display_intro()
+    print(f"Process ID (PID) of the running script: {os.getpid()}")
 
     while True:
 
@@ -183,4 +187,7 @@ def command_line_input():
         check_command(user_input)
 
 if __name__ == '__main__':
+    #TODO Check if no other running versions of this script
+    #If there is another running version, kill it
+    
     command_line_input()

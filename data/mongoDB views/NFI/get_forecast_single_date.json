@@ -1,31 +1,31 @@
-/* Get the current forecast date */
 [
     {
-        $match: {
-        schemaId: $id{Metrics Forecast Date}
-        }
+      $match: {
+        schemaId: $id{FOREX Forecast Date}
+      }
     }
     ,
     {
-        $addFields: {
-            forecast:$id{Metrics Forecast Date.Forecast Date From},
-        }
+      $addFields: {
+        ForecastDate: $$id{FOREX Forecast Date.Forecast Date From}
+      }
     }
     ,
     {
-        $sort: {
-            forecast: -1,
-        }
+      $sort: {
+        ForecastDate: -1
+      }
     }
     ,
     {
-        $limit: 1
+      $limit: 1
     }
     ,
     {
-        $set: {
-            mydate: "$forecast"
-        }
+      $project: {
+        id: 1,
+        schemaId: $id{View Test},
+        $id{View Test.ForecastDate}: "$ForecastDate"
+      }
     }
-]
-/* End */
+  ] 

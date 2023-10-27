@@ -29,20 +29,38 @@ sort_orders = {
 
 # Hide these columns when displaying schema data
 hide_columns = {
-    'UK Forecast View': (
+    'View UK Forecast': (
         'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
         'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
         'Currency,Country,Consultant'
     )
 }
 
+def get_running_processes(script_name):
+    """
+    Returns an array of the running pids for the supplied script name
+    """
+
+    pids = []
+    try:
+        command = f"ps aux | grep '{script_name}' | grep -v grep"
+        result = subprocess.check_output(command, shell=True, text=True)
+        lines = result.strip().split('\n')
+        for line in lines:
+            pids.append(int(line.split()[1]))  # Extract PIDs
+    except subprocess.CalledProcessError:
+        pass
+
+    print(pids)
+
 def restart_xefr_cli():
+
     python = sys.executable
     script = "xefr_cli.py"  # Replace with the actual filename
 
-    colour_text("Restarting xefr_cli.py", "RED")
+    colour_text("WIP Restarting xefr_cli.py", "RED")
     # Launch a new instance of xefr_cli.py
-    subprocess.Popen([python, script])
+    # subprocess.Popen([python, script])
 
 def add_ts_prefix(full_file_path):
     """
@@ -103,3 +121,6 @@ def get_source_json(item_type):
 
     return source_file
 
+if __name__ == "__main__":
+    print("This module is not intended to be run stand-alone")
+    print("Only use to test new fuctions")

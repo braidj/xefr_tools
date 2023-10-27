@@ -59,7 +59,7 @@ class EndPoints(object):
         else:
             print(f"Schema {schema_name} not found")
 
-    def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=20):
+    def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=500):
         """
         Displays the first 10 rows of data nicely formatted
         """

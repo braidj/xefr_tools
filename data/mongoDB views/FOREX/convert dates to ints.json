@@ -1,0 +1,10 @@
+{    
+    $set:{
+        ZeroPaddedDay: {
+          $concat: [
+            "0",
+            { $toString: [$$id{FOREX GBP.Day}] }
+          ]
+        }
+      }
+  },
