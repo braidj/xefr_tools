@@ -5,6 +5,8 @@ from datetime import datetime
 import os
 import sys
 import subprocess
+import psutil
+import signal
 
 permitted_types = ['schemas','portals']
 
@@ -51,32 +53,57 @@ hide_columns = {
     )
 }
 
-def get_running_processes(script_name):
+def kill_all_previous_instances(script_name):
+    """
+    Kill all but the most recent instance of the supplied script name
+    """
+    pid_history,last_pid = get_running_processes(script_name)
+    for pid in pid_history:
+        if pid != last_pid:
+            print(f"Killing {pid}")
+            kill_process(pid)
+
+def kill_process(pid):
+    """
+    Kill the process with the supplied pid
+    """
+    try:
+        os.kill(pid, signal.SIGTERM)
+    except OSError:
+        pass    
+
+def get_pid_create_time(pid):
+    """
+    Get the create time for the supplied pid
+    """
+    try:
+        process = psutil.Process(pid)
+        create_time = process.create_time()
+        return create_time
+    except psutil.NoSuchProcess:
+        return None
+
+def get_running_processes(script_name,display=False):
     """
     Returns an array of the running pids for the supplied script name
     """
-
+    pid_history={}
     pids = []
     try:
         command = f"ps aux | grep '{script_name}' | grep -v grep"
         result = subprocess.check_output(command, shell=True, text=True)
-        lines = result.strip().split('\n')
-        for line in lines:
-            pids.append(int(line.split()[1]))  # Extract PIDs
+        lines = result.strip().split('\n') 
+        pids.append(int(line.split()[1]))  # Extract PIDs
     except subprocess.CalledProcessError:
         pass
 
-    print(pids)
+    for pid in pids:
+        pid_history[pid] = get_pid_create_time(pid)
 
-def restart_xefr_cli():
-
-    python = sys.executable
-    script = "xefr_cli.py"  # Replace with the actual filename
-
-    colour_text("WIP Restarting xefr_cli.py", "RED")
-    # Launch a new instance of xefr_cli.py
-    # subprocess.Popen([python, script])
-
+    sorted_dict = dict(sorted(pid_history.items(), key=lambda item: item[1]))
+    last_pid = list(sorted_dict.keys())[-1]
+    return sorted_dict,last_pid
+    
 def add_ts_prefix(full_file_path):
     """
     Add a timestamp prefix to file name component of a file path

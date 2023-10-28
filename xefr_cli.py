@@ -16,8 +16,9 @@ import utilities
 import mongo_connector
 import os
 
+pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.1-OCT23"
+script_version = f"{script_name} 2.3-OCT23"
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
@@ -46,8 +47,7 @@ avail_commands = {
     "List portals": (jt.report_items,("portals")),
     "Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
     "Clear screen": (os.system,("clear")),
-    "Restart CLI": (cf.restart_xefr_cli,()),
-    "Display pids": (cf.get_running_processes,(script_name,))
+    "Shut down all previous instance": (cf.kill_all_previous_instances,(script_name))
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
@@ -84,8 +84,11 @@ def run_selected_command(cmd_id):
     N.B.Automatically downloads the latest schemas / portals.json
     """
 
+    # Ensure we always have the latest definitions from the source
     mongo.get_xefr_json("schemas")
     mongo.get_xefr_json("portals")
+
+    schema_names_lookup, schema_ids_lookup = jt.report_items("schemas",False)
 
     adj_id = cmd_id - 1 # adjust for 0 indexing
     selected_func,template_args = command_attributes[adj_id]
@@ -109,7 +112,11 @@ def run_selected_command(cmd_id):
         else:
             if '?' in arg:
                 cf.colour_text(f"{func_desc}: Enter value(s) for: {arg}","GREEN")
+
                 user_input = input()
+                if user_input.startswith('s') and len(user_input) <= 3: # schema short code entered
+                    user_input = schema_names_lookup[user_input]
+
                 arg = user_input.strip()
 
         args_list.append(arg)
@@ -171,6 +178,7 @@ def display_intro():
     box_len = 61
     cf.colour_text('_' * box_len,"GREEN")
     cf.colour_text(f"Welcome to the XEFR tools CLI [version {script_version}]","GREEN")
+    cf.colour_text(f"PID = {pid_id}","BLUE")
     print("Type 'x', or control c to quit the program.")
     print("Type '? to see a list of commands.")
     cf.colour_text("Select command by the number only.","RED")
@@ -179,11 +187,10 @@ def display_intro():
 def command_line_input():
 
     display_intro()
-    print(f"Process ID (PID) of the running script: {os.getpid()}")
-
+    
     while True:
 
-        user_input = input("\nEnter a command or type 'x' to quit: ")
+        user_input = input(f"\nEnter a command or type 'x' to quit: ")
         check_command(user_input)
 
 if __name__ == '__main__':

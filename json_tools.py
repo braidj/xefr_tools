@@ -30,9 +30,12 @@ def schema_report(schema_name):
                 table_data = [[col["name"], col["type"], col["id"]] for col in raw_attributes]
                 print(tabulate(table_data, headers=["Name", "Type", "ID"], tablefmt="grid"))
 
-def report_items(item_type):
+def report_items(item_type,display=True):
     """
     Returns alpahbetical list of items of type item_type
+    If display is set to True, will print the list
+    If display is set to False, will return a dictionary of the items,
+    one for name, one for id
     """
     if item_type not in cf.permitted_types:
         raise Exception(f"Type {item_type} not permitted, only {cf.permitted_types}")
@@ -59,12 +62,21 @@ def report_items(item_type):
             results[id] = [title,type_class]
 
     sorted_results = sorted(results.items(), key=lambda x: x[1])
-    print(f"\nAll {item_type} items\n")
-    for i, details in enumerate(sorted_results,1):
+    if display:
+        print(f"\nAll {item_type} items\n")
+        for i, details in enumerate(sorted_results,1):
 
-        id = details[0]
-        name, type_class = details[1]
-        print("{:<5} {:<35} {:<20} {:<20}".format(i,name, type_class, id))
+            id = details[0]
+            name, type_class = details[1]
+            print("{:<5} {:<35} {:<20} {:<20}".format(i,name, type_class, id))
+    else:
+        item_name={}
+        item_id={}
+        for i, details in enumerate(sorted_results,1):
+            item_name[f"s{str(i)}"]   = details[1][0] # name
+            item_id[f"s{str(i)}"]   = details[0] # id
+
+        return item_name, item_id
 
 def extract_json(object_name,item_type,backup=True):
     """
