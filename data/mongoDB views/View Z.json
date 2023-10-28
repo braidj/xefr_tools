@@ -1,0 +1,53 @@
+[
+
+    {  
+      $match: {
+        schemaId: $id{FOREX GBP}
+      }
+    }
+    ,
+    {
+            $project: {
+             id: 1,
+             schemaId: $id{View Z},
+             $id{View Z.Year}: $$id{FOREX GBP.Year},
+             $id{View Z.Month}: $$id{FOREX GBP.Month},
+             $id{View Z.Day}: $$id{FOREX GBP.Day},
+             $id{View Z.Symbol}: $$id{FOREX GBP.Symbol},
+             $id{View Z.GBP Rate}: $$id{FOREX GBP.GBP Rate}
+            }
+    },
+    {
+      $set:{
+        $id{View Z.Test}: {$substr: [$$id{View Z.Month}, 0, 2 ]}
+      }
+    }
+    ,
+    {
+      $set:{
+        $id{View Z.Test 2}:  { $arrayElemAt: [{ $split: [{ $toString: $$id{View Z.Day} }, "."] }, 0] }
+      }
+    }
+    ,
+    {
+      $set:{
+        $id{View Z.Test 3}: {$cond: {
+                              if: { $gte: [{ $strLenCP: $$id{View Z.Test 2} }, 2] },
+                              then: $$id{View Z.Test 2},
+                              else: { $concat: ["0", $$id{View Z.Test 2}] }
+                          }}
+      }
+    }
+   ,
+    {
+      $set:{
+        $id{View Z.Test 4}: {  $concat: [ $$id{View Z.Year}, $$id{View Z.Test}, $$id{View Z.Test 3}]  }
+      }
+    }
+    ,
+    {
+      $sort: {
+        $id{View Z.Test 4}: -1
+      }
+    }
+  ]
