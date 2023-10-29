@@ -4,11 +4,42 @@
       {
         schemaId: $id{FOREX GBP}
       }
-  },
+  }
+  ,
+  /* Create a yyyymmdd variable to sort by */
+  {
+    $set:{
+      month_portion: {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}
+    }
+  }
+  ,
+  {
+    $set:{
+      day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }
+    }
+  }
+  ,
+  {
+    $set:{
+      day_padded: {$cond: {
+                            if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
+                            then: "$day_portion",
+                            else: { $concat: ["0", "$day_portion"] }
+                        }}
+    }
+  }
+  ,
+  {
+    $set:{
+      yyyymmdd: {  $concat: [ $$id{FOREX GBP.Year}, "$month_portion", "$day_padded"]  }
+    }
+  }
+  /* END */
+  ,
   {
     $sort:
       {
-        "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
+        "yyyymmdd": -1
       }
   },
   {
@@ -45,6 +76,9 @@
           $id{View FOREX Forecast.Year}: "$year"
           
       }
-  },
-
+  }
+  ,
+  {
+    $unset: ["month_portion","day_portion","day_padded","yyyymmdd"]
+  }
 ]
