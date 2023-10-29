@@ -16,38 +16,43 @@
              $id{View Z.Symbol}: $$id{FOREX GBP.Symbol},
              $id{View Z.GBP Rate}: $$id{FOREX GBP.GBP Rate}
             }
-    },
+    }
+    ,
     {
       $set:{
-        $id{View Z.Test}: {$substr: [$$id{View Z.Month}, 0, 2 ]}
+        month_portion: {$substr: [$$id{View Z.Month}, 0, 2 ]}
       }
     }
     ,
     {
       $set:{
-        $id{View Z.Test 2}:  { $arrayElemAt: [{ $split: [{ $toString: $$id{View Z.Day} }, "."] }, 0] }
+        day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{View Z.Day} }, "."] }, 0] }
       }
     }
     ,
     {
       $set:{
-        $id{View Z.Test 3}: {$cond: {
-                              if: { $gte: [{ $strLenCP: $$id{View Z.Test 2} }, 2] },
-                              then: $$id{View Z.Test 2},
-                              else: { $concat: ["0", $$id{View Z.Test 2}] }
+        day_padded: {$cond: {
+                              if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
+                              then: "$day_portion",
+                              else: { $concat: ["0", "$day_portion"] }
                           }}
       }
     }
    ,
     {
       $set:{
-        $id{View Z.Test 4}: {  $concat: [ $$id{View Z.Year}, $$id{View Z.Test}, $$id{View Z.Test 3}]  }
+        yyyymmdd: {  $concat: [ $$id{View Z.Year}, "$month_portion", "$day_padded"]  }
       }
     }
     ,
     {
       $sort: {
-        $id{View Z.Test 4}: -1
+        "yyyymmdd": -1
       }
+    }
+    ,
+    {
+      $unset: ["month_portion","day_portion","day_padded","yyyymmdd"]
     }
   ]
