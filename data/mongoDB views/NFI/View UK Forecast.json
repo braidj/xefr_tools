@@ -50,14 +50,44 @@
             localField: $id{View UK Forecast.ChargeRateSymbol},
             foreignField: $id{FOREX GBP.Symbol},
             pipeline: [
-                {
-                    $sort: {
-                            "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
-                    }
-                },
-                {
-                    $limit: 1
-                }
+                            {
+                                $set:{
+                                month_portion: {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                day_padded: {$cond: {
+                                                        if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
+                                                        then: "$day_portion",
+                                                        else: { $concat: ["0", "$day_portion"] }
+                                                    }}
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                yyyymmdd: {  $concat: [ $$id{FOREX GBP.Year}, "$month_portion", "$day_padded"]  }
+                                }
+                            }
+                            /* END */
+                            ,
+                            {
+                                $sort:
+                                {
+                                    "yyyymmdd": -1
+                                }
+                            },
+                            {
+                                $limit:1
+                            }
                 ],
             as: "ForecastChargeExchangeRates"
         }
@@ -109,14 +139,44 @@
             localField: $id{View UK Forecast.PayRateSymbol},
             foreignField: $id{FOREX GBP.Symbol},
             pipeline: [
-                {
-                    $sort: {
-                            "compoundIndexValues._id{FOREX GBP}.gbpFXLookup": -1
-                    }
-                },
-                {
-                    $limit: 1
-                }
+                            {
+                                $set:{
+                                month_portion: {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                day_padded: {$cond: {
+                                                        if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
+                                                        then: "$day_portion",
+                                                        else: { $concat: ["0", "$day_portion"] }
+                                                    }}
+                                }
+                            }
+                            ,
+                            {
+                                $set:{
+                                yyyymmdd: {  $concat: [ $$id{FOREX GBP.Year}, "$month_portion", "$day_padded"]  }
+                                }
+                            }
+                            /* END */
+                            ,
+                            {
+                                $sort:
+                                {
+                                    "yyyymmdd": -1
+                                }
+                            },
+                            {
+                                $limit:1
+                            }
                 ],
             as: "ForecastPayExchangeRates"
         }
