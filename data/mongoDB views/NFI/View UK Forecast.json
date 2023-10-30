@@ -251,70 +251,7 @@
     }
     /* END */
     ,
-  
-    /* Consultant Lookup */
-    /* ------------------------------------------------------------------------ */
-    {
-        $set: {
-            consultantLookup: {
-            $concat: [
-            { $toString: $$id{View UK Forecast.Placement} },
-            { $toString: $$id{View UK Forecast.Candidate} }
-            ]
-            }
-        }
-    },
-    {
-        $lookup: {
-            from: "dataInstances",
-            localField: "consultantLookup",
-            foreignField: "compoundIndexValues._id{TSP UK Placements Tracker}.placementCandidateLookup",
-            as: "consultants"
-        }
-    },
-    {
-        $set: {
-            "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
-        }
-    },
-    {
-        $set: {
-        $id{View UK Forecast.Consultant}: "$firstConsultant._id{TSP UK Placements Tracker.Consultant}"
-        }
-    },
-    {
-        $unset: ["consultants", "firstConsultant", "consultantLookup"]
-    }
-    /* END */
-    ,
-  
-    /* Charge Code Lookup */
-    /* ------------------------------------------------------------------------ */
-    {
-        $lookup: {
-            from: "dataInstances",
-            localField: $id{View UK Forecast.ChargeCode},
-            foreignField: $id{Metrics Charge Codes.ChargeCode},
-            as: "types"
-        }
-    },
-    {
-        $set: {
-            "firstType": { $arrayElemAt: ["$types", 0] }
-        }
-    }
-    ,
-    {
-        $set: {
-            $id{View UK Forecast.Type}: "$firstType._id{Metrics Charge Codes.Type}"
-        }
-    }
-    ,
-    {
-        $unset: ["types", "firstType"]
-    }
-    /* END */
-    ,
+
     /* Calculate Net Revenue and final forecast GBP based on working days */
     {
         $set: {
@@ -430,12 +367,6 @@
         $id{View UK Forecast.GBPLinePrice}: { $cond: { if: { $lte: [$$id{View UK Forecast.InvoiceDate}, $$id{View UK Forecast.Forecast Cut Off}] }, then: 0, else: $$id{View UK Forecast.GBPLinePrice} } }
     }
     
-  }
-  ,
-  {
-    $sort: {
-      $id{View UK Forecast.InvoiceDate}: -1
-    }
   }
   
   ]

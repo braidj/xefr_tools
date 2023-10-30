@@ -174,7 +174,7 @@ def get_pipeline_text(schema_name,display=False):
                     pipeline_str = item.get("pipelineText")
 
                     if display:
-                        cf.colour_text(pipeline_str,"GREEN")
+                        cf.colour_text(pipeline_str,"BLUE")
                     else:
                         return pipeline_str
 
