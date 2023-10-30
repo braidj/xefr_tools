@@ -1,228 +1,225 @@
 [
-    {
-     $match: {
-      schemaId: $id{TSP UK Invoice Tracker}
+  {
+   $match: {
+    schemaId: $id{TSP UK Invoice Tracker}
+   }
+  },
+  {
+   $project: {
+    id: 1,
+    schemaId: $id{View UK NFI Forecast},
+    $id{View UK NFI Forecast.Candidate}: $$id{TSP UK Invoice Tracker.Candidate},
+    $id{View UK NFI Forecast.CompanyName}: $$id{TSP UK Invoice Tracker.CompanyName},
+    $id{View UK NFI Forecast.Placement}: { $toString: $$id{TSP UK Invoice Tracker.Placement} },
+    $id{View UK NFI Forecast.InvoiceDate}: $$id{TSP UK Invoice Tracker.InvoiceDate},
+    $id{View UK NFI Forecast.Currency}: $$id{TSP UK Invoice Tracker.Currency},
+    $id{View UK NFI Forecast.LinePrice}: $$id{TSP UK Invoice Tracker.LinePrice},
+    $id{View UK NFI Forecast.ChargeCode}: $$id{TSP UK Invoice Tracker.ChargeCode},
+    $id{View UK NFI Forecast.Source}: $$id{TSP UK Invoice Tracker.Source},
+    $id{View UK NFI Forecast.Country}: $$id{TSP UK Invoice Tracker.Country}
+   }
+  },
+  {
+   $unionWith: {
+    coll: "dataInstances",
+    pipeline: [
+     {
+      $match: {
+       schemaId: $id{TSP UK Contractor Invoices Tracker}
+      }
+     },
+     {
+      $project: {
+       id: 1,
+       schemaId: $id{View UK NFI Forecast},
+       $id{View UK NFI Forecast.Candidate}: $$id{TSP UK Contractor Invoices Tracker.Candidate},
+       $id{View UK NFI Forecast.CompanyName}: $$id{TSP UK Contractor Invoices Tracker.CompanyName},
+       $id{View UK NFI Forecast.Placement}: { $toString: $$id{TSP UK Contractor Invoices Tracker.Placement} },
+       $id{View UK NFI Forecast.InvoiceDate}: $$id{TSP UK Contractor Invoices Tracker.InvoiceDate},
+       $id{View UK NFI Forecast.Currency}: $$id{TSP UK Contractor Invoices Tracker.Currency},
+       $id{View UK NFI Forecast.LinePrice}: $$id{TSP UK Contractor Invoices Tracker.LinePrice},
+       $id{View UK NFI Forecast.ChargeCode}: $$id{TSP UK Contractor Invoices Tracker.ChargeCode},
+       $id{View UK NFI Forecast.Source}: $$id{TSP UK Contractor Invoices Tracker.Source},
+       $id{View UK NFI Forecast.Country}: $$id{TSP UK Contractor Invoices Tracker.Country}
+      }
      }
-    },
-    {
-     $project: {
-      id: 1,
-      schemaId: $id{View UK NFI Forecast},
-      $id{View UK NFI Forecast.Candidate}: $$id{TSP UK Invoice Tracker.Candidate},
-      $id{View UK NFI Forecast.CompanyName}: $$id{TSP UK Invoice Tracker.CompanyName},
-      $id{View UK NFI Forecast.Placement}: { $toString: $$id{TSP UK Invoice Tracker.Placement} },
-      $id{View UK NFI Forecast.InvoiceDate}: $$id{TSP UK Invoice Tracker.InvoiceDate},
-      $id{View UK NFI Forecast.Currency}: $$id{TSP UK Invoice Tracker.Currency},
-      $id{View UK NFI Forecast.LinePrice}: $$id{TSP UK Invoice Tracker.LinePrice},
-      $id{View UK NFI Forecast.ChargeCode}: $$id{TSP UK Invoice Tracker.ChargeCode},
-      $id{View UK NFI Forecast.Source}: $$id{TSP UK Invoice Tracker.Source},
-      $id{View UK NFI Forecast.Country}: $$id{TSP UK Invoice Tracker.Country}
+    ]
+   }
+  },
+  {
+   $unionWith: {
+    coll: "dataInstances",
+    pipeline: [
+     {
+      $match: {
+       schemaId: $id{Adjustments UK NFI}
+      }
+     },
+     {
+      $project: {
+       id: 1,
+       schemaId: $id{View UK NFI Forecast},
+       $id{View UK NFI Forecast.Candidate}: $$id{Adjustments UK NFI.Candidate},
+       $id{View UK NFI Forecast.CompanyName}: $$id{Adjustments UK NFI.CompanyName},
+       $id{View UK NFI Forecast.Placement}: { $toString: $$id{Adjustments UK NFI.Placement} },
+       $id{View UK NFI Forecast.InvoiceDate}: $$id{Adjustments UK NFI.InvoiceDate},
+       $id{View UK NFI Forecast.Currency}: $$id{Adjustments UK NFI.Currency},
+       $id{View UK NFI Forecast.LinePrice}: $$id{Adjustments UK NFI.LinePrice},
+       $id{View UK NFI Forecast.ChargeCode}: $$id{Adjustments UK NFI.ChargeCode},
+       $id{View UK NFI Forecast.Source}: $$id{Adjustments UK NFI.Source}
+      }
      }
-    },
-    {
-     $unionWith: {
-      coll: "dataInstances",
+    ]
+   }
+  },
+  {
+   $set: {
+    $id{View UK NFI Forecast.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } },
+    $id{View UK NFI Forecast.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
+    $id{View UK NFI Forecast.Day}: { $dayOfMonth: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } },
+    $id{View UK NFI Forecast.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
+    $id{View UK NFI Forecast.Multiplier}: { $cond: { if: { $eq: [$$id{View UK NFI Forecast.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
+   }
+  },
+  {
+   $set: {
+    fxLookup: {
+     $concat: [
+      { $toString: $$id{View UK NFI Forecast.Year} },
+      { $toString: $$id{View UK NFI Forecast.Month} },
+      { $toString: $$id{View UK NFI Forecast.Day} },
+      { $toString: $$id{View UK NFI Forecast.Currency} }
+     ]
+    }
+   }
+  },
+  {
+   $lookup: {
+    from: "dataInstances",
+    localField: "fxLookup",
+    foreignField: "compoundIndexValues._id{FOREX GBP}.gbpFXLookup",
+    as: "exchangeRates"
+   }
+  },
+  {
+   $set: {
+    "firstRate": { $arrayElemAt: ["$exchangeRates", 0] }
+   }
+  },
+  {
+   $set: {
+    $id{View UK NFI Forecast.ExchangeRate}: { $cond: [ { $eq: [$$id{View UK NFI Forecast.Currency}, "£"] } , 1, "$firstRate._id{FOREX GBP.GBP Rate}" ] }
+   }
+  },
+  {
+   $unset: ["exchangeRates", "firstRate", "fxLookup"]
+  },
+  {
+   $set: {
+    consultantLookup: {
+     $concat: [
+      { $toString: $$id{View UK NFI Forecast.Placement} },
+      { $toString: $$id{View UK NFI Forecast.Candidate} }
+     ]
+    }
+   }
+  },
+  {
+   $lookup: {
+    from: "dataInstances",
+    localField: "consultantLookup",
+    foreignField: "compoundIndexValues._id{TSP UK Placements Tracker}.placementCandidateLookup",
+    as: "consultants"
+   }
+  },
+  {
+   $set: {
+    "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
+   }
+  },
+  {
+   $set: {
+    $id{View UK NFI Forecast.Consultant}: "$firstConsultant._id{TSP UK Placements Tracker.Consultant}"
+   }
+  },
+  {
+   $unset: ["consultants", "firstConsultant", "consultantLookup"]
+  },
+  {
+   $lookup: {
+    from: "dataInstances",
+    localField: $id{View UK NFI Forecast.ChargeCode},
+    foreignField: $id{Metrics Charge Codes.ChargeCode},
+    as: "types"
+   }
+  },
+  {
+   $set: {
+    "firstType": { $arrayElemAt: ["$types", 0] }
+   }
+  },
+  {
+   $set: {
+    $id{View UK NFI Forecast.Type}: "$firstType._id{Metrics Charge Codes.Type}"
+   }
+  },
+  {
+   $unset: ["types", "firstType"]
+  },
+  {
+   $set: {
+    $id{View UK NFI Forecast.GBPLinePrice}: {
+     $cond: {
+      if: { $gt: [$$id{View UK NFI Forecast.ExchangeRate}, 1] },
+      then: { $multiply: [ $$id{View UK NFI Forecast.Multiplier}, { $divide: [$$id{View UK NFI Forecast.LinePrice}, $$id{View UK NFI Forecast.ExchangeRate}] } ]},
+      else: { $multiply: [ $$id{View UK NFI Forecast.Multiplier}, { $multiply: [$$id{View UK NFI Forecast.LinePrice}, $$id{View UK NFI Forecast.ExchangeRate}] } ]}
+     }
+    }
+   }
+  }
+  ,
+  /* Bring in the Forecast date */
+  {
+    $lookup: {
+      from: "dataInstances",
       pipeline: [
-       {
-        $match: {
-         schemaId: $id{TSP UK Contractor Invoices Tracker}
-        }
-       },
-       {
-        $project: {
-         id: 1,
-         schemaId: $id{View UK NFI Forecast},
-         $id{View UK NFI Forecast.Candidate}: $$id{TSP UK Contractor Invoices Tracker.Candidate},
-         $id{View UK NFI Forecast.CompanyName}: $$id{TSP UK Contractor Invoices Tracker.CompanyName},
-         $id{View UK NFI Forecast.Placement}: { $toString: $$id{TSP UK Contractor Invoices Tracker.Placement} },
-         $id{View UK NFI Forecast.InvoiceDate}: $$id{TSP UK Contractor Invoices Tracker.InvoiceDate},
-         $id{View UK NFI Forecast.Currency}: $$id{TSP UK Contractor Invoices Tracker.Currency},
-         $id{View UK NFI Forecast.LinePrice}: $$id{TSP UK Contractor Invoices Tracker.LinePrice},
-         $id{View UK NFI Forecast.ChargeCode}: $$id{TSP UK Contractor Invoices Tracker.ChargeCode},
-         $id{View UK NFI Forecast.Source}: $$id{TSP UK Contractor Invoices Tracker.Source},
-         $id{View UK NFI Forecast.Country}: $$id{TSP UK Contractor Invoices Tracker.Country}
-        }
-       }
+          {
+            $match: {
+              schemaId: $id{FOREX Forecast Date}
+            }
+          }
+          ,
+          {
+            $project: {
+              ForecastDate: $$id{FOREX Forecast Date.Forecast Date From}
+            }
+          }
+          ,
+          {
+            $sort: {
+              ForecastDate: -1
+            }
+          }
+          ,
+          {
+            $limit: 1
+          }  
       ]
-     }
-    },
-    {
-     $unionWith: {
-      coll: "dataInstances",
-      pipeline: [
-       {
-        $match: {
-         schemaId: $id{Adjustments UK NFI}
-        }
-       },
-       {
-        $project: {
-         id: 1,
-         schemaId: $id{View UK NFI Forecast},
-         $id{View UK NFI Forecast.Candidate}: $$id{Adjustments UK NFI.Candidate},
-         $id{View UK NFI Forecast.CompanyName}: $$id{Adjustments UK NFI.CompanyName},
-         $id{View UK NFI Forecast.Placement}: { $toString: $$id{Adjustments UK NFI.Placement} },
-         $id{View UK NFI Forecast.InvoiceDate}: $$id{Adjustments UK NFI.InvoiceDate},
-         $id{View UK NFI Forecast.Currency}: $$id{Adjustments UK NFI.Currency},
-         $id{View UK NFI Forecast.LinePrice}: $$id{Adjustments UK NFI.LinePrice},
-         $id{View UK NFI Forecast.ChargeCode}: $$id{Adjustments UK NFI.ChargeCode},
-         $id{View UK NFI Forecast.Source}: $$id{Adjustments UK NFI.Source}
-        }
-       }
-      ]
-     }
-    },
-    {
-     $set: {
-      $id{View UK NFI Forecast.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } },
-      $id{View UK NFI Forecast.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
-      $id{View UK NFI Forecast.Day}: { $dayOfMonth: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } },
-      $id{View UK NFI Forecast.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
-      $id{View UK NFI Forecast.Multiplier}: { $cond: { if: { $eq: [$$id{View UK NFI Forecast.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
-     }
-    },
-    {
-     $set: {
-      fxLookup: {
-       $concat: [
-        { $toString: $$id{View UK NFI Forecast.Year} },
-        { $toString: $$id{View UK NFI Forecast.Month} },
-        { $toString: $$id{View UK NFI Forecast.Day} },
-        { $toString: $$id{View UK NFI Forecast.Currency} }
-       ]
-      }
-     }
-    },
-    {
-     $lookup: {
-      from: "dataInstances",
-      localField: "fxLookup",
-      foreignField: "compoundIndexValues._id{FOREX GBP}.gbpFXLookup",
-      as: "exchangeRates"
-     }
-    },
-    {
-     $set: {
-      "firstRate": { $arrayElemAt: ["$exchangeRates", 0] }
-     }
-    },
-    {
-     $set: {
-      $id{View UK NFI Forecast.ExchangeRate}: { $cond: [ { $eq: [$$id{View UK NFI Forecast.Currency}, "£"] } , 1, "$firstRate._id{FOREX GBP.GBP Rate}" ] }
-     }
-    },
-    {
-     $unset: ["exchangeRates", "firstRate", "fxLookup"]
-    },
-    {
-     $set: {
-      consultantLookup: {
-       $concat: [
-        { $toString: $$id{View UK NFI Forecast.Placement} },
-        { $toString: $$id{View UK NFI Forecast.Candidate} }
-       ]
-      }
-     }
-    },
-    {
-     $set: { $id{View UK NFI Forecast.PlacementCandidateLookup}: "$consultantLookup" }
-    },
-    {
-     $lookup: {
-      from: "dataInstances",
-      localField: "consultantLookup",
-      foreignField: "compoundIndexValues._id{TSP UK Placements Tracker}.placementCandidateLookup",
-      as: "consultants"
-     }
-    },
-    {
-     $set: {
-      "firstConsultant": { $arrayElemAt: ["$consultants", 0] }
-     }
-    },
-    {
-     $set: {
-      $id{View UK NFI Forecast.Consultant}: "$firstConsultant._id{TSP UK Placements Tracker.Consultant}"
-     }
-    },
-    {
-     $unset: ["consultants", "firstConsultant", "consultantLookup"]
-    },
-    {
-     $lookup: {
-      from: "dataInstances",
-      localField: $id{View UK NFI Forecast.ChargeCode},
-      foreignField: $id{Metrics Charge Codes.ChargeCode},
-      as: "types"
-     }
-    },
-    {
-     $set: {
-      "firstType": { $arrayElemAt: ["$types", 0] }
-     }
-    },
-    {
-     $set: {
-      $id{View UK NFI Forecast.Type}: "$firstType._id{Metrics Charge Codes.Type}"
-     }
-    },
-    {
-     $unset: ["types", "firstType"]
-    },
-    {
-     $set: {
-      $id{View UK NFI Forecast.GBPLinePrice}: {
-       $cond: {
-        if: { $gt: [$$id{View UK NFI Forecast.ExchangeRate}, 1] },
-        then: { $multiply: [ $$id{View UK NFI Forecast.Multiplier}, { $divide: [$$id{View UK NFI Forecast.LinePrice}, $$id{View UK NFI Forecast.ExchangeRate}] } ]},
-        else: { $multiply: [ $$id{View UK NFI Forecast.Multiplier}, { $multiply: [$$id{View UK NFI Forecast.LinePrice}, $$id{View UK NFI Forecast.ExchangeRate}] } ]}
-       }
-      }
-     }
+      ,
+      as: "forecast_date"
     }
-    ,
-    /* Bring in the Forecast date */
-    {
-      $lookup: {
-        from: "dataInstances",
-        pipeline: [
-            {
-              $match: {
-                schemaId: $id{FOREX Forecast Date}
-              }
-            }
-            ,
-            {
-              $project: {
-                ForecastDate: $$id{FOREX Forecast Date.Forecast Date From}
-              }
-            }
-            ,
-            {
-              $sort: {
-                ForecastDate: -1
-              }
-            }
-            ,
-            {
-              $limit: 1
-            }  
-        ]
-        ,
-        as: "forecast_date"
+  }
+  ,
+  {
+      $set: { 
+          "firstForecastDate" : { $arrayElemAt: ["$forecast_date",0]} 
       }
+  }
+  ,
+  {
+    $set: {
+      $id{View UK NFI Forecast.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
     }
-    ,
-    {
-        $set: { 
-            "firstForecastDate" : { $arrayElemAt: ["$forecast_date",0]} 
-        }
-    }
-    ,
-    {
-      $set: {
-        $id{View UK NFI Forecast.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
-      }
-    }
-  /* END */
-   ]
+  }
+/* END */
+ ]
