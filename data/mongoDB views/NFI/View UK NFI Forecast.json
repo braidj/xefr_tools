@@ -206,6 +206,62 @@
                   }
               }
               ,
+              /* Common Calendar Columns */
+              {
+               $set: {
+                $id{View UK NFI Forecast.Year}: { $dateToString: { format: "%Y", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } },
+                $id{View UK NFI Forecast.Month}: { $concat: [{ $dateToString: { format: "%m", date: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } } }, "-", { $arrayElemAt: [["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
+                $id{View UK NFI Forecast.Day}: { $dayOfMonth: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } },
+                $id{View UK NFI Forecast.Quarter}: { $concat: ["Q", { $arrayElemAt: [["", "1", "1", "1", "2", "2", "2", "3", "3", "3", "4", "4", "4"], { $month: { $toDate: $$id{View UK NFI Forecast.InvoiceDate} } }] }] },
+                $id{View UK NFI Forecast.Multiplier}: { $cond: { if: { $eq: [$$id{View UK NFI Forecast.Source}, "TSP UK Contractor Invoices"] }, then: -1, else: 1 } }
+               }
+              }
+              ,
+              /* Bring in Forecast Cut Off Date */
+              {
+                $lookup: {
+                  from: "dataInstances",
+                  pipeline: [
+                      {
+                        $match: {
+                          schemaId: $id{FOREX Forecast Date}
+                        }
+                      }
+                      ,
+                      {
+                        $project: {
+                          ForecastDate: $$id{FOREX Forecast Date.Forecast Date From}
+                        }
+                      }
+                      ,
+                      {
+                        $sort: {
+                          ForecastDate: -1
+                        }
+                      }
+                      ,
+                      {
+                        $limit: 1
+                      }  
+                  ]
+                  ,
+                  as: "forecast_date"
+                }
+              }
+              ,
+              {
+                  $set: { 
+                      "firstForecastDate" : { $arrayElemAt: ["$forecast_date",0]} 
+                  }
+              }
+              ,
+              {
+                $set: {
+                  $id{View UK NFI Forecast.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
+                }
+              }
+              ,
+              /* END */
               /* Charge Rate FX lookup */
               {
                   $lookup: {
@@ -213,31 +269,21 @@
                       localField: $id{View UK NFI Forecast.ChargeRateSymbol},
                       foreignField: $id{FOREX GBP.Symbol},
                       pipeline: [
+
                                   {
-                                      $set:{
-                                      month_portion: {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}
-                                      }
-                                  }
-                                  ,
-                                  {
-                                      $set:{
-                                      day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }
-                                      }
-                                  }
-                                  ,
-                                  {
-                                      $set:{
-                                      day_padded: {$cond: {
-                                                              if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
-                                                              then: "$day_portion",
-                                                              else: { $concat: ["0", "$day_portion"] }
-                                                          }}
-                                      }
-                                  }
-                                  ,
-                                  {
-                                      $set:{
-                                      yyyymmdd: {  $concat: [ $$id{FOREX GBP.Year}, "$month_portion", "$day_padded"]  }
+                                      $project:{
+
+                                      yyyymmdd: { 
+                                        
+                                      $concat: [ $$id{FOREX GBP.Year}, {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}, {$cond: {
+                                        if: { $gte: [{ $strLenCP: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }}, 2] },
+                                        then: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] },
+                                        else: { $concat: ["0", { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }] }
+                                    }}]  
+                                    
+                                    
+                                    },
+                                    $id{FOREX GBP.GBP Rate}:1
                                       }
                                   }
                                   /* END */
@@ -260,6 +306,9 @@
                   $set: { 
                       "firstChargeExchangeRates" : { $arrayElemAt: ["$ForecastChargeExchangeRates",0]} 
                   }
+              },
+              {
+                $unset: "ForecastChargeExchangeRates"
               }
               ,
               {
@@ -271,7 +320,7 @@
               }
               ,
               {
-                  $unset: ["ForecastChargeExchangeRates", "firstChargeExchangeRates"]
+                  $unset: [ "firstChargeExchangeRates"]
               }
               ,
               {
@@ -303,53 +352,45 @@
                       localField: $id{View UK NFI Forecast.PayRateSymbol},
                       foreignField: $id{FOREX GBP.Symbol},
                       pipeline: [
-                                      {
-                                          $set:{
-                                          month_portion: {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}
-                                          }
-                                      }
-                                      ,
-                                      {
-                                          $set:{
-                                          day_portion:  { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }
-                                          }
-                                      }
-                                      ,
-                                      {
-                                          $set:{
-                                          day_padded: {$cond: {
-                                                                  if: { $gte: [{ $strLenCP: "$day_portion"}, 2] },
-                                                                  then: "$day_portion",
-                                                                  else: { $concat: ["0", "$day_portion"] }
-                                                              }}
-                                          }
-                                      }
-                                      ,
-                                      {
-                                          $set:{
-                                          yyyymmdd: {  $concat: [ $$id{FOREX GBP.Year}, "$month_portion", "$day_padded"]  }
-                                          }
-                                      }
-                                      /* END */
-                                      ,
-                                      {
-                                          $sort:
-                                          {
-                                              "yyyymmdd": -1
-                                          }
-                                      },
-                                      {
-                                          $limit:1
-                                      }
+
+                        {
+                          $project:{
+
+                          yyyymmdd: { 
+                            
+                          $concat: [ $$id{FOREX GBP.Year}, {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}, {$cond: {
+                            if: { $gte: [{ $strLenCP: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }}, 2] },
+                            then: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] },
+                            else: { $concat: ["0", { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }] }
+                        }}]  
+                        
+                        
+                        },
+                        $id{FOREX GBP.GBP Rate}:1
+                          }
+                      }
+                      /* END */
+                      ,
+                      {
+                          $sort:
+                          {
+                              "yyyymmdd": -1
+                          }
+                      },
+                      {
+                          $limit:1
+                      }
                           ],
                       as: "ForecastPayExchangeRates"
                   }
-          
               },
               {
                   $set: { 
                       "firstPayExchangeRates" : { $arrayElemAt: ["$ForecastPayExchangeRates",0]} 
                   }
+              },
+              {
+                $unset: "ForecastPayExchangeRates"
               },
               {
                   $set:{
@@ -359,7 +400,7 @@
                   }
               },
               {
-                  $unset: ["ForecastPayExchangeRates", "firstPayExchangeRates"]
+                  $unset: ["firstPayExchangeRates"]
               }
               ,
               {
