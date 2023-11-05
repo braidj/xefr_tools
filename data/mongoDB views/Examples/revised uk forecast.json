@@ -1,0 +1,313 @@
+[
+    {
+        $match: {
+        schemaId: $id{TSP UK Placements Forecast}
+        }
+    }
+    ,
+    {
+        $project: {
+            id: 1,
+            schemaId: $id{View X},
+            $id{View X.Candidate}: $$id{TSP UK Placements Forecast.Candidate},
+            $id{View X.ChargeCode}: "Temp",
+            $id{View X.CompanyName}: $$id{TSP UK Placements Forecast.CompanyName},
+            $id{View X.Country}: "UK",
+            $id{View X.Placement}: { $toString: $$id{TSP UK Placements Forecast.Placement} },
+            $id{View X.InvoiceDate}: $$id{TSP UK Placements Forecast.Forecast Date},
+            $id{View X.Currency}: "n/a",
+            $id{View X.LinePrice}: "0",
+            $id{View X.ChargeRate}: $$id{TSP UK Placements Forecast.Charge Rate},
+            $id{View X.ChargeRateSymbol}: $$id{TSP UK Placements Forecast.CC Symbol},
+            $id{View X.Source}: "UK Placements Forecast",      
+            $id{View X.Placement Start}: $$id{TSP UK Placements Forecast.Placement Start},
+            $id{View X.Placement End}: $$id{TSP UK Placements Forecast.Placement End},
+            $id{View X.PayRateSymbol}: $$id{TSP UK Placements Forecast.PC Symbol},
+            $id{View X.PayRate}: $$id{TSP UK Placements Forecast.Pay Rate},
+            $id{View X.Unit}: $$id{TSP UK Placements Forecast.Unit}
+        }
+    }
+    ,
+    /* Charge Rate FX lookup */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{View X.ChargeRateSymbol},
+            foreignField: $id{FOREX GBP.Symbol},
+            pipeline: [
+
+                        {
+                            $project:{
+
+                            yyyymmdd: { 
+                              
+                            $concat: [ $$id{FOREX GBP.Year}, {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}, {$cond: {
+                              if: { $gte: [{ $strLenCP: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }}, 2] },
+                              then: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] },
+                              else: { $concat: ["0", { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }] }
+                          }}]  
+                          
+                          
+                          },
+                          $id{FOREX GBP.GBP Rate}:1
+                            }
+                        }
+                        /* END */
+                        ,
+                        {
+                            $sort:
+                            {
+                                "yyyymmdd": -1
+                            }
+                        },
+                        {
+                            $limit:1
+                        }
+                ],
+            as: "ForecastChargeExchangeRates"
+        }
+    }
+    ,
+    {
+        $set: { 
+            "firstChargeExchangeRates" : { $arrayElemAt: ["$ForecastChargeExchangeRates",0]} 
+        }
+    },
+    {
+      $unset: "ForecastChargeExchangeRates"
+    }
+    ,
+    {
+        $set:{
+                $id{View X.ChargeRateExchange}: { 
+                $cond: [ { $eq: [$$id{View X.ChargeRateSymbol}, "£"] } , 1, "$firstChargeExchangeRates._id{FOREX GBP.GBP Rate}" ]
+            }
+        }
+    }
+    ,
+    {
+        $unset: [ "firstChargeExchangeRates"]
+    }
+    ,
+    {
+        $set: {
+            $id{View X.ChargeRateGBP}: {
+                $cond: {
+                    if: { $gt: [$$id{View X.ChargeRateExchange}, 1] },
+                    then: { $divide: [$$id{View X.ChargeRate},$$id{View X.ChargeRateExchange}] },
+                    else: { $multiply: [$$id{View X.ChargeRate},$$id{View X.ChargeRateExchange}]}
+                }
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View X.ChargeRateGBP}: {
+                $round: [{$toDouble:$$id{View X.ChargeRateGBP}},2]
+                
+            }
+        }
+    }
+    /* END */
+    ,
+    /* Pay Rate FX Lookup */
+    {
+        $lookup: {
+            from: "dataInstances",
+            localField: $id{View X.PayRateSymbol},
+            foreignField: $id{FOREX GBP.Symbol},
+            pipeline: [
+
+              {
+                $project:{
+
+                yyyymmdd: { 
+                  
+                $concat: [ $$id{FOREX GBP.Year}, {$substr: [$$id{FOREX GBP.Month}, 0, 2 ]}, {$cond: {
+                  if: { $gte: [{ $strLenCP: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }}, 2] },
+                  then: { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] },
+                  else: { $concat: ["0", { $arrayElemAt: [{ $split: [{ $toString: $$id{FOREX GBP.Day} }, "."] }, 0] }] }
+              }}]  
+              
+              
+              },
+              $id{FOREX GBP.GBP Rate}:1
+                }
+            }
+            /* END */
+            ,
+            {
+                $sort:
+                {
+                    "yyyymmdd": -1
+                }
+            },
+            {
+                $limit:1
+            }
+                ],
+            as: "ForecastPayExchangeRates"
+        }
+    },
+    {
+        $set: { 
+            "firstPayExchangeRates" : { $arrayElemAt: ["$ForecastPayExchangeRates",0]} 
+        }
+    },
+    {
+      $unset: "ForecastPayExchangeRates"
+    },
+    {
+        $set:{
+            $id{View X.PayRateExchange}: { 
+                $cond: [ { $eq: [$$id{View X.PayRateSymbol}, "£"] } , 1, "$firstPayExchangeRates._id{FOREX GBP.GBP Rate}" ]
+            }
+        }
+    },
+    {
+        $unset: ["firstPayExchangeRates"]
+    }
+    ,
+    {
+        $set: {
+            $id{View X.PayRateGBP}: {
+                $cond: {
+                    if: { $gt: [$$id{View X.PayRateExchange}, 1] },
+                    then: { $divide: [$$id{View X.PayRate},$$id{View X.PayRateExchange}] },
+                    else: { $multiply: [$$id{View X.PayRate},$$id{View X.PayRateExchange}] }
+                }
+            }
+        }
+    },
+    {
+        $set:{
+            $id{View X.PayRateGBP}: {
+            $round: [{$toDouble:$$id{View X.PayRateGBP}},2]
+            }
+        }
+    }
+    /* END */
+    ,
+
+    /* Add WD Look up back in here */
+
+   /* Working Days Lookup */
+   {
+      $set: {
+          wdLookup:{
+          $concat: [
+              "UK",
+              {$toString: $$id{View X.Year} },
+              {$toString: $$id{View X.Month} }
+          ] 
+          }
+      }
+  },
+/*
+  {
+      $lookup:{
+          from: "dataInstances",
+          localField: "wdLookup",
+          foreignField: "compoundIndexValues._id{Metrics Working Days}.workingDaysLookup",
+          as: "workingDays"
+      }
+  },
+*/
+  {
+      $set: {"firstWorkingDays":{ $arrayElemAt: ["$workingDays",0]}, $id{View X.WorkingDaysCK}: "$wdLookup"},
+  },
+  {
+      $set : { $id{View X.WorkingDays}: "$firstWorkingDays._id{Metrics Working Days.Nos Days}" }
+  },
+  {
+      $unset: ["workingDays", "firstWorkingDays", "wdLookup"]
+  }
+  /* END */
+    ,
+    /* Calculate Net Revenue and final forecast GBP based on working days */
+    {
+        $set: {
+            $id{View X.NetRevenueGBP}: {
+            $subtract:[ $$id{View X.ChargeRateGBP}, $$id{View X.PayRateGBP} ]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View X.NetRevenueGBP}: {
+            $round: [{$toDouble:$$id{View X.NetRevenueGBP}},2]
+            }
+        }
+    }
+    ,
+    {
+        $set:{
+                $id{View X.GBPLinePrice}: 
+                {
+                    $cond: {
+                                if: {$eq: [ $$id{View X.Unit}, "Per Day"]},
+                                then: 
+                                {
+                                    $multiply: [{$toDouble:$$id{View X.WorkingDays}}, {$toDouble:$$id{View X.NetRevenueGBP}}]
+                                },
+                                else: $$id{View X.GBPLinePrice}
+                            }
+                }
+        }
+    }
+        ,
+    {
+        $set:{
+            $id{View X.GBPLinePrice}: 
+                {
+                    $cond: {
+                                if: {$eq: [ $$id{View X.Unit}, "Per Hour"]},
+                                then: 
+                                {
+                                    $multiply: [7.5,{$toDouble:$$id{View X.WorkingDays}}, {$toDouble:$$id{View X.NetRevenueGBP}}]
+                                },
+                                else: $$id{View X.GBPLinePrice}
+                            }
+                        }
+        }
+    }
+    ,
+    {
+        $set:{
+            $id{View X.GBPLinePrice}:
+            {
+                $round: [{$toDouble:$$id{View X.GBPLinePrice}},2]
+            }
+        }
+    }
+    /* END */
+    ,
+    {
+        $set: { 
+            "firstForecastDate" : { $arrayElemAt: ["$forecast_date",0]} 
+        }
+    }
+    ,
+    {
+        $set: {
+            $id{View X.Forecast Cut Off}:"$firstForecastDate.ForecastDate"
+        }
+    }
+    /* END */
+    ,
+    {
+        $set:{
+            $id{View X.NetRevenueGBP}: { $cond: { if: { $lte: [$$id{View X.InvoiceDate}, $$id{View X.Forecast Cut Off}] }, then: 0, else: $$id{View X.NetRevenueGBP} } }
+        }
+        
+      }
+      ,
+      {
+        $set:{
+            $id{View X.GBPLinePrice}: { $cond: { if: { $lte: [$$id{View X.InvoiceDate}, $$id{View X.Forecast Cut Off}] }, then: 0, else: $$id{View X.GBPLinePrice} } }
+        }
+        
+      }
+]

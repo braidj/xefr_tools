@@ -32,14 +32,13 @@ sort_orders = {
 # Hide these columns when displaying schema data
 hide_columns = {
     'View UK Forecast': (
-        'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
-        'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
-        'Currency,Country,Consultant'
+        'PlacementCandidateLookup,Multiplier,CompanyName,'
+        'Placement Start,Placement End,Year,Quarter,Day,Source,'
+        'Currency,Country,Month,Forecast Cut Off,ExchangeRate,ChargeCode,LinePrice'
     ),
     'View UK NFI': (
-        'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
-        'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
-        'Currency,Country,Consultant'
+        'Type,PlacementCandidateLookup,ChargeCode,CompanyName,'
+        'Quarter,Day,Consultant'
     ),
     'View US NFI': (
         'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
@@ -48,7 +47,7 @@ hide_columns = {
     ),
     'View UK NFI Forecast': (
         'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
-        'Placement Start,Placement End,Quarter,Day,WorkingDaysCK,Source,'
+        'Placement Start,Placement End,Source,'
         'Currency,Country,Consultant'
     )
 }
