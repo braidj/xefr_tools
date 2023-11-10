@@ -15,7 +15,7 @@ logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
 
-database = 'xefr-signify-dev'
+database = 'xefr-zhero-dev' # change the database here
 instance = "LOCAL"
 
 xefr = xefr_endpoints.EndPoints(instance,database,logger)

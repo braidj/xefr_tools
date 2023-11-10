@@ -97,13 +97,6 @@ class EndPoints(object):
             filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]
             table.add_row(filtered_row)
 
-        # # Add the first 10 data rows to the table
-        # for i, row in enumerate(csv_reader):
-        #     if i >= 10:
-        #         break
-        #     table.add_row(row)
-
-        # Print the formatted table
         print(table)
 
     def persist_data(self,curl_command,schema_name,output_file,show_detail=False):
