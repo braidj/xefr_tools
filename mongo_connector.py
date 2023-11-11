@@ -1,14 +1,18 @@
 import pymongo
 import sys
 import json
+import os
 import common_funcs as cf
 
 class Mongo(object):
 
-    def __init__(self,target,database,logger) -> None:
+    def __init__(self,target,database,download_directory,logger) -> None:
 
-        self.database = database
         self.target = target
+        self.database = database
+        self.download = download_directory
+        self.schemas_json = os.path.join(self.download,"schemas.json")
+        self.portals_json = os.path.join(self.download,"portals.json")
         self.logger = logger
 
         if target == "LOCAL":
@@ -61,7 +65,10 @@ class Mongo(object):
         document_list = [doc for doc in documents]
 
         # Define the path to the JSON file where you want to store the data
-        output_file = cf.get_source_json(doc_type)
+        if doc_type == 'schemas':
+            output_file = self.schemas_json
+        elif doc_type == 'portals':
+            output_file = self.portals_json
 
         # Write the list of dictionaries to a JSON file
         try:
