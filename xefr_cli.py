@@ -4,7 +4,6 @@ import signal
 import json_tools as jt
 import common_funcs as cf
 import xefr_endpoints
-import types
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
@@ -14,23 +13,26 @@ sys.path.append(utils_path)
 
 import utilities
 import mongo_connector
-import os
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.3-OCT23"
+script_version = f"{script_name} 2.4-NOV23"
+
+database = 'xefr-zhero-dev' #Set the database name here
+instance = "LOCAL"
+download_folder = cf.setup_local_folder(instance,database)
+connection_details = f"{instance} Instance on {database}"
+
+jt = jt.XEFRJson(download_folder)
+
 logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
 logger.info(f"XEFR CLI: started")
 
-database = 'xefr-signify-dev'
-instance = "LOCAL"
-
-mongo = mongo_connector.Mongo(instance,database,logger)
+mongo = mongo_connector.Mongo(instance,database,download_folder,logger)
 xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
 
-active_mongo_view = "/Users/jasonbraid/dev/xerini/signify_utilities/data/mongoDB views/UK Forecast View.json"
 command_history = {"last_command": "not run yet"} # re-run the last command easily
 full_script_path = os.path.abspath(__file__)
 
@@ -56,8 +58,6 @@ command_descriptions = list(avail_commands.keys())
 permitted_str_commands = ['x','?','r']
 all_permitted_command_ids = command_ids + permitted_str_commands
 
-
-
 # ANSI escape code to clear the terminal screen
 CLEAR_SCREEN = "\033c"
 
@@ -69,7 +69,7 @@ def clean_shutdown():
     mongo.disconnect()
     sys.exit()
 
-# Define a function to handle Ctrl+C (SIGINT)
+# Define a function to handle Ctrl+C (SIGINT)1
 def signal_handler(sig, frame):
     clean_shutdown()
 
@@ -166,6 +166,7 @@ def display_commands():
     """
     Display the available commands
     """
+    cf.colour_text(connection_details,"BLUE")
     print("Available commands:")
     for i, cmd in enumerate(command_descriptions):
         print(f"{i+1}: {cmd}")
@@ -179,6 +180,8 @@ def display_intro():
     cf.colour_text('_' * box_len,"GREEN")
     cf.colour_text(f"Welcome to the XEFR tools CLI [version {script_version}]","GREEN")
     cf.colour_text(f"PID = {pid_id}","BLUE")
+    cf.colour_text(connection_details,"BLUE")
+    cf.colour_text(f"Download folder = {download_folder}","BLUE")
     print("Type 'x', or control c to quit the program.")
     print("Type '? to see a list of commands.")
     cf.colour_text("Select command by the number only.","RED")
