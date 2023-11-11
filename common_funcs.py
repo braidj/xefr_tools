@@ -1,9 +1,8 @@
 """
-Collection of functions used by xefre_tools scripts
+Collection of functions used by xefr_tools scripts
 """
 from datetime import datetime
 import os
-import sys
 import subprocess
 import psutil
 import signal
@@ -21,6 +20,14 @@ text_colours= {
     "CYAN" :"\033[96m"
 }
 
+def colour_text(text, colour):
+    """
+    Colour the text using ANSI escape codes
+    """
+    print (f"{text_colours[colour]}{text}{text_colours['RESET']}")
+
+# Used when testing out MongoDB Views
+#------------------------------------
 sort_orders = {
     'Metrics UK NFI Adjustments':'Candidate,Placement,InvoiceDate',
     'TSP UK Invoice Tracker':'Candidate,Placement,InvoiceDate',
@@ -51,6 +58,7 @@ hide_columns = {
         'Currency,Country,Consultant'
     )
 }
+#------------------------------------
 
 def kill_all_previous_instances(script_name):
     """
@@ -115,30 +123,31 @@ def add_ts_prefix(full_file_path):
     updated_file_path = os.path.join(directory, new_filename)
     return updated_file_path
 
-def colour_text(text, colour):
+def setup_local_folder(instance, database):
     """
-    Colour the text using ANSI escape codes
+    Check if the local folder exists for the supplied instance and database
+    and create if necessary
+    Returns the path to the local folder
+    This XEFR folder exists within the downloads folder
     """
-    print (f"{text_colours[colour]}{text}{text_colours['RESET']}")
+
+    download = get_download_directory()
+    source = f"{instance}_{database}"
+
+    local_folder = os.path.join(download, "xefr",source)
+
+    if not os.path.exists(local_folder):
+        os.makedirs(local_folder)
+
+    return local_folder
 
 def get_download_directory():
     """
     Get the user's home directory
     """
     home_directory = os.path.expanduser("~")
-
     download_directory = os.path.join(home_directory, "Downloads")
-
     return download_directory
-
-def get_xefr_directory():
-    """
-    Get the xefr download directory
-    """
-
-    xefr_directory = os.path.join(get_download_directory(), "xefr")
-
-    return xefr_directory
 
 def get_output_json(item_type, item_name):
     """
@@ -150,17 +159,6 @@ def get_output_json(item_type, item_name):
     output_file = f"{get_xefr_directory()}/{item_type} {item_name}.json"
 
     return output_file
-
-def get_source_json(item_type):
-    """
-    Get the source json file for the item type
-    """
-    if item_type not in permitted_types:
-        raise Exception(f"Type {item_type} not permitted, only {permitted_types}")
-    
-    source_file = f"{get_xefr_directory()}/{item_type}.json"
-
-    return source_file
 
 if __name__ == "__main__":
     print("This module is not intended to be run stand-alone")
