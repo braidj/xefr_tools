@@ -35,8 +35,7 @@ class Mongo(object):
         # Connect to MongoDB
         try:
             # client = pymongo.MongoClient(connection_uri, username=username, password=password)
-            self.client = pymongo.MongoClient(self.connection_uri)
-            
+            self.client = pymongo.MongoClient(self.connection_uri) 
             self.database = self.client[database]
 
         except pymongo.errors.ConnectionFailure as e:

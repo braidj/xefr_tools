@@ -79,7 +79,7 @@ class EndPoints(object):
         csv_reader = csv.reader(csv_data_io)
 
         # Create a PrettyTable instance and set the column names from the header
-        header = next(csv_reader)
+        header = next(csv_reader,[])
 
         if schema_name in cf.hide_columns: # Filter out columns if required
             columns_to_exclude = cf.hide_columns[schema_name].split(',')
@@ -97,7 +97,10 @@ class EndPoints(object):
             filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]
             table.add_row(filtered_row)
 
-        print(table)
+        if header == []:
+            cf.colour_text("Check endpoint service is running, no data","RED")
+        else:
+            print(table)
 
     def persist_data(self,curl_command,schema_name,output_file,show_detail=False):
         """
