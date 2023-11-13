@@ -141,7 +141,9 @@ class XEFRJson(object):
 
                 if title in object_name:
                     
-                    outputfile = cf.get_output_json(item_type, title)
+
+                    # outputfile = cf.get_output_json(item_type, title)
+                    outputfile = os.path.join(self.download_dir,f"{item_type} {title}.json")
 
                     if backup:
                         outputfile = cf.add_ts_prefix(outputfile)

@@ -18,7 +18,7 @@ pid_id = os.getpid()
 script_name = os.path.basename(__file__)
 script_version = f"{script_name} 2.4-NOV23"
 
-database = 'xefr-zhero-dev' #Set the database name here
+database = 'xefr-signify-dev' #Set the database name here
 instance = "LOCAL"
 download_folder = cf.setup_local_folder(instance,database)
 connection_details = f"{instance} Instance on {database}"
@@ -31,7 +31,7 @@ logger = logging.getLogger()
 logger.info(f"XEFR CLI: started")
 
 mongo = mongo_connector.Mongo(instance,database,download_folder,logger)
-xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,logger)
+xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,download_folder,logger)
 
 command_history = {"last_command": "not run yet"} # re-run the last command easily
 full_script_path = os.path.abspath(__file__)
@@ -42,7 +42,7 @@ avail_commands = {
     "Display schema data ['schema name']": (xefr.display_schema,("?")),
     "Download schema data ['schema name']": (xefr.download_schemas_data,("?")),
     "Download all schema data": (xefr.download_all_schemas_data,()),
-    "Extract specific schema ['schema name']": (jt.extract_json,("?","schemas")),
+    "Extract schema json ['schema name']": (jt.extract_json,("?","schemas")),
     "Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
     "Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
     "Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),

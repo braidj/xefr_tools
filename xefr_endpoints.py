@@ -13,13 +13,14 @@ class EndPoints(object):
 
     """Query the XEFR endpoints"""
 
-    def __init__(self,instance,database,mongo,utilities,logger):
+    def __init__(self,instance,database,mongo,utilities,download_folder,logger):
         """Initialise the connector"""
 
         self.cfg = configparser.ConfigParser()
         self.cfg.read("xefr_tools.ini")
         self.mongo = mongo
         self.utilities = utilities
+        self.download_folder = download_folder
         self.logger = logger
         self.instance = instance
         self.database = database
@@ -48,8 +49,7 @@ class EndPoints(object):
         Downloads the data from a single schema
         """
 
-        output_file =f"{cf.get_xefr_directory()}{os.sep}{schema_name}.csv"
-        self.utilities.check_csv_folder_exists(output_file,True,self.logger)
+        output_file =f"{self.download_folder}{os.sep}{schema_name}.csv"
 
         schema_id = self.mongo.get_schema_id(schema_name)
 

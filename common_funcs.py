@@ -100,7 +100,7 @@ def get_running_processes(script_name,display=False):
         command = f"ps aux | grep '{script_name}' | grep -v grep"
         result = subprocess.check_output(command, shell=True, text=True)
         lines = result.strip().split('\n') 
-        pids.append(int(line.split()[1]))  # Extract PIDs
+        pids.append(int(lines.split()[1]))  # Extract PIDs
     except subprocess.CalledProcessError:
         pass
 
@@ -117,7 +117,7 @@ def add_ts_prefix(full_file_path):
     """
 
     now = datetime.now()
-    timestamp = now.strftime("%Y_%m_%d_%H%M%S")
+    timestamp = now.strftime("%d%b%y_%H%M")
     directory, filename = os.path.split(full_file_path)
     new_filename = f"{timestamp}_{filename}"
     updated_file_path = os.path.join(directory, new_filename)
@@ -148,17 +148,6 @@ def get_download_directory():
     home_directory = os.path.expanduser("~")
     download_directory = os.path.join(home_directory, "Downloads")
     return download_directory
-
-def get_output_json(item_type, item_name):
-    """
-    Get the output json file for the item type and name
-    """
-    if item_type not in permitted_types:
-        raise Exception(f"Type {item_type} not permitted, only {permitted_types}")
-    
-    output_file = f"{get_xefr_directory()}/{item_type} {item_name}.json"
-
-    return output_file
 
 if __name__ == "__main__":
     print("This module is not intended to be run stand-alone")
