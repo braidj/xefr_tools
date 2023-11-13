@@ -47,7 +47,7 @@ avail_commands = {
     "Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
     "Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
     "List portals": (jt.report_items,("portals")),
-    "Extract specific portal ['portal name']": (jt.extract_json,("?","portals")),
+    "Extract portal json ['portal name']": (jt.extract_json,("?","portals")),
     "Clear screen": (os.system,("clear")),
     "Shut down all previous instance": (cf.kill_all_previous_instances,(script_name))
 }
