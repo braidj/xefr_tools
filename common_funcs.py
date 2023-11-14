@@ -36,6 +36,9 @@ sort_orders = {
     'Bullhorn Consultant Details':'Consultant'
 }
 
+# If schema in list then hide coluumns method
+hide_schemas = [ 'View UK NFI','View US NFI','View UK Forecast']
+
 # Hide these columns when displaying schema data
 hide_columns = {
     'View UK Forecast': (
@@ -57,6 +60,12 @@ hide_columns = {
         'Placement Start,Placement End,Source,'
         'Currency,Country,Consultant'
     )
+}
+
+show_columns={
+   'View UK NFI Forecast': (
+        'Consultant,Country,Team,Team Lead'
+    )  
 }
 #------------------------------------
 
