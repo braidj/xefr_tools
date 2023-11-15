@@ -94,15 +94,18 @@ class Mongo(object):
 
         return schema_details
     
-    def get_schema_id(self,schema_name):
+    def get_schema_id(self,schema_name,bol_display=False):
         """
         Returns the schema id for a given schema name
+        If bol_display is True then the schema ID is displayed
         """
         self.logger.info(f"{Mongo.__name__}: Getting schema id for {schema_name}")
         collection = self.database.get_collection("schemas")
         try:
             schema_id = collection.find_one({"name":schema_name})['id']
             self.logger.info(f"{Mongo.__name__}: Schema id for {schema_name} is {schema_id}")
+            if bol_display:
+                cf.colour_text(f"{schema_name} is {schema_id}","BLUE")
             return schema_id
         
         except TypeError as e:
@@ -118,7 +121,7 @@ class Mongo(object):
                 self.logger.error(f"{Mongo.__name__}: Caught a different TypeError: {e}")
                 return 0
             
-    def get_schema_details_by_id(self,id):
+    def get_schema_details_by_id(self,id,bol_display=False):
         """
         Returns the schema details for a given schema id
         """
@@ -131,6 +134,8 @@ class Mongo(object):
             return 0
         else:
             self.logger.info(f"{Mongo.__name__}: Returned schema details for {id}")
+            if bol_display:
+                cf.colour_text(f"{id} = {schema_details['name']}","BLUE")
             return schema_details
    
     def get_schema_details(self,schema_name):

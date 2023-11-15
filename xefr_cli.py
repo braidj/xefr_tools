@@ -16,7 +16,7 @@ import mongo_connector
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.4-NOV23"
+script_version = f"{script_name} 2.5-NOV23"
 
 database = 'xefr-signify-dev' #Set the database name here
 instance = "LOCAL"
@@ -37,17 +37,19 @@ command_history = {"last_command": "not run yet"} # re-run the last command easi
 full_script_path = os.path.abspath(__file__)
 
 avail_commands = {
-    "List schemas": (jt.report_items,("schemas")),
-    "Report on schema ['schema name']": (jt.schema_report,("?")),
-    "Display schema data ['schema name']": (xefr.display_schema,("?")),
-    "Download schema data ['schema name']": (xefr.download_schemas_data,("?")),
-    "Download all schema data": (xefr.download_all_schemas_data,()),
-    "Extract schema json ['schema name']": (jt.extract_json,("?","schemas")),
-    "Duplicate schema ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "Display Pipeline columns ['schema name']": (jt.get_pipeline_columns,("?")),
-    "Display Pipeline ['schema name']": (jt.get_pipeline_text,("?",True)),
-    "List portals": (jt.report_items,("portals")),
-    "Extract portal json ['portal name']": (jt.extract_json,("?","portals")),
+    "Schema List": (jt.report_items,("schemas")),
+    "Schema Report ['schema name']": (jt.schema_report,("?")),
+    "Schema Display ['schema name']": (xefr.display_schema,("?")),
+    "Schema Download ['schema name']": (xefr.download_schemas_data,("?")),
+    "Schema Extract JSON ['schema name']": (jt.extract_json,("?","schemas")),
+    "Schema Query Name ['schema name']": (mongo.get_schema_id,("?",True)),
+    "Schema Query ID ['schema ID']": (mongo.get_schema_details_by_id,("?",True)),
+    "Schema Download ALL": (xefr.download_all_schemas_data,()),
+    "Schema Duplicate ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
+    "Portal List": (jt.report_items,("portals")),
+    "Portal Extract JSON ['portal name']": (jt.extract_json,("?","portals")),
+    "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),
+    "Pipeline Report ['schema name']": (jt.get_pipeline_columns,("?")),
     "Clear screen": (os.system,("clear")),
     "Shut down all previous instance": (cf.kill_all_previous_instances,(script_name))
 }
