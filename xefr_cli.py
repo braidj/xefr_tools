@@ -1,12 +1,16 @@
 import os
 import sys
 import signal
+import configparser
 import json_tools as jt
 import common_funcs as cf
 import xefr_endpoints
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
+
+cfg = configparser.ConfigParser()
+cfg.read("xefr_tools.ini")
 
 utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'xerini_utils'))
 sys.path.append(utils_path)
@@ -18,8 +22,9 @@ pid_id = os.getpid()
 script_name = os.path.basename(__file__)
 script_version = f"{script_name} 2.5-NOV23"
 
-database = 'xefr-signify-dev' #Set the database name here
-instance = "LOCAL"
+
+database = cfg["SOURCE"]['database']
+instance = cfg["SOURCE"]['instance']
 download_folder = cf.setup_local_folder(instance,database)
 connection_details = f"{instance} Instance on {database}"
 
@@ -51,7 +56,7 @@ avail_commands = {
     "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),
     "Pipeline Report ['schema name']": (jt.get_pipeline_columns,("?")),
     "Clear screen": (os.system,("clear")),
-    "Shut down all previous instance": (cf.kill_all_previous_instances,(script_name))
+    "WIP - do not use": (cf.kill_all_previous_instances,(script_name))
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
