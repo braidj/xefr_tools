@@ -20,7 +20,7 @@ import mongo_connector
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.5-NOV23"
+script_version = f"{script_name} 2.6-NOV23"
 
 
 database = cfg["SOURCE"]['database']

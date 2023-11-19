@@ -184,7 +184,7 @@ class XEFRJson(object):
                         pipeline_str = pipeline_str.replace(source_name, new_name)
                         item["pipelineText"] = pipeline_str
 
-                    outputfile = cf.get_output_json("schemas", new_name)
+                    outputfile= os.path.join(self.download_dir,new_name+".json")
 
                     with open(outputfile, 'w') as file:
                         try:

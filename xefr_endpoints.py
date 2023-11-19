@@ -81,9 +81,6 @@ class EndPoints(object):
         # Create a PrettyTable instance and set the column names from the header
         header = next(csv_reader,[])
 
-        if schema_name in cf.show_or_hide_columns: # Show only the columns required
-            pass # TODO
-
         if schema_name in cf.hide_columns: # Filter out columns if required
             columns_to_exclude = cf.hide_columns[schema_name].split(',')
         else:

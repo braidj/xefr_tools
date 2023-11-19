@@ -9,3 +9,4 @@ data/mongoDB views/temp.json
 data/mongoDB views/temp.json
 data/mongoDB views/temp1.json
 data/mongoDB views/temp2.json
+*.dat
