@@ -6,42 +6,26 @@ import common_funcs as cf
 
 class Mongo(object):
 
-    def __init__(self,target,database,download_directory,logger) -> None:
+    def __init__(self,target,target_database,download_directory,uri,logger) -> None:
 
         self.target = target
-        self.database = database
+        # self.database = database
         self.download = download_directory
         self.schemas_json = os.path.join(self.download,"schemas.json")
         self.portals_json = os.path.join(self.download,"portals.json")
+        self.uri = uri
         self.logger = logger
 
         if target == "LOCAL":
-            self.__local_connect(self.database)
-        elif target == "REMOTE":
-            self.__remote_connect(self.database)
+            self.__local_connect(target_database)
+        else:
+            self.__remote_connect(target_database)
 
-        logger.info(f"Mongo: initialised for {target} instance on {database} using {self.connection_uri}")
-
-    def __local_connect(self,database):
+    def __test_connection(self):
         """
-        Local connection to  a specific client
+        Check can access schemas and portals collections
         """
-        mongo_host = 'localhost'  # The hostname of your MongoDB server
-        mongo_port = 27017  # The default MongoDB port
-
-        # MongoDB connection URI
-        self.connection_uri = f"mongodb://{mongo_host}:{mongo_port}/{database}"
-
-        # Connect to MongoDB
-        try:
-            # client = pymongo.MongoClient(connection_uri, username=username, password=password)
-            self.client = pymongo.MongoClient(self.connection_uri) 
-            self.database = self.client[database]
-
-        except pymongo.errors.ConnectionFailure as e:
-            self.logger.error(f"{Mongo.__name__} Failed to connect to MongoDB: {e}")
-            print("Failed to connect to MongoDB:", e)
-            sys.exit(1)
+        pass
 
     def get_xefr_json(self,doc_type):
         """
@@ -152,13 +136,42 @@ class Mongo(object):
             self.logger.info(f"{Mongo.__name__}: Returned schema details for {schema_name}")
             return schema_details
 
-    def __remote_connect(self):
+    def __local_connect(self,database):
+        """
+        Local connection to  a specific client
+        """
+        mongo_host = 'localhost'  # The hostname of your MongoDB server
+        mongo_port = 27017  # The default MongoDB port
+
+        # MongoDB connection URI
+        connection_uri = f"mongodb://{mongo_host}:{mongo_port}/{database}"
+
+        # Connect to MongoDB
+        try:
+            # client = pymongo.MongoClient(connection_uri, username=username, password=password)
+            self.client = pymongo.MongoClient(connection_uri) 
+            self.database = self.client[database]
+            self.logger.info(f"Mongo: LOCAL connection establised to {database}")
+        except pymongo.errors.ConnectionFailure as e:
+            self.logger.error(f"{Mongo.__name__} Failed to connect to MongoDB: {e}")
+            print("Failed to connect to MongoDB:", e)
+            sys.exit(1)
+
+    def __remote_connect(self,database):
         """
         Remote connection to a specific client
         """
-        self.logger.info(f"{Mongo.__name__}: Remote connection not implemented yet")
-        self.client = None
-        self.database = None
+        # Connect to MongoDB
+        try:
+            # client = pymongo.MongoClient(connection_uri, username=username, password=password)
+            self.client = pymongo.MongoClient(self.uri) 
+            self.database = self.client[database]
+            self.logger.info(f"Mongo: REMOTE connection establised to {database}")
+
+        except pymongo.errors.ConnectionFailure as e:
+            self.logger.error(f"{Mongo.__name__} Failed to connect to MongoDB: {e}")
+            print("Failed to connect to MongoDB:", e)
+            sys.exit(1)
     
     def disconnect(self):
         self.client.close()

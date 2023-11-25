@@ -13,7 +13,7 @@ class EndPoints(object):
 
     """Query the XEFR endpoints"""
 
-    def __init__(self,instance,database,mongo,utilities,download_folder,logger):
+    def __init__(self,conn,mongo,utilities,download_folder,logger):
         """Initialise the connector"""
 
         self.cfg = configparser.ConfigParser()
@@ -22,10 +22,10 @@ class EndPoints(object):
         self.utilities = utilities
         self.download_folder = download_folder
         self.logger = logger
-        self.instance = instance
-        self.database = database
-        self.server =self.cfg[instance]['server']
-        self.api_key= self.cfg[instance][database]
+        self.instance = conn['instance']
+        self.database = conn['database']
+        self.server = conn['server']
+        self.api_key= conn['api_key']
         self.endpoints = {}
 
         for option in self.cfg['ENDPOINTS']:

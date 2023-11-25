@@ -6,9 +6,6 @@ import json_tools as jt
 import common_funcs as cf
 import xefr_endpoints
 
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
-
 cfg = configparser.ConfigParser()
 cfg.read("xefr_tools.ini")
 
@@ -20,11 +17,21 @@ import mongo_connector
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.6-NOV23"
+script_version = f"{script_name} 2.7-NOV23"
+
+target = cfg["ACTIVE"]['target'] # used to extract the connection details
+
+if target in cfg:
+    conn = dict(cfg[target])
+else:
+    print(f"Cannot find section {target} in the .ini file")
+    sys.exit()
 
 
-database = cfg["SOURCE"]['database']
-instance = cfg["SOURCE"]['instance']
+database = conn['database']
+instance = conn['instance']
+uri = conn['uri']
+
 download_folder = cf.setup_local_folder(instance,database)
 connection_details = f"{instance} Instance on {database}"
 
@@ -34,9 +41,12 @@ logging = utilities.MyLogger()
 logging.reset_log()
 logger = logging.getLogger()
 logger.info(f"XEFR CLI: started")
+logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
+logger.info(f"XEFR CLI: {conn}")
 
-mongo = mongo_connector.Mongo(instance,database,download_folder,logger)
-xefr = xefr_endpoints.EndPoints(instance,database,mongo,utilities,download_folder,logger)
+
+mongo = mongo_connector.Mongo(instance,database,download_folder,uri,logger)
+xefr = xefr_endpoints.EndPoints(conn,mongo,utilities,download_folder,logger)
 
 command_history = {"last_command": "not run yet"} # re-run the last command easily
 full_script_path = os.path.abspath(__file__)
