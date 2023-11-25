@@ -21,7 +21,7 @@ Example:
 2. database = xefr-signify-dev
 3. instance = DEV
 4. server = https://xefr-signify-dev.azurewebsites.net
-uri = mongodb+srv://signify-dev:abcdefgh
+5. uri = mongodb+srv://signify-dev:abcdefgh
 
 **Optional**
 notes = passed  
@@ -36,8 +36,33 @@ Example: (with redaction)
     uri = mongodb+srv://signify-dev:aareallylongstring
     notes = passed
 
+### How to get the values
+1. api_key: XEFR/Settings/API Keys, create you own personal one
+2. database: login to mongo Atlas / Compass, and ensure you are using the right name
+3. instance: just a text description, but it used to generate the download folder locally
+4. server: for no local got to Azure Services to get this
+5. uri: go to Azure services for this
 
 # Code modules
+
+## common_funcs
+TBC
+
+## json_tools
+TBC
+
+## mongo_connector
+TBC
+
+## xefr_cli
+TBC
+
+## xefr_endpoints
+TBC
+
+
+
+
 
 
 
