@@ -16,14 +16,14 @@ Example:
     notes = set the target section here for connection
 
 ## Connection details
-**4 Mandatory items**
-1. api_key = 1234abcd
-2. database = xefr-signify-dev
-3. instance = DEV
-4. server = https://xefr-signify-dev.azurewebsites.net
-5. uri = mongodb+srv://signify-dev:abcdefgh
+**5 Mandatory items**
+1. api_key
+2. database
+3. instance
+4. server
+5. uri
 
-**Optional**
+**1 Optional**
 notes = passed  
 
 Example: (with redaction)
@@ -40,7 +40,7 @@ Example: (with redaction)
 1. api_key: XEFR/Settings/API Keys, create you own personal one
 2. database: login to mongo Atlas / Compass, and ensure you are using the right name
 3. instance: just a text description, but it used to generate the download folder locally
-4. server: for no local got to Azure Services to get this
+4. server: for non local got to Azure Services to get this
 5. uri: go to Azure services for this
 
 # Code modules
@@ -59,6 +59,22 @@ TBC
 
 ## xefr_endpoints
 TBC
+
+# Usage
+Its a CLI so once it is running type:
+
+? to list all available commands
+x to close the session
+r to re-run the last command
+
+You only enter the command id, not the description
+
+When running a command requiring a schema name, you can refer to the schema by using a s shorthand.
+s1 refers to the first schema in the list
+E.G.  
+To display the data contained within the first schema you would type  
+3 (the command id)  
+s1 (the first schema)
 
 
 
