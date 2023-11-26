@@ -6,6 +6,8 @@ import os
 import subprocess
 import psutil
 import signal
+import pandas as pd
+
 
 permitted_types = ['schemas','portals']
 
@@ -19,6 +21,17 @@ text_colours= {
     "MAGENTA": "\033[95m",
     "CYAN" :"\033[96m"
 }
+
+def sum_numeric_columns(csv_file):
+    """Sum up all numeric columns in the supplied csv file"""
+
+    df = pd.read_csv(csv_file)
+
+    sum_dict = df.select_dtypes(include=['number']).sum()
+
+    for column, total in sum_dict.items():
+        formatted_total = "{:,.2f}".format(total)
+        print(f"Total for {column}: {formatted_total}")
 
 def colour_text(text, colour):
     """

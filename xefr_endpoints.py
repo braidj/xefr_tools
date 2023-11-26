@@ -23,6 +23,7 @@ class EndPoints(object):
         self.database = conn['database']
         self.server = conn['server']
         self.api_key= conn['api_key']
+        self.config = conn # all the details passed in from the ini file
 
         self.endpoints = {}
         self.endpoints["data"] = "api/data/format"
@@ -33,6 +34,21 @@ class EndPoints(object):
         self.format = "csv"
 
         self.logger.info(f"Endpoints: initiated for {self.instance} instance on {self.database} database via {self.server}")
+
+    def reconcilation(self):
+        """
+        Using the schemas listed in the ini file, download the data, and total on each numeric column. 
+        """
+
+        if 'reconciliations' in self.config:
+            schemas = self.config['reconciliations'].split(',')
+            cf.colour_text(f"Reconciling {len(schemas)} schemas","GREEN")
+            for schema in schemas:
+                cf.colour_text(f"Reconciling {schema.strip()}","GREEN")
+                target = self.download_schemas_data(schema.strip())
+                cf.sum_numeric_columns(target)
+        else:
+            cf.colour_text("No schemas to reconcile","RED")
 
     def download_all_schemas_data(self,show_detail=False):
         """
@@ -57,6 +73,8 @@ class EndPoints(object):
             self.persist_data(curl_cmd,schema_name,output_file,show_detail)
         else:
             print(f"Schema {schema_name} not found")
+
+        return output_file
 
     def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=25):
         """

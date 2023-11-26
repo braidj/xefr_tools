@@ -60,6 +60,7 @@ avail_commands = {
     "Schema Query ID ['schema ID']": (mongo.get_schema_details_by_id,("?",True)),
     "Schema Download ALL": (xefr.download_all_schemas_data,()),
     "Schema Duplicate ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
+    "Schema Reconcilie": (xefr.reconcilation,()),
     "Portal List": (jt.report_items,("portals")),
     "Portal Extract JSON ['portal name']": (jt.extract_json,("?","portals")),
     "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),
