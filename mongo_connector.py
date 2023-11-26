@@ -6,20 +6,20 @@ import common_funcs as cf
 
 class Mongo(object):
 
-    def __init__(self,target,target_database,download_directory,uri,logger) -> None:
+    def __init__(self,conn,download_directory,logger) -> None:
 
-        self.target = target
-        # self.database = database
+        self.target = conn['instance']
+        self.uri = conn['uri']
         self.download = download_directory
         self.schemas_json = os.path.join(self.download,"schemas.json")
         self.portals_json = os.path.join(self.download,"portals.json")
-        self.uri = uri
+        
         self.logger = logger
 
-        if target == "LOCAL":
-            self.__local_connect(target_database)
+        if self.target == "LOCAL":
+            self.__local_connect(conn['database'])
         else:
-            self.__remote_connect(target_database)
+            self.__remote_connect(conn['database'])
 
     def __test_connection(self):
         """

@@ -24,7 +24,7 @@ target = cfg["ACTIVE"]['target'] # used to extract the connection details
 if target in cfg:
     conn = dict(cfg[target])
 else:
-    print(f"Cannot find section {target} in the .ini file")
+    cf.colour_text(f"Cannot find section {target} in the .ini file","RED")
     sys.exit()
 
 
@@ -44,8 +44,7 @@ logger.info(f"XEFR CLI: started")
 logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
 logger.info(f"XEFR CLI: {conn}")
 
-
-mongo = mongo_connector.Mongo(instance,database,download_folder,uri,logger)
+mongo = mongo_connector.Mongo(conn,download_folder,logger)
 xefr = xefr_endpoints.EndPoints(conn,mongo,utilities,download_folder,logger)
 
 command_history = {"last_command": "not run yet"} # re-run the last command easily

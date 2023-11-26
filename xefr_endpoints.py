@@ -1,5 +1,4 @@
 """Handle querying the XEFR endpoints either local or remote"""
-import configparser
 import os
 import subprocess
 import common_funcs as cf   
@@ -8,7 +7,7 @@ import csv
 import io
 from prettytable import PrettyTable
 
-
+#TODO - add a check to see if the endpoint is running when first called
 class EndPoints(object):
 
     """Query the XEFR endpoints"""
@@ -16,8 +15,6 @@ class EndPoints(object):
     def __init__(self,conn,mongo,utilities,download_folder,logger):
         """Initialise the connector"""
 
-        self.cfg = configparser.ConfigParser()
-        self.cfg.read("xefr_tools.ini")
         self.mongo = mongo
         self.utilities = utilities
         self.download_folder = download_folder
@@ -26,10 +23,12 @@ class EndPoints(object):
         self.database = conn['database']
         self.server = conn['server']
         self.api_key= conn['api_key']
-        self.endpoints = {}
 
-        for option in self.cfg['ENDPOINTS']:
-            self.endpoints[option] = self.cfg.get('ENDPOINTS', option)
+        self.endpoints = {}
+        self.endpoints["data"] = "api/data/format"
+        self.endpoints["schemas" ]= "api/schemas"
+        self.endpoints["portals"] = "api/portals"
+        self.endpoints["data_upload"] = "api/data/format/csv"
 
         self.format = "csv"
 
