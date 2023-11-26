@@ -47,6 +47,7 @@ class EndPoints(object):
                 cf.colour_text(f"Reconciling {schema.strip()}","GREEN")
                 target = self.download_schemas_data(schema.strip())
                 cf.sum_numeric_columns(target)
+                cf.generate_md5_checksum(target)
         else:
             cf.colour_text("No schemas to reconcile","RED")
 

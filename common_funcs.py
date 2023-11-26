@@ -7,6 +7,7 @@ import subprocess
 import psutil
 import signal
 import pandas as pd
+import hashlib
 
 
 permitted_types = ['schemas','portals']
@@ -21,6 +22,20 @@ text_colours= {
     "MAGENTA": "\033[95m",
     "CYAN" :"\033[96m"
 }
+
+def generate_md5_checksum(file_path):
+    # Creating a hash object
+    md5_hash = hashlib.md5()
+
+    # Open the file to read it's bytes
+    with open(file_path, "rb") as f:
+        # Reading and updating hash string value in blocks of 4K
+        for byte_block in iter(lambda: f.read(4096), b""):
+            md5_hash.update(byte_block)
+    
+    # Returning the complete hash
+    schema_name = os.path.splitext(os.path.basename(file_path))[0]
+    print(f"{schema_name} = {md5_hash.hexdigest()}")
 
 def sum_numeric_columns(csv_file):
     """Sum up all numeric columns in the supplied csv file"""
