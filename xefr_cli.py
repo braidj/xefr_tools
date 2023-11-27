@@ -5,6 +5,7 @@ import configparser
 import json_tools as jt
 import common_funcs as cf
 import xefr_endpoints
+import mongo_connector
 
 cfg = configparser.ConfigParser()
 cfg.read("xefr_tools.ini")
@@ -13,13 +14,23 @@ utils_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 
 sys.path.append(utils_path)
 
 import utilities
-import mongo_connector
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
 script_version = f"{script_name} 2.7-NOV23"
 
-target = cfg["ACTIVE"]['target'] # used to extract the connection details
+logging = utilities.MyLogger()
+logging.reset_log()
+logger = logging.getLogger()
+logger.info(f"XEFR CLI: started")
+
+# If script called from command line use the argument passed as cfg["ACTIVE"]['target']
+if len(sys.argv) > 1:
+    target = sys.argv[1]
+    logger.info(f"XEFR CLI: received argument {target} from command line")
+else:
+    logger.info(f"XEFR CLI: using ACTIVE section from ini file")
+    target = cfg["ACTIVE"]['target'] # used to extract the connection details
 
 if target in cfg:
     conn = dict(cfg[target])
@@ -27,23 +38,19 @@ else:
     cf.colour_text(f"Cannot find section {target} in the .ini file","RED")
     sys.exit()
 
-
 database = conn['database']
 instance = conn['instance']
 uri = conn['uri']
+# /Get the connection details from the ini file
+
+logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
+logger.info(f"XEFR CLI: {conn}")
+
 
 download_folder = cf.setup_local_folder(instance,database)
 connection_details = f"{instance} Instance on {database}"
 
 jt = jt.XEFRJson(download_folder)
-
-logging = utilities.MyLogger()
-logging.reset_log()
-logger = logging.getLogger()
-logger.info(f"XEFR CLI: started")
-logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
-logger.info(f"XEFR CLI: {conn}")
-
 mongo = mongo_connector.Mongo(conn,download_folder,logger)
 xefr = xefr_endpoints.EndPoints(conn,mongo,utilities,download_folder,logger)
 

@@ -24,16 +24,17 @@ text_colours= {
 }
 
 def generate_md5_checksum(file_path):
-    # Creating a hash object
+    """Return a MD5 checksum for the supplied file"""""
     md5_hash = hashlib.md5()
 
-    # Open the file to read it's bytes
-    with open(file_path, "rb") as f:
-        # Reading and updating hash string value in blocks of 4K
-        for byte_block in iter(lambda: f.read(4096), b""):
-            md5_hash.update(byte_block)
-    
-    # Returning the complete hash
+    with open(file_path, 'r') as file:
+        # Read the lines, sort them, and join them back into a single string
+        sorted_contents = ''.join(sorted(file.readlines()))
+
+        # Calculate the MD5 checksum
+        md5_hash = hashlib.md5()
+        md5_hash.update(sorted_contents.encode())
+
     schema_name = os.path.splitext(os.path.basename(file_path))[0]
     print(f"{schema_name} = {md5_hash.hexdigest()}")
 
