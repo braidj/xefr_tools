@@ -1,15 +1,17 @@
 import common_funcs as cf
 import json
 import os
+import sys
 from tabulate import tabulate
 import re
 
 class XEFRJson(object):
 
-    def __init__(self,download_dir) -> None:
+    def __init__(self,conn,download_dir) -> None:
         self.download_dir = download_dir
         self.schemas_json = os.path.join(self.download_dir,"schemas.json")
         self.portals_json = os.path.join(self.download_dir,"portals.json")
+        self.config = conn
 
     def __get_source_file(self,item_type):
         """
@@ -24,10 +26,63 @@ class XEFRJson(object):
             source_file = self.portals_json
 
         return source_file
+    
+    def reconcile_schema(self):
+        """
+        Report on all relevant schema definitions
+        """
 
+        results = []
+        if 'structure_recon' in self.config:
+
+            if self.config['structure_recon'] == 'all':
+                raw_schemas = self.report_items('schemas',False)
+                schema_dictlist = [x.values() for x in raw_schemas]
+                schemas = list(schema_dictlist[0])
+            else:
+                schemas = self.config['structure_recon'].split(',')
+            
+            cf.colour_text(f"Reconciling {len(schemas)} schemas","GREEN")
+
+            for schema in schemas:
+                results.append(self.schema_def(schema.strip()))
+
+        for result in results:
+            print(result)
+
+        reconcile_file = os.path.join(self.download_dir,f"{self.config['instance']}_recon_schema_defs.txt")
+
+        with open(reconcile_file, 'w') as output_file:
+            output_file.write('\n'.join(results))
+
+        cf.colour_text(f"Reconciliation report written to {reconcile_file}","GREEN")
+
+    def schema_def(self,schema_name):
+        """
+        Text only report, without the attribute ids, used for reconciliation
+        Returns a string summary of the schema
+        """
+        item_type = 'schemas'
+
+        with open(self.schemas_json, 'r') as file:
+            data = json.load(file)
+            report = ""
+            for item in data:
+
+                if item.get("name") == schema_name:
+
+                    report =(f'\nSchema Name: {schema_name}\n')
+                    report = report + (f'Description: {item.get("description")}\n')
+
+                    raw_attributes = item.get("attributes")
+                    table_data = [[col["name"], col["type"]] for col in raw_attributes]
+                    report = report + (tabulate(table_data, headers=["Name", "Type"], tablefmt="plain"))
+                    return report
+                
     def schema_report(self,schema_name):
         """
         Outputs a formatted report displaying the key information for a schema
+        colour formatted including the attribute ids
         """
         item_type = 'schemas'
         schema = schema_name.strip()
@@ -46,27 +101,6 @@ class XEFRJson(object):
                     table_data = [[col["name"], col["type"], col["id"]] for col in raw_attributes]
                     print(tabulate(table_data, headers=["Name", "Type", "ID"], tablefmt="grid"))
 
-    def schema_report(self,schema_name):
-        """
-        Outputs a formatted report displaying the key information for a schema
-        """
-
-        item_type = 'schemas'
-        schema = schema_name.strip()
-
-        with open(self.schemas_json, 'r') as file:
-            data = json.load(file)
-
-            for item in data:
-
-                if item.get("name") == schema:
-
-                    cf.colour_text(f'Schema Name: {schema}',"BLUE")
-                    cf.colour_text(f'Description: {item.get("description")}',"BLUE")
-
-                    raw_attributes = item.get("attributes")
-                    table_data = [[col["name"], col["type"], col["id"]] for col in raw_attributes]
-                    print(tabulate(table_data, headers=["Name", "Type", "ID"], tablefmt="grid"))
 
     def report_items(self,item_type,display=True):
         """

@@ -41,16 +41,14 @@ else:
 database = conn['database']
 instance = conn['instance']
 uri = conn['uri']
-# /Get the connection details from the ini file
 
 logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
 logger.info(f"XEFR CLI: {conn}")
 
-
 download_folder = cf.setup_local_folder(instance,database)
 connection_details = f"{instance} Instance on {database}"
 
-jt = jt.XEFRJson(download_folder)
+jt = jt.XEFRJson(conn,download_folder)
 mongo = mongo_connector.Mongo(conn,download_folder,logger)
 xefr = xefr_endpoints.EndPoints(conn,mongo,utilities,download_folder,logger)
 
@@ -67,7 +65,8 @@ avail_commands = {
     "Schema Query ID ['schema ID']": (mongo.get_schema_details_by_id,("?",True)),
     "Schema Download ALL": (xefr.download_all_schemas_data,()),
     "Schema Duplicate ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    "Schema Reconcilie": (xefr.reconcilation,()),
+    "Schema Reconcile Data": (xefr.data_reconcilation,()),
+    "Schema Reconcile structure": (jt.reconcile_schema,()),
     "Portal List": (jt.report_items,("portals")),
     "Portal Extract JSON ['portal name']": (jt.extract_json,("?","portals")),
     "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),

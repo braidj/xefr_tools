@@ -35,19 +35,19 @@ class EndPoints(object):
 
         self.logger.info(f"Endpoints: initiated for {self.instance} instance on {self.database} database via {self.server}")
 
-    def reconcilation(self):
+    def data_reconcilation(self):
         """
         Using the schemas listed in the ini file, download the data, and total on each numeric column. 
         """
 
-        if 'reconciliations' in self.config:
-            schemas = self.config['reconciliations'].split(',')
+        if 'data_recon' in self.config:
+            schemas = self.config['data_recon'].split(',')
             cf.colour_text(f"Reconciling {len(schemas)} schemas","GREEN")
             for schema in schemas:
                 cf.colour_text(f"Reconciling {schema.strip()}","GREEN")
                 target = self.download_schemas_data(schema.strip())
-                cf.sum_numeric_columns(target)
-                cf.generate_md5_checksum(target)
+                cf.sum_numeric_columns(target,self.config)
+                # cf.generate_md5_checksum(target)
         else:
             cf.colour_text("No schemas to reconcile","RED")
 
@@ -117,6 +117,7 @@ class EndPoints(object):
 
         if header == []:
             cf.colour_text("Check endpoint service is running, no data","RED")
+            cf.colour_text("API key is correct, no data","RED")
         else:
             print(table)
 

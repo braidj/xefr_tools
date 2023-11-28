@@ -23,38 +23,6 @@ text_colours= {
     "CYAN" :"\033[96m"
 }
 
-def generate_md5_checksum(file_path):
-    """Return a MD5 checksum for the supplied file"""""
-    md5_hash = hashlib.md5()
-
-    with open(file_path, 'r') as file:
-        # Read the lines, sort them, and join them back into a single string
-        sorted_contents = ''.join(sorted(file.readlines()))
-
-        # Calculate the MD5 checksum
-        md5_hash = hashlib.md5()
-        md5_hash.update(sorted_contents.encode())
-
-    schema_name = os.path.splitext(os.path.basename(file_path))[0]
-    print(f"{schema_name} = {md5_hash.hexdigest()}")
-
-def sum_numeric_columns(csv_file):
-    """Sum up all numeric columns in the supplied csv file"""
-
-    df = pd.read_csv(csv_file)
-
-    sum_dict = df.select_dtypes(include=['number']).sum()
-
-    for column, total in sum_dict.items():
-        formatted_total = "{:,.2f}".format(total)
-        print(f"Total for {column}: {formatted_total}")
-
-def colour_text(text, colour):
-    """
-    Colour the text using ANSI escape codes
-    """
-    print (f"{text_colours[colour]}{text}{text_colours['RESET']}")
-
 # Used when testing out MongoDB Views
 #------------------------------------
 sort_orders = {
@@ -62,9 +30,9 @@ sort_orders = {
     'TSP UK Invoice Tracker':'Candidate,Placement,InvoiceDate',
     'Metrics GBP Forex Daily':'Year,Month,Day,Symbol',
     'Bullhorn Candidates':'Consultant',
-    'Bullhorn Consultant Details':'Consultant'
+    'Bullhorn Consultant Details':'Consultant',
+    'View UK NFI Forecast':"Candidate,CompanyName,Placement,Source,InvoiceDate,Currency,Multiplier,ExchangeRate,LinePrice,GBPLinePrice"
 }
-
 # If schema in list then hide coluumns method
 hide_schemas = [ 'View UK NFI','View US NFI','View UK Forecast']
 
@@ -97,6 +65,61 @@ show_columns={
     )  
 }
 #------------------------------------
+
+def extract_fname(file_path,no_extension=True):
+    """
+    Extract the file name from the supplied file path
+    """
+    base_name = os.path.basename(file_path)
+    file_name, _ = os.path.splitext(base_name)
+
+    if no_extension:
+        return file_name
+    else:
+        base_name
+    
+def generate_md5_checksum(file_path):
+    """Return a MD5 checksum for the supplied file"""""
+    md5_hash = hashlib.md5()
+
+    with open(file_path, 'r') as file:
+        # Read the lines, sort them, and join them back into a single string
+        sorted_contents = ''.join(sorted(file.readlines()))
+
+        # Calculate the MD5 checksum
+        md5_hash = hashlib.md5()
+        md5_hash.update(sorted_contents.encode())
+
+    schema_name = os.path.splitext(os.path.basename(file_path))[0]
+    print(f"{schema_name} = {md5_hash.hexdigest()}")
+
+def sum_numeric_columns(csv_file,config=None):
+    """
+    Sum up all numeric columns in the supplied csv file
+    Can pass in optional config to ignroe certain columns
+    N.B. Pandas decides the data type on the fly based upon content
+    """
+
+    df = pd.read_csv(csv_file)
+    exclusions = []
+
+    if config is not None:
+        if 'data_exclusions' in config:
+            exclusions = config['data_exclusions'].split(',')
+
+
+    sum_dict = df.select_dtypes(include=['number']).sum()
+
+    for column, total in sum_dict.items():
+        if column not in exclusions:
+            formatted_total = "{:,.2f}".format(total)
+            print(f"Total for {column}: {formatted_total}")
+
+def colour_text(text, colour):
+    """
+    Colour the text using ANSI escape codes
+    """
+    print (f"{text_colours[colour]}{text}{text_colours['RESET']}")
 
 def kill_all_previous_instances(script_name):
     """

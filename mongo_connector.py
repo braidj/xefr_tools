@@ -13,7 +13,7 @@ class Mongo(object):
         self.download = download_directory
         self.schemas_json = os.path.join(self.download,"schemas.json")
         self.portals_json = os.path.join(self.download,"portals.json")
-        
+        self.config = conn
         self.logger = logger
 
         if self.target == "LOCAL":
