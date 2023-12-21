@@ -72,7 +72,7 @@ avail_commands = {
     "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),
     "Pipeline Report ['schema name']": (jt.get_pipeline_columns,("?")),
     "Clear screen": (os.system,("clear")),
-    "WIP - do not use": (cf.kill_all_previous_instances,(script_name))
+    "WIP - do not use": (jt.portal_access,())
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]

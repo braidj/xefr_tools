@@ -1,6 +1,8 @@
 import common_funcs as cf
 import os
 
+
+
 def parse_schema(file_path):
     """
     converts a schema file into a dictionary of schema names and fields
@@ -75,12 +77,27 @@ def get_file_path(instance,database):
     return schema_file
 
 
+def data_reconcile(file_path):
+    """
+    Using the schemas listed in the ini file, download the data, and total on each numeric column. 
+    """
+
+    schema = cf.extract_fname(file_path)
+    columns = cf.sort_orders[schema]
+
+    print(f"Reconciling {schema} by {columns}")
+
+    cf.transform_csv(file_path,columns)
+    
+
 if __name__ == '__main__':
 
     LOCAL = get_file_path("LOCAL","xefr-signify-dev")
     DEV = get_file_path("DEV","xefr-signify-dev")
     PROD = get_file_path("PROD","xefr-signify")
 
-    report_schema_differences(LOCAL,PROD)
+    report_schema_differences(DEV,PROD)
+    # DEV_DATA = "/Users/jasonbraid/Downloads/xefr/DEV_xefr-signify-dev/View UK NFI Forecast.csv"
+    # data_reconcile(DEV_DATA)
 
 

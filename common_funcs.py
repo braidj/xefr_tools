@@ -31,7 +31,7 @@ sort_orders = {
     'Metrics GBP Forex Daily':'Year,Month,Day,Symbol',
     'Bullhorn Candidates':'Consultant',
     'Bullhorn Consultant Details':'Consultant',
-    'View UK NFI Forecast':"Candidate,CompanyName,Placement,Source,InvoiceDate,Currency,Multiplier,ExchangeRate,LinePrice,GBPLinePrice"
+    'View UK NFI Forecast':"Candidate,CompanyName,Placement,Source,InvoiceDate,Currency,Multiplier,ExchangeRate,LinePrice,GBPLinePrice,ChargeCode,Country,Year,Month,Day,Quarter,Consultant,Type,Forecast Cut Off"
 }
 # If schema in list then hide coluumns method
 hide_schemas = [ 'View UK NFI','View US NFI','View UK Forecast']
@@ -56,12 +56,15 @@ hide_columns = {
         'Type,PlacementCandidateLookup,ChargeCode,Multiplier,CompanyName,'
         'Placement Start,Placement End,Source,'
         'Currency,Country,Consultant'
+    ),
+    'New Deals Data': (
+        'Candidate,Company,Source,NosRetainers,ActualDealValue,Extension,CandidateOwner,CandidateCountry,FirstDeal,NewCustomer,Team'
     )
 }
 
 show_columns={
    'View UK NFI Forecast': (
-        'Consultant,Country,Team,Team Lead'
+        'Consultant,Country,Team,Team Lead,CandidateOwner,CandidateCountry'
     )  
 }
 #------------------------------------
@@ -77,7 +80,27 @@ def extract_fname(file_path,no_extension=True):
         return file_name
     else:
         base_name
-    
+
+def transform_csv(file_path, cols_str):
+    try:
+        # Read the CSV file
+        df = pd.read_csv(file_path)
+
+        recon_cols = cols_str.split(',')
+
+        # Drop columns not in the column list
+        df = df[recon_cols]
+
+        # Sort by all columns except for the last four
+        df = df.sort_values(by=recon_cols)
+
+        # Save the updated CSV file
+        df.to_csv(file_path, index=False)
+        print(f"File saved successfully at {file_path}")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 def generate_md5_checksum(file_path):
     """Return a MD5 checksum for the supplied file"""""
     md5_hash = hashlib.md5()
@@ -195,7 +218,7 @@ def setup_local_folder(instance, database):
     download = get_download_directory()
     source = f"{instance}_{database}"
 
-    local_folder = os.path.join(download, "xefr",source)
+    local_folder = os.path.join(download, "XEFR_TOOLS",source)
 
     if not os.path.exists(local_folder):
         os.makedirs(local_folder)

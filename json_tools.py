@@ -13,6 +13,13 @@ class XEFRJson(object):
         self.portals_json = os.path.join(self.download_dir,"portals.json")
         self.config = conn
 
+    def apply_permissions(self,permissions_list,schema_list):
+        """
+        Apply permissions to a list of schemas
+        This must be idem potent, i.e. can be run multiple times without error
+        """
+        pass
+
     def __get_source_file(self,item_type):
         """
         Returns the source file for the item type
@@ -100,7 +107,6 @@ class XEFRJson(object):
                     raw_attributes = item.get("attributes")
                     table_data = [[col["name"], col["type"], col["id"]] for col in raw_attributes]
                     print(tabulate(table_data, headers=["Name", "Type", "ID"], tablefmt="grid"))
-
 
     def report_items(self,item_type,display=True):
         """
@@ -276,3 +282,19 @@ class XEFRJson(object):
             for col in column_details:
                 if col.startswith(table):
                     print(f"\t\t{col}")
+
+    def portal_access(self):
+        """
+        Returns a list of portals and which roles have access to them
+        """
+
+        source_file = self.portals_json
+
+        with open(source_file, 'r') as file:
+            data = json.load(file)
+
+            for item in data:
+
+                title = item.get("title")
+                roles = item.get("roles")
+                cf.colour_text(f"{title} \t {roles}","BLUE")
