@@ -133,21 +133,26 @@ class XEFRJson(object):
                     title = item.get("name")
                     type_class = item.get("typeClass")
                     type_class = type_class.replace("com.xerini.xefr.model.","")
+                    cacheType = item.get("cacheType", "n/a")
+                    Interval = item.get("cacheRemoteDataInMongoSeconds","n/a")
                 
                 if item_type == 'portals':
                     title = item.get("title")
                     type_class = "n/a"
+                    cacheType = "n/a"
+                    Interval = "n/a"
 
-                results[id] = [title,type_class]
+                results[id] = [title,type_class,cacheType,Interval]
 
         sorted_results = sorted(results.items(), key=lambda x: x[1])
         if display:
             print(f"\nAll {item_type} items\n")
+            print("{:<5} {:<45} {:<20} {:<36} {:<8} {:<4}".format("#","Name", "Type", "UUID","Cache","Interval"))
             for i, details in enumerate(sorted_results,1):
 
                 id = details[0]
-                name, type_class = details[1]
-                print("{:<5} {:<35} {:<20} {:<20}".format(i,name, type_class, id))
+                name, type_class,cacheType,cacheRemoteDataInMongoSeconds = details[1]
+                print("{:<5} {:<45} {:<20} {:<20} {:<8} {:<4}".format(i,name, type_class, id,cacheType,cacheRemoteDataInMongoSeconds))
         else:
             item_name={}
             item_id={}
