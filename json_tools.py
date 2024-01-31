@@ -135,24 +135,26 @@ class XEFRJson(object):
                     type_class = type_class.replace("com.xerini.xefr.model.","")
                     cacheType = item.get("cacheType", "n/a")
                     Interval = item.get("cacheRemoteDataInMongoSeconds","n/a")
+                    indexes = self.get_index_details(item.get("indexes", "n/a"))
                 
                 if item_type == 'portals':
                     title = item.get("title")
                     type_class = "n/a"
                     cacheType = "n/a"
                     Interval = "n/a"
+                    indexes = "n/a"
 
-                results[id] = [title,type_class,cacheType,Interval]
+                results[id] = [title,type_class,cacheType,Interval,indexes]
 
         sorted_results = sorted(results.items(), key=lambda x: x[1])
         if display:
             print(f"\nAll {item_type} items\n")
-            print("{:<5} {:<45} {:<20} {:<36} {:<8} {:<4}".format("#","Name", "Type", "UUID","Cache","Interval"))
+            print("{:<5} {:<45} {:<20} {:<36} {:<8} {:<4} {:<20}".format("#","Name", "Type", "UUID","Cache","Int","Indexes"))
             for i, details in enumerate(sorted_results,1):
 
                 id = details[0]
-                name, type_class,cacheType,cacheRemoteDataInMongoSeconds = details[1]
-                print("{:<5} {:<45} {:<20} {:<20} {:<8} {:<4}".format(i,name, type_class, id,cacheType,cacheRemoteDataInMongoSeconds))
+                name, type_class,cacheType,cacheRemoteDataInMongoSeconds,indexes = details[1]
+                print("{:<5} {:<45} {:<20} {:<20} {:<8} {:<4} {:<20}".format(i,name, type_class, id,cacheType,cacheRemoteDataInMongoSeconds,indexes))
         else:
             item_name={}
             item_id={}
@@ -161,6 +163,24 @@ class XEFRJson(object):
                 item_id[f"s{str(i)}"]   = details[0] # id
 
             return item_name, item_id
+
+    def get_index_details(self,index_text):
+        """Extract key index information"""
+
+        result =[]
+
+        if index_text == "n/a":
+            return "n/a"
+        
+        for index in index_text:
+            nos_attributes = len(index["attributeIds"])
+            if nos_attributes == 1:
+                result.append(f'Single on {index["attributeIds"][0]}')
+            else:
+                result.append(f':{index["concatenatedFieldName"]}: on {len(index["attributeIds"])} columns')
+
+        return ', '.join(result)
+
 
     def extract_json(self,object_name,item_type,backup=True):
         """

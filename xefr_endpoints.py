@@ -77,7 +77,7 @@ class EndPoints(object):
 
         return output_file
 
-    def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=25):
+    def display_data(self,curl_command,schema_name,show_detail=False,nos_rows=10):
         """
         Displays the first 10 rows of data nicely formatted
         """
@@ -107,18 +107,24 @@ class EndPoints(object):
         # Create a PrettyTable instance without the excluded columns
         table = PrettyTable([col for col in header if col not in columns_to_exclude])
 
+        total_records = 0
+
         # Add the first <nos_rows> data rows to the table
         for i, row in enumerate(csv_reader):
+            total_records += 1
+
             if i >= nos_rows:
-                break
-            # Create a filtered row without the excluded columns
-            filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]
-            table.add_row(filtered_row)
+               pass # to count the total number of rows
+            else:
+                # Create a filtered row without the excluded columns
+                filtered_row = [cell for j, cell in enumerate(row) if header[j] not in columns_to_exclude]
+                table.add_row(filtered_row)
 
         if header == []:
             cf.colour_text("Check endpoint service is running, no data","RED")
             cf.colour_text("API key is correct, no data","RED")
         else:
+            print(f"{schema_name} - has {total_records} rows of data")
             print(table)
 
     def persist_data(self,curl_command,schema_name,output_file,show_detail=False):
