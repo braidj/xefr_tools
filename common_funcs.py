@@ -69,6 +69,18 @@ show_columns={
 }
 #------------------------------------
 
+def check_xefr_service(url):
+    """
+    Check if the XEFR service is running
+    """
+    print(f"Checking {url}")
+
+    try:
+        result = subprocess.check_output(f"curl -s {url}", shell=True, text=True)
+        return True
+    except subprocess.CalledProcessError:
+        return False
+
 def extract_fname(file_path,no_extension=True):
     """
     Extract the file name from the supplied file path
@@ -216,7 +228,7 @@ def setup_local_folder(instance, database):
     """
 
     download = get_download_directory()
-    source = f"{instance}_{database}"
+    source = f"{instance}-{database}"
 
     local_folder = os.path.join(download, "XEFR_TOOLS",source)
 

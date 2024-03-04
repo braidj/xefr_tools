@@ -17,7 +17,7 @@ import utilities
 
 pid_id = os.getpid()
 script_name = os.path.basename(__file__)
-script_version = f"{script_name} 2.7-NOV23"
+script_version = f"{script_name} 29FEB24"
 
 logging = utilities.MyLogger()
 logging.reset_log()
@@ -40,12 +40,17 @@ else:
 
 database = conn['database']
 instance = conn['instance']
+name = conn['name']
 uri = conn['uri']
+
+if not cf.check_xefr_service(conn['server']):
+    cf.colour_text(f"XEFR service for {name} {instance} is not running.","RED")
+    sys.exit()
 
 logger.info(f"XEFR CLI: Connection details {instance} instance on mongodb {database}")
 logger.info(f"XEFR CLI: {conn}")
 
-download_folder = cf.setup_local_folder(instance,database)
+download_folder = cf.setup_local_folder(name,instance)
 connection_details = f"{instance} Instance on {database}"
 
 jt = jt.XEFRJson(conn,download_folder)
@@ -65,14 +70,12 @@ avail_commands = {
     "Schema Query ID ['schema ID']": (mongo.get_schema_details_by_id,("?",True)),
     "Schema Download ALL": (xefr.download_all_schemas_data,()),
     "Schema Duplicate ['source_name', 'new_name', 'new_name_id']": (jt.copy_schema,("source_name=?","new_name=?","new_name_id=?")),
-    # "Schema Reconcile Data": (xefr.data_reconcilation,()),
-    # "Schema Reconcile structure": (jt.reconcile_schema,()),
     "Portal List": (jt.report_items,("portals")),
     "Portal Extract JSON ['portal name']": (jt.extract_json,("?","portals")),
     "Pipeline Display ['schema name']": (jt.get_pipeline_text,("?",True)),
     "Pipeline Report ['schema name']": (jt.get_pipeline_columns,("?")),
-    "Clear screen": (os.system,("clear")),
-    "WIP - do not use": (jt.portal_access,())
+    "Clear screen": (os.system,("clear")
+    )
 }
 
 command_ids = [str(i) for i in range(1,len(avail_commands)+1)]
@@ -150,7 +153,7 @@ def run_selected_command(cmd_id):
 
 def rerun_last_command():
     """
-    RE-runs the last command
+    Re-runs the last command
     """
     cf.colour_text("Re-running the last command","BLUE")
     selected_func,args_list = command_history['last_command']
@@ -202,11 +205,9 @@ def display_intro():
     box_len = 61
     cf.colour_text('_' * box_len,"GREEN")
     cf.colour_text(f"Welcome to the XEFR tools CLI [version {script_version}]","GREEN")
-    cf.colour_text(f"PID = {pid_id}","BLUE")
-    cf.colour_text(connection_details,"BLUE")
+    cf.colour_text(f"PID = {pid_id} {connection_details}","BLUE")
     cf.colour_text(f"Download folder = {download_folder}","BLUE")
-    print("Type 'x', or control c to quit the program.")
-    print("Type '? to see a list of commands.")
+    print("Type 'x', or control c to quit the program. ? to see a list of commands.")
     cf.colour_text("Select command by the number only.","RED")
     cf.colour_text('_' * box_len,"GREEN")
 
@@ -220,7 +221,5 @@ def command_line_input():
         check_command(user_input)
 
 if __name__ == '__main__':
-    #TODO Check if no other running versions of this script
-    #If there is another running version, kill it
-    
+
     command_line_input()

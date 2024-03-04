@@ -127,7 +127,7 @@ class EndPoints(object):
             print(f"{schema_name} - has {total_records} rows of data")
             print(table)
 
-    def persist_data(self,curl_command,schema_name,output_file,show_detail=False):
+    def persist_data(self,curl_command,schema_name,output_file,show_detail=True):
         """
         Run the curl command and save the output to a file
         if show_detail is set to True will display the 
